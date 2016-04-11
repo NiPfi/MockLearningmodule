@@ -1,0 +1,18 @@
+obj_xmlm#:#MockLearningmodule
+objs_xmlm#:#MockLearningmodules
+obj_xmlm_duplicate#:#Copy
+objs_xmlm_duplicate#:#Copy MockLearningmodule
+obj_xmlm_select#:#Select MockLearningmodule
+xmlm_add#:#Add MockLearningmodule
+xmlm_new#:#Add New MockLearningmodule
+xmlm_read#:#Read access to MockLearningmodule
+xmlm_write#:#Edit MockLearningmodule
+xmlm_delete#:#Delete MockLearningmodule
+xmlm_visible#:#MockLearningmodule is visible
+xmlm_edit_permission#:#Change permission settings
+crs_create_xmlm#:#Create MockLearningmodule
+grp_create_xmlm#:#Create MockLearningmodule
+fold_create_xmlm#:#Create MockLearningmodule
+root_create_xmlm#:#Create MockLearningmodule
+cat_create_xmlm#:#Create MockLearningmodule
+content#:#Content
