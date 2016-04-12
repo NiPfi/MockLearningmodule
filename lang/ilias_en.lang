@@ -16,3 +16,5 @@ fold_create_xmlm#:#Create MockLearningmodule
 root_create_xmlm#:#Create MockLearningmodule
 cat_create_xmlm#:#Create MockLearningmodule
 content#:#Content
+settings#:#Settings
+questions#:#Questions

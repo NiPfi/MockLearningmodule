@@ -36,13 +36,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         switch ($cmd)
         {
-            /*
-            case "temporary fix":   // list all commands that need write permission here
 
-                //case "...":
+            case "showSettings":   // list all commands that need write permission here
+            case "showQuestions":
                 $this->checkPermission("write");
                 $this->$cmd();
-                break; */
+                break;
 
             case "showContent":   // list all commands that need read permission here
                 //case "...":
@@ -90,9 +89,22 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         // standard info screen tab
         $this->addInfoTab();
 
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("settings", $this->txt("settings"),
+                $ilCtrl->getLinkTarget($this, "showSettings"));
+        }
+
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("questions", $this->txt("questions"),
+                $ilCtrl->getLinkTarget($this, showQuestions));
+        }
 
         // standard epermission tab
         $this->addPermissionTab();
+
+
     }
 
 //
@@ -113,6 +125,26 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl->setVariable(BTN_LINK, "http://www.google.ch");
 
         $tpl->setContent($my_tpl->get());
+    }
+
+    function showSettings()
+    {
+        global $tpl, $ilTabs;
+
+        $ilTabs->activateTab("settings");
+
+        $tpl->setContent("Settings");
+
+
+    }
+
+    function showQuestions()
+    {
+        global $tpl, $ilTabs;
+
+        $ilTabs->activateTab("questions");
+
+        $tpl->setContent("Questions");
     }
 
 }
