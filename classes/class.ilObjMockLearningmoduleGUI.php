@@ -37,8 +37,15 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         switch ($cmd)
         {
 
-            case "showSettings":   // list all commands that need write permission here
+            case "showSettingsSubtab":   // list all commands that need write permission here
             case "showQuestions":
+            case "showSettingsSubtab":
+            case "showStyleSubtab":
+            case "showMenuSubtab":
+            case "showGlossariesSubtab":
+            case "showMultilinguismSubtab":
+            case "showMetadataSubtab":
+
                 $this->checkPermission("write");
                 $this->$cmd();
                 break;
@@ -97,7 +104,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("settings", $this->txt("settings"),
-                $ilCtrl->getLinkTarget($this, "showSettings"));
+                $ilCtrl->getLinkTarget($this, "showSettingsSubtab"));
         }
 
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -123,7 +130,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl;
         $ilTabs->activateTab("content");
-        $ilTabs->addSubTab("chapter","chapter",  $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
+        $ilTabs->addSubTab("chapter","Chapter",  $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         $ilTabs->addSubTab("allPages","All Pages",  $ilCtrl->getLinkTarget($this, "showAllPagesSubtab"));
         $ilTabs->addSubTab("internalLinks","Internal Links",  $ilCtrl->getLinkTarget($this, "showInternalLinksSubtab"));
         $ilTabs->addSubTab("weblinkCheck","Weblink Check",  $ilCtrl->getLinkTarget($this, "showWeblinkCheckSubtab"));
@@ -216,5 +223,72 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $tpl->setContent("Questions");
     }
+/*
+ *Settings Tab
+ */
 
+    function generateSettingSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("settings");
+        $ilTabs->addSubTab("settingsSubtab","Settings",  $ilCtrl->getLinkTarget($this, "showShowSubtab"));
+        $ilTabs->addSubTab("stlyeSubtab","Stlye",  $ilCtrl->getLinkTarget($this, "showStyleSubtab"));
+        $ilTabs->addSubTab("menuSubtab","Menu",  $ilCtrl->getLinkTarget($this, "showMenuSubtab"));
+        $ilTabs->addSubTab("glossariesSubtab","Glossaries",  $ilCtrl->getLinkTarget($this, "showGlossariesSubtab"));
+        $ilTabs->addSubTab("multilinguismSubtab","Multilinguism",  $ilCtrl->getLinkTarget($this, "showMultilinguismSubtab"));
+        $ilTabs->addSubTab("metadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showMetadataSubtab"));
+
+    }
+
+    function showSettingsSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("settingsSubtab");
+
+        $tpl->setContent("Settings");
+    }
+
+    function showStyleSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("styletingsSubtab");
+
+        $tpl->setContent("Style");
+    }
+
+    function showMenuSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("menuSubtab");
+
+        $tpl->setContent("Menu");
+    }
+
+    function showGlossariesSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("glossariesSubtab");
+        $tpl->setContent("Glossaries");
+    }
+
+    function showMultilinguismSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("multilinguismSubtab");
+        $tpl->setContent("Multilinguism");
+    }
+
+
+    function showMetadataSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateSettingSubtabs();
+        $ilTabs->activateSubtab("metadataSubtab");
+        $tpl->setContent("Metadata");
+    }
 }
