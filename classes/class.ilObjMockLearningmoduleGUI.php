@@ -70,7 +70,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getStandardCmd()
     {
-        return "showContent";
+        return "showChapterSubtab";
     }
 
 //
