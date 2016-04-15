@@ -43,9 +43,14 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $this->$cmd();
                 break;
 
-            case "showContent":   // list all commands that need read permission here
-                //case "...":
-                //case "...":
+            // list all commands that need read permission here
+            case "showChapterSubtab":
+            case "showAllPagesSubtab":
+            case "showInternalLinksSubtab":
+            case "showWeblinkCheckSubtab":
+            case "showMediaSubtitlesSubtab":
+            case "showImportSubtab":
+            case "showExportSubtab":
                 $this->checkPermission("read");
                 $this->$cmd();
                 break;
@@ -83,7 +88,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("content", $this->txt("content"),
-                $ilCtrl->getLinkTarget($this, "showContent"));
+                $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
 
         // standard info screen tab
@@ -114,17 +119,82 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     /**
      * Show content
      */
-    function showContent()
+    function generateContentSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("content");
+        $ilTabs->addSubTab("chapter","chapter",  $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
+        $ilTabs->addSubTab("allPages","All Pages",  $ilCtrl->getLinkTarget($this, "showAllPagesSubtab"));
+        $ilTabs->addSubTab("internalLinks","Internal Links",  $ilCtrl->getLinkTarget($this, "showInternalLinksSubtab"));
+        $ilTabs->addSubTab("weblinkCheck","Weblink Check",  $ilCtrl->getLinkTarget($this, "showWeblinkCheckSubtab"));
+        $ilTabs->addSubTab("mediaSubtitles","Media Subtitles",  $ilCtrl->getLinkTarget($this, "showMediaSubtitlesSubtab"));
+        $ilTabs->addSubTab("import","Import",  $ilCtrl->getLinkTarget($this, "showImportSubtab"));
+        $ilTabs->addSubTab("export","Export",  $ilCtrl->getLinkTarget($this, "showExportSubtab"));
+
+    }
+
+
+    function showChapterSubtab()
     {
         global $tpl, $ilTabs;
 
-        $ilTabs->activateTab("content");
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("chapter");
+        $tpl->setContent("ChapterSubtab");
+    }
 
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.test.html",false,false);
-        $my_tpl->setVariable(BTN_TXT, "Test");
-        $my_tpl->setVariable(BTN_LINK, "http://www.google.ch");
+    function showAllPagesSubtab()
+    {
+        global $tpl, $ilTabs;
 
-        $tpl->setContent($my_tpl->get());
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("allPages");
+        $tpl->setContent("allPages");
+    }
+
+    function showInternalLinksSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("internalLinks");
+        $tpl->setContent("Internal Links");
+    }
+
+    function showWeblinkCheckSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("weblinkCheck");
+        $tpl->setContent("Weblink Check");
+    }
+
+    function showMediaSubtitlesSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("mediaSubtitles");
+        $tpl->setContent("Media Subtitles");
+    }
+
+    function showImportSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("import");
+        $tpl->setContent("Import");
+    }
+
+    function showExportSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $this->generateContentSubtabs();
+        $ilTabs->activateSubTab("export");
+        $tpl->setContent("Export");
     }
 
     function showSettings()
