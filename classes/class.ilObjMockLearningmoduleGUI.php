@@ -45,6 +45,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showGlossariesSubtab":
             case "showMultilinguismSubtab":
             case "showMetadataSubtab":
+            case "showChapter":
+            case "showSubchapterMetadataSubtab":
+            case "showPreconditionsSubtab":
+            case "showSubchapterSubtab":
 
                 $this->checkPermission("write");
                 $this->$cmd();
@@ -130,7 +134,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl;
         $ilTabs->activateTab("content");
-        $ilTabs->addSubTab("chapter","Chapter",  $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
+        $ilTabs->addSubTab("chapterSubtab","Chapter",  $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         $ilTabs->addSubTab("allPages","All Pages",  $ilCtrl->getLinkTarget($this, "showAllPagesSubtab"));
         $ilTabs->addSubTab("internalLinks","Internal Links",  $ilCtrl->getLinkTarget($this, "showInternalLinksSubtab"));
         $ilTabs->addSubTab("weblinkCheck","Weblink Check",  $ilCtrl->getLinkTarget($this, "showWeblinkCheckSubtab"));
@@ -140,14 +144,78 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     }
 
+    function generateSubchapterSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("chapter");
+        $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubChapterSubtab"));
+        $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
+        $ilTabs->addSubTab("subchapterMetadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showSubchapterMetadataSubtab"));
+    }
+
+    function showChapter()
+    {
+        $this->showSubchaptersSubtab(); //Standard tab for chapter
+    }
+
+    function generateChapterTabs()
+    {
+        global $tpl, $ilTabs, $ilCtrl, $ilAccess;
+        $ilTabs->clearTargets();
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("backToLearningModule", "<- Learning Module",
+                $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
+        }
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("chapter", "Chapter",
+                $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
+        }
+
+
+    }
+
+    function showSubchaptersSubtab()
+    {
+        global $tpl, $ilTabs;
+       $this->generateChapterTabs();
+        $this->generateSubchapterSubtabs();
+        $ilTabs->activateSubtab("subchapterSubtab");
+        $tpl->setContent("Subchaper and Pages Subtab");
+    }
+
+    function showPreconditionsSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateChapterTabs();
+        $this->generateSubchapterSubtabs();
+        $ilTabs->activateSubtab("preconditionsSubtab");
+        $tpl->setContent("Preconditions");
+    }
+
+    function showSubchapterMetadataSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateChapterTabs();
+        $this->generateSubchapterSubtab();
+        $ilTabs->activateSubtab("subchapterMetadataSubtab");
+        $tpl->setContent("Metadata");
+    }
 
     function showChapterSubtab()
     {
-        global $tpl, $ilTabs;
+        global $tpl, $ilTabs, $ilCtrl;
 
         $this->generateContentSubtabs();
-        $ilTabs->activateSubTab("chapter");
-        $tpl->setContent("ChapterSubtab");
+        $ilTabs->activateSubtab("chapterSubtab");
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.test.html",false,false);
+        $my_tpl->setVariable(BTN_TXT, "Chapter");
+        $my_tpl->setVariable(BTN_LINK, $ilCtrl->getLinkTarget($this, "showChapter"));
+        $tpl->setContent($my_tpl->get());
     }
 
     function showAllPagesSubtab()
