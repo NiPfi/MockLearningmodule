@@ -145,9 +145,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_chapters.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("chapter");
-        $tpl->setContent("ChapterSubtab");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showAllPagesSubtab()

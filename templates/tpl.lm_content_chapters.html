@@ -1,0 +1,1177 @@
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+
+            <div id="ilPageEditLegend" style="margin-top:0px;">
+                <div>
+                    <div class="il_droparea"><span class="sr-only"></span><span class="glyphicon glyphicon-plus"></span></div>
+                    <span class="subtitle">Click on placeholders to add new elements.</span>
+                </div>
+
+                <div>
+                    <img alt="" src="./templates/default/images/icon_st.svg">
+                    <span class="sr-only"></span><span class="glyphicon glyphicon-share-alt"></span>
+                    <div class="il_droparea"><span class="sr-only"></span><span class="glyphicon glyphicon-plus"></span></div>
+                    <span class="subtitle">Drag and drop icons on placeholders to move elements.</span>
+                </div>
+
+
+            </div>
+            <form id="form_hform" role="form" class="form-horizontal " style="margin-top:10px;" action="ilias.php?ref_id=75&amp;backcmd=chapters&amp;cmd=post&amp;cmdClass=ilobjlearningmodulegui&amp;cmdNode=jm:kb&amp;baseClass=ilLMEditorGUI&amp;rtoken=2a9c5a42f4c11a6ba440ea82715445a0" method="post">
+
+                <div class="form-horizontal">
+                    <input type="hidden" id="il_hform_cmd" name="" value="">
+                    <input type="hidden" id="il_hform_node" name="il_hform_node" value="">
+                    <input type="hidden" id="il_hform_fc" name="il_hform_fc" value="">
+                    <input type="hidden" id="il_hform_as_subitem" name="il_hform_as_subitem" value="">
+                    <input type="hidden" id="il_hform_multi" name="il_hform_multi" value="">
+                    <input type="hidden" id="il_hform_source_id" name="il_hform_source_id" value="">
+                    <input type="hidden" id="il_hform_target_id" name="il_hform_target_id" value="">
+                    <input type="hidden" id="il_hform_expand" name="il_hform_expand" value="">
+
+                    <div class="ilHFormHeader">
+                        <div class="ilFormCmds">
+
+                            <input class="btn btn-default" type="submit" name="cmd[saveAllTitles]" value="Save Titles">
+
+                        </div>
+
+                        <img border="0" alt="-commands-" src="./templates/default/images/arrow_upright.svg">
+
+                        <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete">
+
+                        <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
+
+                        <input class="btn btn-default" type="submit" name="cmd[copyItems]" value="Copy">
+
+
+                    </div>
+
+                    <div class="ilHFormContent form-inline">
+                        <!-- looking for a better way than using a (layout) table, using DIVs and display table cell does not allow colspan
+                                             the table is at least responsive and allows proper rtl support
+                                        -->
+                        <table>
+                            <tbody>
+                            <!-- Dropdown-Row -->
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <div class="il_droparea  ilHFormDropArea" id="droparea_1fc" onclick="doMouseClick(event, '1fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                </td>
+                            </tr>
+                            <!-- Dropdown-Menu -->
+                            <tr>
+                                <td>
+                                    <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_1fc">
+                                        <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+                                            <tbody>
+                                            <!-- Insert Chapter -->
+                                            <tr>
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 1);">
+                                                    Insert Chapter
+                                                </td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 1);">&nbsp;1&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 2);">&nbsp;2&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 3);">&nbsp;3&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 4);">&nbsp;4&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 5);">&nbsp;5&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 6);">&nbsp;6&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 7);">&nbsp;7&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 8);">&nbsp;8&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 9);">&nbsp;9&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 10);">&nbsp;10&nbsp;</td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Chapter Row -->
+                            <tr>
+                                <td class="ilHFormExpIcon">
+
+                                </td>
+                                <td class="ilHFormCheckbox">
+
+                                    <input type="checkbox" name="id[]" value="54">
+
+                                </td>
+                                <td class="ilHFormIcon">
+
+                                    <a name="node_54"><img class="il_img_st" id="il_img_54" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
+
+                                </td>
+                                <td class="ilHFormInput">
+                                    <input id="inp54" class="form-control" name="title[54]" type="text" maxlength="200" value="Chapter 1">
+                                </td>
+                                <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=54&amp;backcmd=chapters&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="3">
+                                    <table style="width:100%;">
+                                        <tbody>
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_54fc">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Page Row -->
+                                        <tr>
+                                            <td class="ilHFormExpIcon">
+
+                                            </td>
+                                            <td class="ilHFormCheckbox">
+
+                                                <input type="checkbox" name="id[]" value="55">
+
+                                            </td>
+                                            <td class="ilHFormIcon">
+
+                                                <a name="node_55"><img class="il_img_pg" id="il_img_55" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <input id="inp55" class="form-control" name="title[55]" type="text" maxlength="200" value="Page 1">
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=55&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_55" onclick="doMouseClick(event, '55');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_55">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '55', 0, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Page Row -->
+                                        <tr>
+                                            <td class="ilHFormExpIcon">
+
+                                            </td>
+                                            <td class="ilHFormCheckbox">
+
+                                                <input type="checkbox" name="id[]" value="60">
+
+                                            </td>
+                                            <td class="ilHFormIcon">
+
+                                                <a name="node_60"><img class="il_img_pg" id="il_img_60" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <input id="inp60" class="form-control" name="title[60]" type="text" maxlength="200" value="Page 2">
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=60&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '60', 0, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Page Row -->
+                                        <tr>
+                                            <td class="ilHFormExpIcon">
+
+                                            </td>
+                                            <td class="ilHFormCheckbox">
+
+                                                <input type="checkbox" name="id[]" value="59">
+
+                                            </td>
+                                            <td class="ilHFormIcon">
+
+                                                <a name="node_59"><img class="il_img_pg" id="il_img_59" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <input id="inp59" class="form-control" name="title[59]" type="text" maxlength="200" value="Page 3">
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=59&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_59" onclick="doMouseClick(event, '59');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_59">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '59', 0, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+                                                        <!-- Insert Chapter -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">
+                                                                Insert Chapter
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Subchapter Row -->
+                                        <tr>
+                                            <td class="ilHFormExpIcon">
+
+                                            </td>
+                                            <td class="ilHFormCheckbox">
+
+                                                <input type="checkbox" name="id[]" value="61">
+
+                                            </td>
+                                            <td class="ilHFormIcon">
+
+                                                <a name="node_61"><img class="il_img_st" id="il_img_61" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
+
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <input id="inp61" class="form-control" name="title[61]" type="text" maxlength="200" value="Subchapter 1.1">
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=61&amp;backcmd=showHierarchy&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="3">
+                                                <table style="width:100%;">
+                                                    <tbody>
+                                                    <!-- Dropdown-Row -->
+                                                    <tr>
+                                                        <td colspan="3"></td>
+                                                        <td>
+                                                            <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Dropdown-Menu -->
+                                                    <tr>
+                                                        <td>
+                                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_54fc">
+                                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                                    <tbody>
+                                                                    <!-- Insert Page -->
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                            Insert Page
+                                                                        </td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">&nbsp;1&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 2);">&nbsp;2&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 3);">&nbsp;3&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 4);">&nbsp;4&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 5);">&nbsp;5&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 6);">&nbsp;6&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 7);">&nbsp;7&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 8);">&nbsp;8&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 9);">&nbsp;9&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                            Paste Pages from Clipboard
+                                                                        </td>
+
+
+                                                                        <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                                    </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Page Row -->
+                                                    <tr>
+                                                        <td class="ilHFormExpIcon">
+
+                                                        </td>
+                                                        <td class="ilHFormCheckbox">
+
+                                                            <input type="checkbox" name="id[]" value="55">
+
+                                                        </td>
+                                                        <td class="ilHFormIcon">
+
+                                                            <a name="node_55"><img class="il_img_pg" id="il_img_55" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                                        </td>
+                                                        <td class="ilHFormInput">
+                                                            <input id="inp55" class="form-control" name="title[55]" type="text" maxlength="200" value="Page 1">
+                                                        </td>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=55&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Dropdown-Row -->
+                                                    <tr>
+                                                        <td colspan="3"></td>
+                                                        <td>
+                                                            <div class="il_droparea  ilHFormDropArea" id="droparea_55" onclick="doMouseClick(event, '55');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Dropdown-Menu -->
+                                                    <tr>
+                                                        <td>
+                                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_55">
+                                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                                    <tbody>
+                                                                    <!-- Insert Page -->
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">
+                                                                            Insert Page
+                                                                        </td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '55', 0, 1);">
+                                                                            Paste Pages from Clipboard
+                                                                        </td>
+
+
+                                                                        <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                                    </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Page Row -->
+                                                    <tr>
+                                                        <td class="ilHFormExpIcon">
+
+                                                        </td>
+                                                        <td class="ilHFormCheckbox">
+
+                                                            <input type="checkbox" name="id[]" value="60">
+
+                                                        </td>
+                                                        <td class="ilHFormIcon">
+
+                                                            <a name="node_60"><img class="il_img_pg" id="il_img_60" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                                        </td>
+                                                        <td class="ilHFormInput">
+                                                            <input id="inp60" class="form-control" name="title[60]" type="text" maxlength="200" value="Page 2">
+                                                        </td>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=60&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Dropdown-Row -->
+                                                    <tr>
+                                                        <td colspan="3"></td>
+                                                        <td>
+                                                            <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Dropdown-Menu -->
+                                                    <tr>
+                                                        <td>
+                                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
+                                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                                    <tbody>
+                                                                    <!-- Insert Page -->
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">
+                                                                            Insert Page
+                                                                        </td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '60', 0, 1);">
+                                                                            Paste Pages from Clipboard
+                                                                        </td>
+
+
+                                                                        <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                                    </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_61" onclick="doMouseClick(event, '61');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_61">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Sub-Chapter -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 1);">
+                                                                Insert Sub-chapter
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+                                                        <!-- Insert Chapter -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 1);">
+                                                                Insert Chapter
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <!-- Chapter Row -->
+                            <tr>
+                                <td class="ilHFormExpIcon">
+
+                                </td>
+                                <td class="ilHFormCheckbox">
+
+                                    <input type="checkbox" name="id[]" value="54">
+
+                                </td>
+                                <td class="ilHFormIcon">
+
+                                    <a name="node_54"><img class="il_img_st" id="il_img_54" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
+
+                                </td>
+                                <td class="ilHFormInput">
+                                    <input id="inp54" class="form-control" name="title[54]" type="text" maxlength="200" value="Chapter 2">
+                                </td>
+                                <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=54&amp;backcmd=chapters&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="3">
+                                    <table style="width:100%;">
+                                        <tbody>
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_54fc">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Page Row -->
+                                        <tr>
+                                            <td class="ilHFormExpIcon">
+
+                                            </td>
+                                            <td class="ilHFormCheckbox">
+
+                                                <input type="checkbox" name="id[]" value="59">
+
+                                            </td>
+                                            <td class="ilHFormIcon">
+
+                                                <a name="node_59"><img class="il_img_pg" id="il_img_59" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <input id="inp59" class="form-control" name="title[59]" type="text" maxlength="200" value="Page 6">
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=59&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+
+                                            </td>
+                                        </tr>
+
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_59" onclick="doMouseClick(event, '59');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_59">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                                        <tbody>
+                                                        <!-- Insert Page -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">
+                                                                Insert Page
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '59', 0, 1);">
+                                                                Paste Pages from Clipboard
+                                                            </td>
+
+
+                                                            <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                                        </tr>
+                                                        <!-- Insert Chapter -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">
+                                                                Insert Chapter
+                                                            </td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <!-- Dropdown-Row -->
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <div class="il_droparea  ilHFormDropArea" id="droparea_59" onclick="doMouseClick(event, '59');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                </td>
+                            </tr>
+                            <!-- Dropdown-Menu -->
+                            <tr>
+                                <td>
+                                    <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_59">
+                                        <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+
+                                            <tbody>
+                                            <!-- Insert Page -->
+                                            <tr>
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">
+                                                    Insert Page
+                                                </td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '59', 0, 1);">
+                                                    Paste Pages from Clipboard
+                                                </td>
+
+
+                                                <td class="il_editmenu" colspan="10">&nbsp;</td>
+
+                                            </tr>
+                                            <!-- Insert Chapter -->
+                                            <tr>
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">
+                                                    Insert Chapter
+                                                </td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_1" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">&nbsp;1&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_2" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 2);">&nbsp;2&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_3" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 3);">&nbsp;3&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_4" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 4);">&nbsp;4&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_5" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 5);">&nbsp;5&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_6" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 6);">&nbsp;6&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_7" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 7);">&nbsp;7&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_8" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 8);">&nbsp;8&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_9" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 9);">&nbsp;9&nbsp;</td>
+
+                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_10" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 10);">&nbsp;10&nbsp;</td>
+
+
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="ilHFormFooter">
+                        <div class="ilFormCmds">
+
+                            <input class="btn btn-default" type="submit" name="cmd[saveAllTitles]" value="Save Titles">
+
+                        </div>
+
+                        <img border="0" alt="-commands-" src="./templates/default/images/arrow_downright.svg">
+
+                        <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete">
+
+                        <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
+
+                        <input class="btn btn-default" type="submit" name="cmd[copyItems]" value="Copy">
+
+
+                    </div>
+
+
+
+
+                    <script language="JavaScript" type="text/javascript">
+                        var as_subitem = Object();
+
+                        as_subitem['1fc' + '_' + 'grp_st'] = "1";
+
+                        as_subitem['54' + '_' + 'grp_st'] = "0";
+
+                        as_subitem['58' + '_' + 'grp_st'] = "0";
+
+                        as_subitem['1fc' + '_' + 'grp_st'] = "1";
+
+                        as_subitem['54' + '_' + 'grp_st'] = "0";
+
+                        as_subitem['58' + '_' + 'grp_st'] = "0";
+
+                        as_subitem['' + '_' + ''] = "0";
+
+
+
+                        d = new ilDragTarget("droparea_" + "1fc", "grp_st");
+
+                        d = new ilDragTarget("droparea_" + "54", "grp_st");
+
+                        d = new ilDragTarget("droparea_" + "58", "grp_st");
+
+
+                        d = new ilDragContent("il_img_" + "1", "grp_du");
+
+                        d = new ilDragContent("il_img_" + "54", "grp_st");
+
+                        d = new ilDragContent("il_img_" + "58", "grp_st");
+                    </script>
+
+
+                    <!-- This one is called from other frames/contents -->
+
+                    <div id="ilsaving" class="ilHighlighted" style="display:none;">Saving...</div>
+
+                </div>
+            </form>
+            <div class="il_ContainerItemCommands2">
+                <a class="il_ContainerItemCommand2" href=""></a>
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
