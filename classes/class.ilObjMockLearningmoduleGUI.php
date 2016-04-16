@@ -49,6 +49,15 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showSubchapterMetadataSubtab":
             case "showPreconditionsSubtab":
             case "showSubchapterSubtab":
+            case "showPage":
+            case "showEditSubtab":
+            case "showPreviewSubtab":
+            case "showPageMetadataSubtab":
+            case "showHistorySubtab":
+            case "showClipboardSubtab":
+            case "showActivationSubtab":
+
+
 
                 $this->checkPermission("write");
                 $this->$cmd();
@@ -154,8 +163,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateSubtab("chapterSubtab");
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.test.html",false,false);
-        $my_tpl->setVariable(BTN_TXT, "Chapter");
-        $my_tpl->setVariable(BTN_LINK, $ilCtrl->getLinkTarget($this, "showChapter"));
+        $my_tpl->setVariable(BTN1_TXT, "Chapter");
+        $my_tpl->setVariable(BTN1_LINK, $ilCtrl->getLinkTarget($this, "showChapter"));
+        $my_tpl->setVariable(BTN2_TXT, "Page");
+        $my_tpl->setVariable(BTN2_LINK, $ilCtrl->getLinkTarget($this, "showPage"));
         $tpl->setContent($my_tpl->get());
     }
 
@@ -334,7 +345,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
         }
 
-
     }
 
     function showSubchaptersSubtab()
@@ -359,9 +369,105 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
         $this->generateChapterTabs();
-        $this->generateSubchapterSubtab();
+        $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterMetadataSubtab");
         $tpl->setContent("Metadata");
     }
+
+    /*
+     * Page Edit
+     */
+
+    function generatePageSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("page");
+        $ilTabs->addSubTab("editSubtab","Edit",  $ilCtrl->getLinkTarget($this, "showEditSubtab"));
+        $ilTabs->addSubTab("previewSubtab","Preview",  $ilCtrl->getLinkTarget($this, "showPreviewSubtab"));
+        $ilTabs->addSubTab("pageMetadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showPageMetadataSubtab"));
+        $ilTabs->addSubTab("historySubtab","History",  $ilCtrl->getLinkTarget($this, "showHistorySubtab"));
+        $ilTabs->addSubTab("ClipboardSubtab","Clipboard",  $ilCtrl->getLinkTarget($this, "showClipboardSubtab"));
+        $ilTabs->addSubTab("activationSubtab","Activation",  $ilCtrl->getLinkTarget($this, "showActivationSubtab"));
+    }
+
+    function showPage()
+    {
+        $this->showEditSubtab(); //Standard tab for page
+    }
+
+    function generatePageTabs()
+    {
+        global $tpl, $ilTabs, $ilCtrl, $ilAccess;
+        $ilTabs->clearTargets();
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("backToChapter", "<- Chapter",
+                $ilCtrl->getLinkTarget($this, "showChapter"));
+        }
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("page", "Page",
+                $ilCtrl->getLinkTarget($this, "showEditSubtab"));
+        }
+
+    }
+
+    function showEditSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("editSubtab");
+        $tpl->setContent("Edit");
+    }
+
+    function showPreviewSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("previewSubtab");
+        $tpl->setContent("preview");
+    }
+
+    function showPageMetadataSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("pageMetadataSubtab");
+        $tpl->setContent("Metadata");
+    }
+
+    function showHistorySubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("historySubtab");
+        $tpl->setContent("History");
+    }
+
+    function showClipboardSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("clipboardSubtab");
+        $tpl->setContent("Clipboard");
+    }
+
+    function showActivationSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generatePageTabs();
+        $this->generatePageSubtabs();
+        $ilTabs->activateSubtab("activationSubtab");
+        $tpl->setContent("Activation");
+    }
+
+
 
 }
