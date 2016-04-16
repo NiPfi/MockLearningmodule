@@ -144,66 +144,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     }
 
-    function generateSubchapterSubtabs()
-    {
-        global $ilTabs, $ilCtrl;
-        $ilTabs->activateTab("chapter");
-        $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubChapterSubtab"));
-        $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
-        $ilTabs->addSubTab("subchapterMetadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showSubchapterMetadataSubtab"));
-    }
 
-    function showChapter()
-    {
-        $this->showSubchaptersSubtab(); //Standard tab for chapter
-    }
-
-    function generateChapterTabs()
-    {
-        global $tpl, $ilTabs, $ilCtrl, $ilAccess;
-        $ilTabs->clearTargets();
-
-        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
-        {
-            $ilTabs->addTab("backToLearningModule", "<- Learning Module",
-                $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
-        }
-
-        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
-        {
-            $ilTabs->addTab("chapter", "Chapter",
-                $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
-        }
-
-
-    }
-
-    function showSubchaptersSubtab()
-    {
-        global $tpl, $ilTabs;
-       $this->generateChapterTabs();
-        $this->generateSubchapterSubtabs();
-        $ilTabs->activateSubtab("subchapterSubtab");
-        $tpl->setContent("Subchaper and Pages Subtab");
-    }
-
-    function showPreconditionsSubtab()
-    {
-        global $tpl, $ilTabs;
-        $this->generateChapterTabs();
-        $this->generateSubchapterSubtabs();
-        $ilTabs->activateSubtab("preconditionsSubtab");
-        $tpl->setContent("Preconditions");
-    }
-
-    function showSubchapterMetadataSubtab()
-    {
-        global $tpl, $ilTabs;
-        $this->generateChapterTabs();
-        $this->generateSubchapterSubtab();
-        $ilTabs->activateSubtab("subchapterMetadataSubtab");
-        $tpl->setContent("Metadata");
-    }
 
     function showChapterSubtab()
     {
@@ -359,4 +300,68 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateSubtab("metadataSubtab");
         $tpl->setContent("Metadata");
     }
+
+    /*Chapter Edit */
+
+    function generateSubchapterSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("chapter");
+        $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubChapterSubtab"));
+        $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
+        $ilTabs->addSubTab("subchapterMetadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showSubchapterMetadataSubtab"));
+    }
+
+    function showChapter()
+    {
+        $this->showSubchaptersSubtab(); //Standard tab for chapter
+    }
+
+    function generateChapterTabs()
+    {
+        global $tpl, $ilTabs, $ilCtrl, $ilAccess;
+        $ilTabs->clearTargets();
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("backToLearningModule", "<- Learning Module",
+                $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
+        }
+
+        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("chapter", "Chapter",
+                $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
+        }
+
+
+    }
+
+    function showSubchaptersSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateChapterTabs();
+        $this->generateSubchapterSubtabs();
+        $ilTabs->activateSubtab("subchapterSubtab");
+        $tpl->setContent("Subchaper and Pages Subtab");
+    }
+
+    function showPreconditionsSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateChapterTabs();
+        $this->generateSubchapterSubtabs();
+        $ilTabs->activateSubtab("preconditionsSubtab");
+        $tpl->setContent("Preconditions");
+    }
+
+    function showSubchapterMetadataSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateChapterTabs();
+        $this->generateSubchapterSubtab();
+        $ilTabs->activateSubtab("subchapterMetadataSubtab");
+        $tpl->setContent("Metadata");
+    }
+
 }
