@@ -495,10 +495,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showActivationSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_activation.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("activationSubtab");
-        $tpl->setContent("Activation");
+        $tpl->setContent($my_tpl->get());
     }
 
 
