@@ -473,10 +473,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showHistorySubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_history.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("historySubtab");
-        $tpl->setContent("History");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showClipboardSubtab()
