@@ -300,9 +300,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showGlossariesSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_menu.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("glossariesSubtab");
-        $tpl->setContent("Glossaries");
+        
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMultilinguismSubtab()
