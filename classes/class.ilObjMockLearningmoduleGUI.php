@@ -278,10 +278,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showStyleSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_style.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("styletingsSubtab");
 
-        $tpl->setContent("Style");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMenuSubtab()
