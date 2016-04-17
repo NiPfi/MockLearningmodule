@@ -182,9 +182,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_internalLinks.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("internalLinks");
-        $tpl->setContent("Internal Links");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showWeblinkCheckSubtab()
