@@ -389,10 +389,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showSubchapterMetadataSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_metadata.html",false,false);
+
         $this->generateChapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterMetadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*
