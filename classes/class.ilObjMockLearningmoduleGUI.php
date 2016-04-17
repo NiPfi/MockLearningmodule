@@ -301,7 +301,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
 
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_menu.html",false,false);
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_glossaries.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("glossariesSubtab");
 
