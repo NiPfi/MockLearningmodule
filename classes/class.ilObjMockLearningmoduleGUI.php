@@ -192,9 +192,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_weblinkCheck.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("weblinkCheck");
-        $tpl->setContent("Weblink Check");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMediaSubtitlesSubtab()
