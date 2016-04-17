@@ -484,10 +484,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showClipboardSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_clipboard.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("clipboardSubtab");
-        $tpl->setContent("Clipboard");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showActivationSubtab()
