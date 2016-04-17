@@ -1,0 +1,144 @@
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+
+
+            <div id="ilCOPageContent" class="ilc_page_cont_PageContainer">
+
+                <div class="ilc_page_Page">
+
+                    <script language="JavaScript1.1">
+                        <!--
+                        focus();
+                        //-->
+                    </script>
+
+                    <script>
+                        var ScormApi = null;
+                        var questions = new Array();
+                    </script>
+                    <script>
+                        questions[16] = {
+                            "id": 16,
+                            "type": "assOrderingHorizontal",
+                            "title": "Historical Sorting",
+                            "question": "Sort the list historical",
+                            "nr_of_tries": 1,
+                            "shuffle": true,
+                            "points": true,
+                            "textsize": 100,
+                            "feedback": {
+                                "onenotcorrect": "",
+                                "allcorrect": ""
+                            },
+                            "answers": [{
+                                "answertext": "Nero",
+                                "order": 1
+                            }, {
+                                "answertext": "Sokrates",
+                                "order": 2
+                            }, {
+                                "answertext": "Napoleon",
+                                "order": 3
+                            }, {
+                                "answertext": "Karl der Grosse",
+                                "order": 4
+                            }, {
+                                "answertext": "Louis XIV",
+                                "order": 5
+                            }, {
+                                "answertext": "Lenin",
+                                "order": 6
+                            }],
+                            "mobs": []
+                        };
+                    </script><a class="small" id="ilPageShowAdvContent" style="display:none; text-align:right;" href="#"><span>Show Advanced Knowledge</span><span>Hide Advanced Knowledge</span></a>
+                    <h1 class="ilc_page_title_PageTitle">Chapter 1 (1/2)</h1>
+                    <div class="ilc_Paragraph ilc_text_block_Standard">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        <!--Break-->
+                    </div>
+                    <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
+                        <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr valign="top">
+                                    <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span></pre></td>
+                                    <td class="ilc_Sourcecode"><pre class="ilc_Code">&lt;!DOCTYPE html&gt;<br>&lt;html lang="<span class="ilc_CodeQuote">en</span>"&gt;<br>&lt;head&gt;<br>&lt;meta charset="<span class="ilc_CodeQuote">UTF-8</span>"&gt;<br>&lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br> <br>&lt;/body&gt;<br>&lt;/html&gt;</pre></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_question_Standard">
+                        <form onsubmit="return false;">
+
+
+
+
+
+
+
+
+
+
+                            <div id="container16" class="ilc_question_OrderingQuestion">
+                                <div class="ilc_qtitle_Title question id" id="16">Sort the list historical</div>
+                                <div style="margin-bottom:10px">
+                                    <ul id="order16" class="ilc_qordul_OrderListHorizontal ui-sortable" style="font-size: 100%;">
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="1">
+                                            <div class="ilc_qanswer_Answer answertext">Nero</div>
+                                        </li>
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="2">
+                                            <div class="ilc_qanswer_Answer answertext">Sokrates</div>
+                                        </li>
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="6">
+                                            <div class="ilc_qanswer_Answer answertext">Lenin</div>
+                                        </li>
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="5">
+                                            <div class="ilc_qanswer_Answer answertext">Louis XIV</div>
+                                        </li>
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="3">
+                                            <div class="ilc_qanswer_Answer answertext">Napoleon</div>
+                                        </li>
+                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="4">
+                                            <div class="ilc_qanswer_Answer answertext">Karl der Grosse</div>
+                                        </li>
+                                    </ul>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div id="feedback16" style="display:none"></div>
+                                <input type="button" class="ilc_qsubmit_Submit" id="button16" onclick="ilias.questions.checkAnswers(16)" value="Submit">
+                            </div>
+                            <script>
+                                function renderILQuestion16() {
+                                    ilias.questions.shuffle(questions[16]);
+                                    jQuery('div#container16').autoRender(questions[16]);
+                                    jQuery("#order16").sortable({
+                                        axis: 'x',
+                                        containment: '#container16'
+                                    });
+                                    jQuery("#order16").css('font-size', questions[16].textsize + '%');
+                                }
+                                renderILQuestion16();
+                            </script>
+
+
+                        </form>
+                    </div>
+                    <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
+                        <!--Break-->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>

@@ -451,10 +451,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showPreviewSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_preview.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("previewSubtab");
-        $tpl->setContent("preview");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPageMetadataSubtab()
