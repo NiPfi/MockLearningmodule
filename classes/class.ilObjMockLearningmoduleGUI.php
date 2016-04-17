@@ -169,11 +169,13 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function showAllPagesSubtab()
     {
-        global $tpl, $ilTabs;
+        global $tpl, $ilTabs, $ilCtrl;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_allPages.html",false,false);
+        $my_tpl->setVariable("PAGE1_CHAP1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("allPages");
-        $tpl->setContent("allPages");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showInternalLinksSubtab()
