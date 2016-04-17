@@ -169,56 +169,63 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function showAllPagesSubtab()
     {
-        global $tpl, $ilTabs;
+        global $tpl, $ilTabs, $ilCtrl;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_allPages.html",false,false);
+        $my_tpl->setVariable("PAGE1_CHAP1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("allPages");
-        $tpl->setContent("allPages");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showInternalLinksSubtab()
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_internalLinks.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("internalLinks");
-        $tpl->setContent("Internal Links");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showWeblinkCheckSubtab()
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_weblinkCheck.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("weblinkCheck");
-        $tpl->setContent("Weblink Check");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMediaSubtitlesSubtab()
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_mediaSubtitles.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("mediaSubtitles");
-        $tpl->setContent("Media Subtitles");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showImportSubtab()
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_import.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("import");
-        $tpl->setContent("Import");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showExportSubtab()
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_export.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("export");
-        $tpl->setContent("Export");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showSettings()
@@ -260,53 +267,66 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showSettingsSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_settings.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("settingsSubtab");
 
-        $tpl->setContent("Settings");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showStyleSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_style.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("styletingsSubtab");
 
-        $tpl->setContent("Style");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMenuSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_menu.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("menuSubtab");
 
-        $tpl->setContent("Menu");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showGlossariesSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_glossaries.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("glossariesSubtab");
-        $tpl->setContent("Glossaries");
+
+        $tpl->setContent($my_tpl->get());
     }
 
     function showMultilinguismSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_multilingualism.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("multilinguismSubtab");
-        $tpl->setContent("Multilinguism");
+        $tpl->setContent($my_tpl->get());
     }
 
 
     function showMetadataSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_metadata.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("metadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*Chapter Edit */
@@ -347,28 +367,34 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showSubchaptersSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
+
         $this->generateChapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterSubtab");
-        $tpl->setContent("Subchaper and Pages Subtab");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPreconditionsSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_preconditions.html",false,false);
+
         $this->generateChapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("preconditionsSubtab");
-        $tpl->setContent("Preconditions");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showSubchapterMetadataSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_metadata.html",false,false);
+
         $this->generateChapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterMetadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*
@@ -414,55 +440,67 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showEditSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_edit.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("editSubtab");
-        $tpl->setContent("Edit");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPreviewSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_preview.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("previewSubtab");
-        $tpl->setContent("preview");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPageMetadataSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_metadata.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("pageMetadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showHistorySubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_history.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("historySubtab");
-        $tpl->setContent("History");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showClipboardSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_clipboard.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("clipboardSubtab");
-        $tpl->setContent("Clipboard");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showActivationSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_activation.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("activationSubtab");
-        $tpl->setContent("Activation");
+        $tpl->setContent($my_tpl->get());
     }
 
 

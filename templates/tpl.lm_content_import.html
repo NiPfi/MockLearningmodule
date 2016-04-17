@@ -1,0 +1,155 @@
+<div>
+    <div class="ilAdminRow">
+        <div class="alert alert-info" role="alert">
+            <h5 class="ilAccHeadingHidden"><a id="il_message_focus" name="il_message_focus">Information Message</a></h5> If you exported this module as XML/Master Language for Translation to another installation, you can now re-import translated export files from this second installation here.</div>
+    </div>
+
+</div>
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+
+
+            <form id="form_" role="form" class="form-horizontal preventDoubleSubmission" enctype="multipart/form-data" action="ilias.php?ref_id=75&amp;cmd=post&amp;cmdClass=illmimportgui&amp;cmdNode=jm:kb:ke&amp;baseClass=ilLMEditorGUI&amp;rtoken=9d06514d3f5d7ab934914e13bc1e855d" method="post">
+
+                <div class="form-horizontal">
+                    <!-- todo: HIDE_LABELS_STYLE -->
+
+
+                    <!-- Please note the usage of datatable attribute which is non-standard
+                        but ensures that JAWS treats this table as a layout table -->
+                    <!-- removed a width="" -->
+
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name="il_form_top"></a>Import Translation</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_importfile">
+                        <label for="importfile" class="col-sm-3 control-label">File <span class="ilAccHeadingHidden">(File Input)</span> <span class="asterisk">*</span></label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <input type="file" id="importfile" name="importfile" size="30">
+
+                            <div class="help-block">Maximum upload size: 40.0 MB</div>
+
+
+
+                            <div class="help-block">Allowed file types: .zip</div>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_import_lang">
+                        <label for="import_lang" class="col-sm-3 control-label">Target Language</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <select class="form-control" id="import_lang" name="import_lang">
+
+                            </select>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+
+                    <div class="ilFormFooter clearfix">
+                        <div class="col-sm-6 ilFormRequired">
+
+                            <input type="hidden" id="ilfilehash" name="ilfilehash" value="7df5a38e074ce9bcb6d47201ec84da2a">
+
+
+                            <span class="asterisk">*</span><span class="small"> Required</span> &nbsp;
+
+                        </div>
+                        <div class="col-sm-6 ilFormCmds">
+
+                            <input class="btn btn-default btn-sm" type="submit" name="cmd[importTranslation]" value="Import">
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
