@@ -440,10 +440,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showEditSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_edit.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("editSubtab");
-        $tpl->setContent("Edit");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPreviewSubtab()
