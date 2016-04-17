@@ -462,10 +462,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showPageMetadataSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_page_metadata.html",false,false);
+
         $this->generatePageTabs();
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("pageMetadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showHistorySubtab()

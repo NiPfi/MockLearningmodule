@@ -1,0 +1,902 @@
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+            <!-- todo: proper id support, spacer?, separator?, emph classes -->
+
+            <form method="post" id="ilToolbar" action="ilias.php?ref_id=75&amp;obj_id=55&amp;active_node=55&amp;cmd=post&amp;cmdClass=ilmdeditorgui&amp;cmdNode=jm:kb:jy:jo:tv:85&amp;baseClass=ilLMEditorGUI&amp;fallbackCmd=listSection&amp;rtoken=dc2527d5e2caa3d2ad38eb5c82101485" class="ilForm">
+                <h3 class="ilAccHeadingHidden">Functions</h3>
+                <nav class="ilToolbar navbar navbar-default yamm " role="navigation" id="2">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+
+
+                            <ul class="ilToolbarStickyItems nav navbar-nav">
+
+                                <li class="ilToolbarStickyItem">
+                                    <div class="navbar-form">Section&nbsp;
+                                        <select class="form-control" id="section" name="section">
+
+                                            <option value="meta_quickedit" selected="selected">Quick Edit</option>
+
+                                            <option value="meta_general">General</option>
+
+                                            <option value="meta_lifecycle">Lifecycle</option>
+
+                                            <option value="meta_meta_metadata">Meta-Metadata</option>
+
+                                            <option value="meta_technical">Technical</option>
+
+                                            <option value="meta_educational">Educational</option>
+
+                                            <option value="meta_rights">Rights</option>
+
+                                            <option value="meta_relation">Relation</option>
+
+                                            <option value="meta_annotation">Annotation</option>
+
+                                            <option value="meta_classification">Classification</option>
+
+                                            <option value="debug">-debug-</option>
+
+                                        </select>
+
+
+                                    </div>
+                                </li>
+
+                                <li class="ilToolbarStickyItem">
+                                    <div class="navbar-form">
+                                        <input class="btn btn-default" type="submit" name="cmd[listSection]" value="Show">
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <button type="button" class="navbar-toggle hidden" data-toggle="collapse" data-target="#tb-collapse-2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="tb-collapse-2">
+                            <ul class="ilToolbarItems nav navbar-nav">
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+
+            <form id="form_" role="form" class="form-horizontal preventDoubleSubmission" action="ilias.php?ref_id=75&amp;obj_id=55&amp;active_node=55&amp;cmd=post&amp;cmdClass=ilmdeditorgui&amp;cmdNode=jm:kb:jy:jo:tv:85&amp;baseClass=ilLMEditorGUI&amp;rtoken=dc2527d5e2caa3d2ad38eb5c82101485" method="post">
+
+                <div class="form-horizontal">
+                    <!-- todo: HIDE_LABELS_STYLE -->
+
+
+                    <!-- Please note the usage of datatable attribute which is non-standard
+                        but ensures that JAWS treats this table as a layout table -->
+                    <!-- removed a width="" -->
+
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name="il_form_top"></a>Quick Edit</h3>
+                        <div class="ilFormCmds">
+
+
+
+                            <input class="btn btn-default btn-sm" type="SUBMIT" name="cmd[updateQuickEdit]" value="Save">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_gen_title">
+                        <label for="gen_title" class="col-sm-3 control-label">Title <span class="asterisk">*</span></label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <input class="form-control" type="text" id="gen_title" maxlength="200" name="gen_title" value="Page 1">
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_gen_description__67____description__">
+                        <label for="gen_description__67____description__" class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <textarea class="form-control  noRTEditor" name="gen_description[67][description]" id="gen_description__67____description__" wrap="virtual" rows="4"></textarea>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_gen_language__67____language__">
+                        <label for="gen_language__67____language__" class="col-sm-3 control-label">Language</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <select class="form-control" id="gen_language__67____language__" name="gen_language[67][language]">
+
+                                <option value="ab">Abkhazian</option>
+
+                                <option value="om">Afan (oromo)</option>
+
+                                <option value="aa">Afar</option>
+
+                                <option value="af">Afrikaans</option>
+
+                                <option value="sq">Albanian</option>
+
+                                <option value="am">Amharic</option>
+
+                                <option value="ar">Arabic</option>
+
+                                <option value="hy">Armenian</option>
+
+                                <option value="as">Assamese</option>
+
+                                <option value="ay">Aymara</option>
+
+                                <option value="az">Azerbaijani</option>
+
+                                <option value="ba">Bashkir</option>
+
+                                <option value="eu">Basque</option>
+
+                                <option value="bn">Bengali; Bangla</option>
+
+                                <option value="dz">Bhutani</option>
+
+                                <option value="bh">Bihari</option>
+
+                                <option value="bi">Bislama</option>
+
+                                <option value="br">Breton</option>
+
+                                <option value="bg">Bulgarian</option>
+
+                                <option value="my">Burmese</option>
+
+                                <option value="be">Byelorussian</option>
+
+                                <option value="km">Cambodian</option>
+
+                                <option value="ca">Catalan</option>
+
+                                <option value="zh">Chinese</option>
+
+                                <option value="co">Corsican</option>
+
+                                <option value="hr">Croatian</option>
+
+                                <option value="cs">Czech</option>
+
+                                <option value="da">Danish</option>
+
+                                <option value="nl">Dutch</option>
+
+                                <option value="en" selected="selected">English</option>
+
+                                <option value="eo">Esperanto</option>
+
+                                <option value="et">Estonian</option>
+
+                                <option value="fo">Faroese</option>
+
+                                <option value="fj">Fiji</option>
+
+                                <option value="fi">Finnish</option>
+
+                                <option value="fr">French</option>
+
+                                <option value="fy">Frisian</option>
+
+                                <option value="gl">Galician</option>
+
+                                <option value="ka">Georgian</option>
+
+                                <option value="de">German</option>
+
+                                <option value="el">Greek</option>
+
+                                <option value="kl">Greenlandic</option>
+
+                                <option value="gn">Guarani</option>
+
+                                <option value="gu">Gujarati</option>
+
+                                <option value="ha">Hausa</option>
+
+                                <option value="he">Hebrew</option>
+
+                                <option value="hi">Hindi</option>
+
+                                <option value="hu">Hungarian</option>
+
+                                <option value="is">Icelandic</option>
+
+                                <option value="id">Indonesian</option>
+
+                                <option value="ia">Interlingua</option>
+
+                                <option value="ie">Interlingue</option>
+
+                                <option value="iu">Inuktitut</option>
+
+                                <option value="ik">Inupiak</option>
+
+                                <option value="ga">Irish</option>
+
+                                <option value="it">Italian</option>
+
+                                <option value="ja">Japanese</option>
+
+                                <option value="jv">Javanese</option>
+
+                                <option value="kn">Kannada</option>
+
+                                <option value="ks">Kashmiri</option>
+
+                                <option value="kk">Kazakh</option>
+
+                                <option value="rw">Kinyarwanda</option>
+
+                                <option value="ky">Kirghiz</option>
+
+                                <option value="ko">Korean</option>
+
+                                <option value="ku">Kurdish</option>
+
+                                <option value="rn">Kurundi</option>
+
+                                <option value="lo">Laothian</option>
+
+                                <option value="la">Latin</option>
+
+                                <option value="lv">Latvian;lettish</option>
+
+                                <option value="ln">Lingala</option>
+
+                                <option value="lt">Lithuanian</option>
+
+                                <option value="mk">Macedonian</option>
+
+                                <option value="mg">Malagasy</option>
+
+                                <option value="ms">Malay</option>
+
+                                <option value="ml">Malayalam</option>
+
+                                <option value="mt">Maltese</option>
+
+                                <option value="mi">Maori</option>
+
+                                <option value="mr">Marathi</option>
+
+                                <option value="mo">Moldavian</option>
+
+                                <option value="mn">Mongolian</option>
+
+                                <option value="na">Nauru</option>
+
+                                <option value="ne">Nepali</option>
+
+                                <option value="no">Norwegian</option>
+
+                                <option value="oc">Occitan</option>
+
+                                <option value="or">Oriya</option>
+
+                                <option value="ps">Pashto; Pushto</option>
+
+                                <option value="fa">Persian (farsi)</option>
+
+                                <option value="pl">Polish</option>
+
+                                <option value="pt">Portuguese</option>
+
+                                <option value="pa">Punjabi</option>
+
+                                <option value="qu">Quechua</option>
+
+                                <option value="rm">Rhaeto-romance</option>
+
+                                <option value="ro">Romanian</option>
+
+                                <option value="ru">Russian</option>
+
+                                <option value="sm">Samoan</option>
+
+                                <option value="sg">Sangho</option>
+
+                                <option value="sa">Sanskrit</option>
+
+                                <option value="gd">Scots gaelic</option>
+
+                                <option value="sr">Serbian</option>
+
+                                <option value="sh">Serbo-croatian</option>
+
+                                <option value="st">Sesotho</option>
+
+                                <option value="tn">Setswana</option>
+
+                                <option value="sn">Shona</option>
+
+                                <option value="sd">Sindhi</option>
+
+                                <option value="si">Singhalese</option>
+
+                                <option value="ss">Siswati</option>
+
+                                <option value="sk">Slovak</option>
+
+                                <option value="sl">Slovenian</option>
+
+                                <option value="so">Somali</option>
+
+                                <option value="es">Spanish</option>
+
+                                <option value="su">Sundanese</option>
+
+                                <option value="sw">Swahili</option>
+
+                                <option value="sv">Swedish</option>
+
+                                <option value="tl">Tagalog</option>
+
+                                <option value="tg">Tajik</option>
+
+                                <option value="ta">Tamil</option>
+
+                                <option value="tt">Tatar</option>
+
+                                <option value="te">Telugu</option>
+
+                                <option value="th">Thai</option>
+
+                                <option value="bo">Tibetan</option>
+
+                                <option value="ti">Tigrinya</option>
+
+                                <option value="to">Tonga</option>
+
+                                <option value="ts">Tsonga</option>
+
+                                <option value="tr">Turkish</option>
+
+                                <option value="tk">Turkmen</option>
+
+                                <option value="tw">Twi</option>
+
+                                <option value="ug">Uigur</option>
+
+                                <option value="uk">Ukrainian</option>
+
+                                <option value="ur">Urdu</option>
+
+                                <option value="uz">Uzbek</option>
+
+                                <option value="vi">Vietnamese</option>
+
+                                <option value="vo">Volapuk</option>
+
+                                <option value="cy">Welsh</option>
+
+                                <option value="wo">Wolof</option>
+
+                                <option value="xh">Xhosa</option>
+
+                                <option value="yi">Yiddish</option>
+
+                                <option value="yo">Yoruba</option>
+
+                                <option value="za">Zhuang</option>
+
+                                <option value="zu">Zulu</option>
+
+                            </select>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_keywords__value____en__">
+                        <label for="keywords__value____en__" class="col-sm-3 control-label">Keywords</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div id="ilFormField~keywords__value____en__~0" style="margin-bottom:5px">
+
+
+
+                                <div class="form-inline">
+
+                                    <input class="form-control ui-autocomplete-input" type="text" id="keywords__value____en__" maxlength="200" name="keywords[value][en][]" autocomplete="off">
+
+
+
+                                    <button type="button" name="Add" class="btn btn-link" id="ilMultiAdd~keywords__value____en__~0" onclick="javascript: return false;"><span class="sr-only"></span><span class="glyphicon glyphicon-plus"></span></button>
+                                    <button type="button" name="Remove" class="btn btn-link" id="ilMultiRmv~keywords__value____en__~0" onclick="javascript: return false;"><span class="sr-only"></span><span class="glyphicon glyphicon-minus"></span></button>
+
+
+                                </div>
+
+
+
+                                <script type="text/javascript">
+                                    il.Util.addOnLoad(
+
+                                        function () {
+
+                                            $.widget("custom.iladvancedautocomplete", $.ui.autocomplete, {
+                                                more: false,
+                                                _renderMenu: function (ul, items) {
+                                                    var that = this;
+                                                    $.each(items, function (index, item) {
+                                                        that._renderItemData(ul, item);
+                                                    });
+
+                                                    that.options.requestUrl = that.options.requestUrl.replace(/&fetchall=1/g, '');
+
+                                                    if (that.more) {
+                                                        ul.append("<li class='ui-menu-category ui-menu-more ui-state-disabled'><span>&raquo;more</span></li>");
+                                                        ul.find('li').last().on('click', function (e) {
+                                                            that.options.requestUrl += '&fetchall=1';
+                                                            that.close(e);
+                                                            that.search(null, e);
+                                                            e.preventDefault();
+                                                        });
+                                                    }
+                                                }
+                                            });
+
+                                            ilMultiFormValues.addAutocomplete('keywords__value____en__', 'ilias.php?ref_id=75&obj_id=55&active_node=55&cmd=keywordAutocomplete&cmdClass=ilmdeditorgui&cmdNode=jm:kb:jy:jo:tv:85&baseClass=ilLMEditorGUI&cmdMode=asynch');
+
+
+                                            $('[id^="keywords__value____en__"]').iladvancedautocomplete({
+                                                requestUrl: "ilias.php?ref_id=75&obj_id=55&active_node=55&cmd=keywordAutocomplete&cmdClass=ilmdeditorgui&cmdNode=jm:kb:jy:jo:tv:85&baseClass=ilLMEditorGUI&cmdMode=asynch",
+                                                source: function (request, response) {
+                                                    var that = this;
+                                                    $.getJSON(that.options.requestUrl, {
+                                                        term: request.term
+                                                    }, function (data) {
+                                                        if (typeof data.items == "undefined") {
+                                                            response(data);
+                                                        } else {
+                                                            that.more = data.hasMoreResults;
+                                                            response(data.items);
+                                                        }
+                                                    });
+                                                },
+                                                minLength: 3
+                                            });
+
+
+
+
+
+                                        }
+                                    );
+                                </script>
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_life_authors">
+                        <label for="life_authors" class="col-sm-3 control-label">Authors
+                            <br>(Separated by ,)</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <textarea class="form-control  noRTEditor" name="life_authors" id="life_authors" wrap="virtual" rows="2"></textarea>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_copyright">
+                        <label for="copyright" class="col-sm-3 control-label">Copyright</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <textarea class="form-control" name="copyright[ta]" id="copyright" wrap="virtual" cols="50" rows="3"></textarea>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_tlt">
+                        <label for="tlt" class="col-sm-3 control-label">Typical Learning Time</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="form-inline">
+                                Month:
+                                <select name="tlt[mo]" class=" form-control " size="0">
+                                    <option value="0" selected="selected">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                </select>
+
+                                Days:
+                                <select name="tlt[d]" class=" form-control " size="0">
+                                    <option value="0" selected="selected">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                &nbsp; Time:
+                                <select name="tlt[h]" id="tlt_h" class="form-control">
+                                    <option value="0" selected="selected">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select name="tlt[m]" id="tlt_m" class="form-control">
+                                    <option value="0" selected="selected">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                </select>
+                                &nbsp; (hh:mm)
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+
+                    <div class="ilFormFooter clearfix">
+                        <div class="col-sm-6 ilFormRequired">
+
+
+                            <span class="asterisk">*</span><span class="small"> Required</span> &nbsp;
+
+                        </div>
+                        <div class="col-sm-6 ilFormCmds">
+
+                            <input class="btn btn-default btn-sm" type="submit" name="cmd[updateQuickEdit]" value="Save">
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
