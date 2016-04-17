@@ -322,9 +322,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showMetadataSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_metadata.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("metadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*Chapter Edit */
