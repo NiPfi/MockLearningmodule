@@ -304,16 +304,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_menu.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("glossariesSubtab");
-        
+
         $tpl->setContent($my_tpl->get());
     }
 
     function showMultilinguismSubtab()
     {
         global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_multilingualism.html",false,false);
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("multilinguismSubtab");
-        $tpl->setContent("Multilinguism");
+        $tpl->setContent($my_tpl->get());
     }
 
 
