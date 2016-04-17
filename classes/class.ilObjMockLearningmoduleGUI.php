@@ -202,9 +202,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
 
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_mediaSubtitles.html",false,false);
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("mediaSubtitles");
-        $tpl->setContent("Media Subtitles");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showImportSubtab()
