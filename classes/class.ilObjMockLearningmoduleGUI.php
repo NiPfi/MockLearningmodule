@@ -367,10 +367,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showSubchaptersSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
+
         $this->generateChapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterSubtab");
-        $tpl->setContent("Subchaper and Pages Subtab");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPreconditionsSubtab()
