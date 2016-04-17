@@ -1,0 +1,962 @@
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+
+
+            <form id="form_" role="form" class="form-horizontal preventDoubleSubmission" action="ilias.php?ref_id=75&amp;cmd=post&amp;cmdClass=ilobjlearningmodulegui&amp;cmdNode=jm:kb&amp;baseClass=ilLMEditorGUI&amp;rtoken=9d06514d3f5d7ab934914e13bc1e855d" method="post">
+
+                <div class="form-horizontal">
+                    <!-- todo: HIDE_LABELS_STYLE -->
+
+
+                    <!-- Please note the usage of datatable attribute which is non-standard
+                        but ensures that JAWS treats this table as a layout table -->
+                    <!-- removed a width="" -->
+
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name="il_form_top"></a>Learning Module Settings</h3>
+                        <div class="ilFormCmds">
+
+
+
+                            <input class="btn btn-default btn-sm" type="SUBMIT" name="cmd[saveProperties]" value="Save">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_title">
+                        <label for="title" class="col-sm-3 control-label">Title <span class="asterisk">*</span></label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <input class="form-control" type="text" id="title" maxlength="200" name="title" value="Learning Module">
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_description">
+                        <label for="description" class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <textarea class="form-control  noRTEditor" name="description" id="description" wrap="virtual" rows="">This is only an example</textarea>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name=""></a>Availability</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_cobj_online">
+                        <label for="cobj_online" class="col-sm-3 control-label">Online</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_cobj_online','il_prop_cont_cobj_online', this);" type="checkbox" id="cobj_online" name="cobj_online" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name=""></a>Presentation</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_lm_layout">
+                        <label for="lm_layout" class="col-sm-3 control-label">Default Layout</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div id="lm_layout">
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_toc2win', 'lm_layout', null);" name="lm_layout" id="lm_layout_toc2win" value="toc2win" checked="checked">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_toc2win.png" alt="toc2win" title="toc2win" border="0"></td>
+                                                    <td style="padding:5px;"><b>Table of Contents</b>: Table of contents in the left, content in the right frame. FAQ, glossary and media links open in separate window.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_toc2windyn', 'lm_layout', null);" name="lm_layout" id="lm_layout_toc2windyn" value="toc2windyn">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_toc2windyn.png" alt="toc2windyn" title="toc2windyn" border="0"></td>
+                                                    <td style="padding:5px;"><b>Table of Contents Dynamic</b>: Table of contents in the left, content in the right frame. FAQ, glossary and media links open dynamically a frame at bottom-right.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_1window', 'lm_layout', null);" name="lm_layout" id="lm_layout_1window" value="1window">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_1window.png" alt="1window" title="1window" border="0"></td>
+                                                    <td style="padding:5px;"><b>One Window</b>: Content in the main frame. FAQ, glossary and media links open in separate window.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_2window', 'lm_layout', null);" name="lm_layout" id="lm_layout_2window" value="2window">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_2window.png" alt="2window" title="2window" border="0"></td>
+                                                    <td style="padding:5px;"><b>Two Windows</b>: Content in the left frame. FAQ, glossary and media links open in right frame.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_3window', 'lm_layout', null);" name="lm_layout" id="lm_layout_3window" value="3window">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_3window.png" alt="3window" title="3window" border="0"></td>
+                                                    <td style="padding:5px;"><b>Three Windows</b>: Content in the left frame. FAQ and media links open in top-right frame, glossary links in bottom-right frame.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_presentation', 'lm_layout', null);" name="lm_layout" id="lm_layout_presentation" value="presentation">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_presentation.png" alt="presentation" title="presentation" border="0"></td>
+                                                    <td style="padding:5px;"><b>Presentation</b>: Content in the main frame. FAQ, glossary and media links open in separate window. No ILIAS main menu.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_lm_layout_fullscreen', 'lm_layout', null);" name="lm_layout" id="lm_layout_fullscreen" value="fullscreen">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0px 5px 5px;"><img src="./templates/default/images/layout_fullscreen.png" alt="fullscreen" title="fullscreen" border="0"></td>
+                                                    <td style="padding:5px;"><b>Full Screen</b>: Content in the main frame. FAQ, glossary and media links open in separate window. No ILIAS main menu and no navigation bar.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_layout_per_page">
+                        <label for="layout_per_page" class="col-sm-3 control-label">Layout per Page</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_layout_per_page','il_prop_cont_layout_per_page', this);" type="checkbox" id="layout_per_page" name="layout_per_page" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">Allow to set individual layouts for each page. This automatically activates the ‘Synchronize Frames’ setting, too.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_lm_pg_header">
+                        <label for="lm_pg_header" class="col-sm-3 control-label">Page Header</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <select class="form-control" id="lm_pg_header" name="lm_pg_header">
+
+                                <option value="st_title" selected="selected">Chapter Title</option>
+
+                                <option value="pg_title">Page Title</option>
+
+                                <option value="none">None</option>
+
+                            </select>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_cobj_act_number">
+                        <label for="cobj_act_number" class="col-sm-3 control-label">Chapter Numeration</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_cobj_act_number','il_prop_cont_cobj_act_number', this);" type="checkbox" id="cobj_act_number" name="cobj_act_number" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_toc_mode">
+                        <label for="toc_mode" class="col-sm-3 control-label">Table of Contents Items</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <select class="form-control" id="toc_mode" name="toc_mode">
+
+                                <option value="chapters" selected="selected">Chapters only</option>
+
+                                <option value="pages">Chapters and Pages</option>
+
+                            </select>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_progr_icons">
+                        <label for="progr_icons" class="col-sm-3 control-label">Progress Icons</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_progr_icons','il_prop_cont_progr_icons', this);" type="checkbox" id="progr_icons" name="progr_icons" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">Show progress icons instead of chapter page icons in presentation mode. Please note that progress information is stored only with ILIAS 5.0 and higher.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name=""></a>Self Assessment</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_store_tries">
+                        <label for="store_tries" class="col-sm-3 control-label">Question Behaviour</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div id="store_tries">
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_store_tries_0', 'store_tries', null);" name="store_tries" id="store_tries_0" value="0" checked="checked"> Reset on Page Visit</label>
+
+                                    <div class="help-block">Questions start with 0 number of tries each time a learner visits a page. Learner has to answer questions on every page visit.</div>
+
+                                </div>
+
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="il.Form.showSubForm('subform_store_tries_1', 'store_tries', null);" name="store_tries" id="store_tries_1" value="1"> Store Answer Status</label>
+
+                                    <div class="help-block">Number of tries are accumulated and stored. Correctly answered questions must not be answered again. Learners may run out of tries for questions.</div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_restrict_forw_nav">
+                        <label for="restrict_forw_nav" class="col-sm-3 control-label">Restrict Forward Navigation</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_restrict_forw_nav','il_prop_cont_restrict_forw_nav', this);" type="checkbox" id="restrict_forw_nav" name="restrict_forw_nav" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">Learners cannot navigate to subsequent pages unless they answered all previous questions correctly.</div>
+
+
+
+                            <div class="ilSubForm" id="subform_restrict_forw_nav" style="overflow: hidden; height: 0px; display: none;">
+                                <!-- todo: HIDE_LABELS_STYLE -->
+
+
+
+
+
+
+
+
+
+                                <div class="form-group" id="il_prop_cont_notification_blocked_users">
+                                    <label for="notification_blocked_users" class="col-sm-3 control-label il_checkbox">Notifications on Blocked Users</label>
+                                    <div class="col-sm-9 il_checkbox">
+
+
+
+
+
+
+
+
+
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input onclick="il.Form.showSubForm('subform_notification_blocked_users','il_prop_cont_notification_blocked_users', this);" type="checkbox" id="notification_blocked_users" name="notification_blocked_users" value="1"> &nbsp;
+                                            </label>
+                                        </div>
+
+
+
+
+
+
+
+                                        <div class="help-block">You will be notified if users are blocked when they run out of tries.</div>
+
+
+
+                                    </div>
+                                </div>
+                                <!-- end of ilFormRow -->
+                                <!-- <script type="text/javascript">
+                                $(function() {
+                                    il.Form.initItem('', );
+                                });
+                                </script> -->
+
+
+
+
+
+                            </div>
+                            <script type="text/javascript">
+                                il.Form.hideSubForm('subform_restrict_forw_nav');
+                            </script>
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_disable_def_feedback">
+                        <label for="disable_def_feedback" class="col-sm-3 control-label">Disable Default Question Feedback</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_disable_def_feedback','il_prop_cont_disable_def_feedback', this);" type="checkbox" id="disable_def_feedback" name="disable_def_feedback" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">If disabled, answered questions will not show any feedback for the learner. You need to provide custom feedbacks for your questions.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name=""></a>Additional Features</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_cobj_pub_notes">
+                        <label for="cobj_pub_notes" class="col-sm-3 control-label">Comments</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_cobj_pub_notes','il_prop_cont_cobj_pub_notes', this);" type="checkbox" id="cobj_pub_notes" name="cobj_pub_notes" value="1" checked="checked"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">Allow users to share comments on every page of the learning module.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_cobj_user_comments">
+                        <label for="cobj_user_comments" class="col-sm-3 control-label">Enable user comments in history</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_cobj_user_comments','il_prop_cont_cobj_user_comments', this);" type="checkbox" id="cobj_user_comments" name="cobj_user_comments" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">Give authors the opportunity to add comments to the history log of pages.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_rating">
+                        <label for="rating" class="col-sm-3 control-label">Enable Rating</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_rating','il_prop_cont_rating', this);" type="checkbox" id="rating" name="rating" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="help-block">if enabled, users can rate this object.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_rating_pages">
+                        <label for="rating_pages" class="col-sm-3 control-label">Activate Rating For Pages</label>
+                        <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
+
+                            <div class="checkbox">
+                                <label>
+                                    <input onclick="il.Form.showSubForm('subform_rating_pages','il_prop_cont_rating_pages', this);" type="checkbox" id="rating_pages" name="rating_pages" value="1"> &nbsp;
+                                </label>
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                    $(function() {
+                        il.Form.initItem('', );
+                    });
+                    </script> -->
+
+
+
+
+
+
+                    <div class="ilFormFooter clearfix">
+                        <div class="col-sm-6 ilFormRequired">
+
+
+                            <span class="asterisk">*</span><span class="small"> Required</span> &nbsp;
+
+                        </div>
+                        <div class="col-sm-6 ilFormCmds">
+
+                            <input class="btn btn-default btn-sm" type="submit" name="cmd[saveProperties]" value="Save">
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
