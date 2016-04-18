@@ -57,6 +57,13 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showClipboardSubtab":
             case "showActivationSubtab":
             case "showSubchaptersSubtab":
+            case "showChapterSubtab":
+            case "showAllPagesSubtab":
+            case "showInternalLinksSubtab":
+            case "showWeblinkCheckSubtab":
+            case "showMediaSubtitlesSubtab":
+            case "showImportSubtab":
+            case "showExportSubtab":
 
 
 
@@ -65,13 +72,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 break;
 
             // list all commands that need read permission here
-            case "showChapterSubtab":
-            case "showAllPagesSubtab":
-            case "showInternalLinksSubtab":
-            case "showWeblinkCheckSubtab":
-            case "showMediaSubtitlesSubtab":
-            case "showImportSubtab":
-            case "showExportSubtab":
+            //case "":
+
                 $this->checkPermission("read");
                 $this->$cmd();
                 break;
@@ -106,7 +108,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $ilTabs, $ilCtrl, $ilAccess;
 
         // tab for the "show content" command
-        if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("content", $this->txt("content"),
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
