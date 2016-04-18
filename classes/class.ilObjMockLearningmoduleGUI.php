@@ -64,6 +64,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showMediaSubtitlesSubtab":
             case "showImportSubtab":
             case "showExportSubtab":
+            case "showQuestions":
+            case "showStatisticSubtab":
+            case "showBlockedUsersSubtab":
+
 
 
 
@@ -242,14 +246,39 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     }
 
+/*
+* Questions Tab
+*/
+
     function showQuestions()
     {
-        global $tpl, $ilTabs;
-
-        $ilTabs->activateTab("questions");
-
-        $tpl->setContent("Questions");
+        $this->showStatisticSubtab();
     }
+
+    function generateQuestionsSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("questions");
+        $ilTabs->addSubTab("statisticSubtab","Statistic",  $ilCtrl->getLinkTarget($this, "showStatisticSubtab"));
+        $ilTabs->addSubTab("blockedUsersSubtab","Blocked Users",  $ilCtrl->getLinkTarget($this, "showBlockedUsersSubtab"));
+    }
+
+    function showStatisticSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateQuestionsSubtabs();
+        $ilTabs->activateSubtab("stasticSubtab");
+        $tpl->setContent("Statistic");
+    }
+
+    function showBlockedUsersSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateQuestionsSubtabs();
+        $ilTabs->activateSubtab("blockedUsersSubtab");
+        $tpl->setContent("Blocked Users");
+    }
+
 /*
  *Settings Tab
  */
