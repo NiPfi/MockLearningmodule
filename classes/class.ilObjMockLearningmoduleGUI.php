@@ -83,7 +83,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getAfterCreationCmd()
     {
-        return "showChapterSbutab";
+        return "showContent";
     }
 
     /**
