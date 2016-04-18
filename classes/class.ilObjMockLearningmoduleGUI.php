@@ -1,7 +1,5 @@
 <?php
-
 include_once ("./Services/Repository/classes/class.ilObjectPluginGUI.php");
-
 
 /**
  * User Interface class for repository object.
@@ -19,6 +17,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         // anything needed after object has been constructed
         // - example: append my_id GET parameter to each request
         //   $ilCtrl->saveParameter($this, array("my_id"));
+
+        include_once ("class.ilObjMockTree.php");
+
+        global $tpl;
+        $this->ctrl = $ilCtrl;
+        $this->tpl = $tpl;
+        
+        $parent_obj = null;
+
+        $ilExplorer = new ilObjMockTree(0, $parent_obj, "");
+
+        $tpl->setLeftNavContent($ilExplorer->getHTML());
     }
 
     /**
@@ -36,7 +46,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         switch ($cmd)
         {
-
             case "showSettingsSubtab":   // list all commands that need write permission here
             case "showQuestions":
             case "showSettingsSubtab":
@@ -57,8 +66,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showClipboardSubtab":
             case "showActivationSubtab":
             case "showSubchaptersSubtab":
-
-
 
                 $this->checkPermission("write");
                 $this->$cmd();
@@ -154,8 +161,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     }
 
-
-
     function showChapterSubtab()
     {
         global $tpl, $ilTabs, $ilCtrl;
@@ -236,7 +241,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateTab("settings");
 
         $tpl->setContent("Settings");
-
 
     }
 
@@ -503,7 +507,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateSubtab("activationSubtab");
         $tpl->setContent($my_tpl->get());
     }
-
 
 
 }
