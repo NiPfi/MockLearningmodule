@@ -9,16 +9,18 @@ include_once("./Services/UIComponent/Explorer2/classes/class.ilExplorerBaseGUI.p
  */
 class ilObjMockTree extends ilExplorerBaseGUI
 {
-	public function __construct($a_expl_id, $a_parent_obj, $a_parent_cmd)
+	public function __construct($a_parent_obj)
 	{
 		global $ilCtrl;
 		$this->ctrl = $ilCtrl;
+		$a_expl_id = 0;
+		$a_parent_cmd = "";
 		parent::__construct($a_expl_id, $a_parent_obj, $a_parent_cmd);
 	}
 
 	function getRootNode()
 	{
-
+		
 	}
 
 	function getChildsOfNode($a_parent_node_id)

@@ -23,10 +23,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $tpl;
         $this->ctrl = $ilCtrl;
         $this->tpl = $tpl;
-        
+
         $parent_obj = null;
 
-        $ilExplorer = new ilObjMockTree(0, $parent_obj, "");
+        $ilExplorer = new ilObjMockTree($this);
 
         $tpl->setLeftNavContent($ilExplorer->getHTML());
     }
