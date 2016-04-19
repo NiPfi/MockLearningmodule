@@ -109,8 +109,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function setTabs()
     {
-        global $ilTabs, $ilCtrl, $ilAccess, $tpl;
-        $tpl->setDescription($this->object->getDescription());
+        global $ilTabs, $ilCtrl, $ilAccess;
+        $this->setTemplateDescription();
 
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -118,7 +118,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             $ilTabs->addTab("content", $this->txt("content"),
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
-        
+
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("info", "Info",
@@ -137,8 +137,15 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, showQuestions));
         }
 
-        // standard epermission tab
+        // standard permission tab
         $this->addPermissionTab();
+    }
+
+    private function setTemplateDescription()
+    {
+        global $tpl;
+        $tpl->setDescription( $this->object->getDescription());
+
     }
 
 //
@@ -399,7 +406,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function generateSubchapterSubtabs()
     {
-        global $ilTabs, $ilCtrl;
+        global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setDescription("");
+        $tpl->setTitle("Chapter 1");
         $ilTabs->activateTab("chapter");
         $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
         $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
@@ -470,7 +479,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function generatePageSubtabs()
     {
-        global $ilTabs, $ilCtrl;
+        global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setDescription("");
+        $tpl->setTitle("Page 1");
         $ilTabs->activateTab("page");
         $ilTabs->addSubTab("editSubtab","Edit",  $ilCtrl->getLinkTarget($this, "showEditSubtab"));
         $ilTabs->addSubTab("previewSubtab","Preview",  $ilCtrl->getLinkTarget($this, "showPreviewSubtab"));
