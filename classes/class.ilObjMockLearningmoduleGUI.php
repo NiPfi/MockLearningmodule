@@ -67,9 +67,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showQuestions":
             case "showStatisticSubtab":
             case "showBlockedUsersSubtab":
-
-
-
+            case "showInfo":
+            case "showInfoSubtab":
+            case "showInfoHistorySubtab":
 
                 $this->checkPermission("write");
                 $this->$cmd();
@@ -117,9 +117,13 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             $ilTabs->addTab("content", $this->txt("content"),
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
+        
 
-        // standard info screen tab
-        $this->addInfoTab();
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("info", "Info",
+                $ilCtrl->getLinkTarget($this, "showInfo"));
+        }
 
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
@@ -277,6 +281,38 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $this->generateQuestionsSubtabs();
         $ilTabs->activateSubtab("blockedUsersSubtab");
         $tpl->setContent("Blocked Users");
+    }
+
+    /*
+     * Info Tab
+     */
+
+    function showInfo(){
+        $this->showInfoSubtab();
+    }
+
+    function generateInfoSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("info");
+        $ilTabs->addSubTab("infoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showInfoSubtab"));
+        $ilTabs->addSubTab("infoHistorySubtab","History",  $ilCtrl->getLinkTarget($this, "showInfoHistorySubtab"));
+    }
+
+    function showInfoSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateInfoSubtabs();
+        $ilTabs->activateSubtab("infoSubtab");
+        $tpl->setContent("Info");
+    }
+
+    function showInfoHistorySubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateInfoSubtabs();
+        $ilTabs->activateSubtab("infoHistorySubtab");
+        $tpl->setContent("History");
     }
 
 /*
