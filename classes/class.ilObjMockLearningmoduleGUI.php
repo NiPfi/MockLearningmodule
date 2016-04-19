@@ -89,7 +89,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getAfterCreationCmd()
     {
-        return "showChapterSubtab";
+       return "showChapterSubtab";
     }
 
     /**
@@ -109,7 +109,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function setTabs()
     {
-        global $ilTabs, $ilCtrl, $ilAccess;
+        global $ilTabs, $ilCtrl, $ilAccess, $tpl;
+        $tpl->setDescription($this->object->getDescription());
 
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -118,7 +119,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
         
-
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("info", "Info",
@@ -139,8 +139,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         // standard epermission tab
         $this->addPermissionTab();
-
-
     }
 
 //
