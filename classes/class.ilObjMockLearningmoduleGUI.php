@@ -275,17 +275,21 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showStatisticSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_questions_statistics.html",false,false);
+
         $this->generateQuestionsSubtabs();
         $ilTabs->activateSubtab("stasticSubtab");
-        $tpl->setContent("Statistic");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showBlockedUsersSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_questions_blockedUsers.html",false,false);
+
         $this->generateQuestionsSubtabs();
         $ilTabs->activateSubtab("blockedUsersSubtab");
-        $tpl->setContent("Blocked Users");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*
@@ -307,17 +311,22 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showInfoSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_info_info.html",false,false);
+
         $this->generateInfoSubtabs();
         $ilTabs->activateSubtab("infoSubtab");
-        $tpl->setContent("Info");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showInfoHistorySubtab()
     {
-        global $tpl, $ilTabs;
+        global $tpl, $ilTabs, $ilCtrl;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_info_history.html",false,false);
+
+        $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $this->generateInfoSubtabs();
         $ilTabs->activateSubtab("infoHistorySubtab");
-        $tpl->setContent("History");
+        $tpl->setContent($my_tpl->get());
     }
 
 /*
