@@ -403,6 +403,7 @@
             for (i = 0; i < x.length; i++) {
                 x[i].onclick = function () {
                     titleId = $(this).data('whatever');
+                    (document.getElementById('newTitle')).value = (document.getElementById(titleId)).innerHTML;
                     $("#myModal").modal("show");
                 };
             };
@@ -428,7 +429,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input id="newTitle" type="text" value="Chapter 1" whatever="">
+                        <input id="newTitle" type="text" value="" whatever="">
                     </form>
                 </div>
                 <div class="modal-footer">
