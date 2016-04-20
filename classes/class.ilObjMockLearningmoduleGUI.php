@@ -67,9 +67,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showQuestions":
             case "showStatisticSubtab":
             case "showBlockedUsersSubtab":
-
-
-
+            case "showInfo":
+            case "showInfoSubtab":
+            case "showInfoHistorySubtab":
 
                 $this->checkPermission("write");
                 $this->$cmd();
@@ -89,7 +89,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getAfterCreationCmd()
     {
-        return "showChapterSubtab";
+       return "showChapterSubtab";
     }
 
     /**
@@ -110,6 +110,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function setTabs()
     {
         global $ilTabs, $ilCtrl, $ilAccess;
+        $this->setTemplateDescription();
 
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -118,8 +119,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
 
-        // standard info screen tab
-        $this->addInfoTab();
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("info", "Info",
+                $ilCtrl->getLinkTarget($this, "showInfo"));
+        }
 
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
@@ -133,9 +137,14 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, showQuestions));
         }
 
-        // standard epermission tab
+        // standard permission tab
         $this->addPermissionTab();
+    }
 
+    private function setTemplateDescription()
+    {
+        global $tpl;
+        $tpl->setDescription( $this->object->getDescription());
 
     }
 
@@ -279,6 +288,38 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setContent("Blocked Users");
     }
 
+    /*
+     * Info Tab
+     */
+
+    function showInfo(){
+        $this->showInfoSubtab();
+    }
+
+    function generateInfoSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->activateTab("info");
+        $ilTabs->addSubTab("infoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showInfoSubtab"));
+        $ilTabs->addSubTab("infoHistorySubtab","History",  $ilCtrl->getLinkTarget($this, "showInfoHistorySubtab"));
+    }
+
+    function showInfoSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateInfoSubtabs();
+        $ilTabs->activateSubtab("infoSubtab");
+        $tpl->setContent("Info");
+    }
+
+    function showInfoHistorySubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->generateInfoSubtabs();
+        $ilTabs->activateSubtab("infoHistorySubtab");
+        $tpl->setContent("History");
+    }
+
 /*
  *Settings Tab
  */
@@ -365,7 +406,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function generateSubchapterSubtabs()
     {
-        global $ilTabs, $ilCtrl;
+        global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setDescription("");
+        $tpl->setTitle("Chapter 1");
         $ilTabs->activateTab("chapter");
         $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
         $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
@@ -436,7 +479,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function generatePageSubtabs()
     {
-        global $ilTabs, $ilCtrl;
+        global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setDescription("");
+        $tpl->setTitle("Page 1");
         $ilTabs->activateTab("page");
         $ilTabs->addSubTab("editSubtab","Edit",  $ilCtrl->getLinkTarget($this, "showEditSubtab"));
         $ilTabs->addSubTab("previewSubtab","Preview",  $ilCtrl->getLinkTarget($this, "showPreviewSubtab"));
