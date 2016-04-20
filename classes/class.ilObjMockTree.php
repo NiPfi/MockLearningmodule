@@ -75,4 +75,16 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			$i++;
 		}
 	}
+	
+	function getNodeIcon($a_node)
+	{
+		if ($a_node->isLeaf())
+		{
+			return './templates/default/images/icon_pg.svg';
+		}
+		elseif ($a_node->isChild())
+		{
+			return './templates/default/images/icon_st.svg';
+		} else return './templates/default/images/icon_lm.svg';
+	}
 }
