@@ -1,0 +1,5 @@
+{
+  "require": {
+    "nicmart/tree": "~0.2.7"
+  }
+}

@@ -17,18 +17,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         // anything needed after object has been constructed
         // - example: append my_id GET parameter to each request
         //   $ilCtrl->saveParameter($this, array("my_id"));
-
-        include_once ("class.ilObjMockTree.php");
-
-        global $tpl;
-        $this->ctrl = $ilCtrl;
-        $this->tpl = $tpl;
-        
-        $parent_obj = null;
-
-        $ilExplorer = new ilObjMockTree(0, $parent_obj, "");
-
-        $tpl->setLeftNavContent($ilExplorer->getHTML());
     }
 
     /**
@@ -112,6 +100,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl, $ilAccess;
 
+        // Navigational tree
+        include_once ("class.ilObjMockTree.php");
+
+        global $tpl;
+        $this->ctrl = $ilCtrl;
+        $this->tpl = $tpl;
+
+        $ilExplorer = new ilObjMockTree($this);
+
+        $tpl->setLeftNavContent($ilExplorer->getHTML());
+
+        
         // tab for the "show content" command
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
