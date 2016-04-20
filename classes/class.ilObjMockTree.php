@@ -36,6 +36,17 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				->end()
 		;
 		$root = $builder->getNode()->root();
+		$visitor = new PreOrderVisitor();
+		$yield = $root->accept($visitor);
+		$i = 0;
+		foreach ($yield as $node)
+		{
+			if (!$node->isLeaf())
+			{
+				parent::setNodeOpen($this->getNodeId($node));
+			}
+			$i++;
+		}
 	}
 
 	function getRootNode()
