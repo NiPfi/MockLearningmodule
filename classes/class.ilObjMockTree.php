@@ -38,10 +38,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 	function getRootNode()
 	{
-
 		global $root;
 		return $root;
-
 	}
 
 	function getChildsOfNode($a_parent_node_id)
@@ -69,7 +67,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 		$yield = $root->accept($visitor);
 		for ($i = 0; $i<$root->getSize(); $i++)
 		{
-			if ($yield[i]==$a_node)
+			if ($yield[i]===$a_node)
 			{
 				return $yield[i];
 			}
