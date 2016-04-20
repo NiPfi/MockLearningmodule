@@ -23,14 +23,16 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 		$builder
 			->value('MockLearningmodule')
-			->leaf('Page 1')
-			->tree('C')
-				->tree('D')
-					->leaf('G')
-					->leaf('H')
+			->tree('Chapter 1')
+				->leaf('Page 1')
+				->leaf('Page 2')
+				->tree('Subchapter 1.1')
+					->leaf('Page 1')
+					->leaf('Page 2')
 					->end()
-				->leaf('E')
-				->leaf('F')
+				->end()
+			->tree('Chapter 2')
+				->leaf('Page 1')
 				->end()
 		;
 		$root = $builder->getNode()->root();
@@ -48,10 +50,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 		$visitor = new PreOrderVisitor();
 		$yield = $root->accept($visitor);
-		if ($yield[$a_parent_node_id] != null)
-		{
-			return $yield[$a_parent_node_id]->getChildren();
-		}
+		return $yield[$a_parent_node_id]->getChildren();
+
 	}
 
 	function getNodeContent($a_node)
@@ -65,13 +65,14 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 		$visitor = new PreOrderVisitor();
 		$yield = $root->accept($visitor);
-		for ($i = 0; $i<$root->getSize(); $i++)
+		$i = 0;
+		foreach ($yield as $node)
 		{
-			if ($yield[i]===$a_node)
+			if ($node === $a_node)
 			{
-				return $yield[i];
+				return $i;
 			}
+			$i++;
 		}
-		return null;
 	}
 }
