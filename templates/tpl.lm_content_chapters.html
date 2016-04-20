@@ -403,16 +403,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Edit Title</h4>
                 </div>
                 <div class="modal-body">
                    <form>
-                    <input type="text" value="Chapter 1">
+                    <input id="newTitle" type="text" value="Chapter 1">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:(document.getElementById('inp54')).innerHTML= (document.getElementById('newTitle')).value" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
         </div>
@@ -513,7 +513,7 @@
                                         <td class="ilHFormInput">
                                             <a id="inp54" class="form-control" name="title[54]" style="width:100%" href="{CHAP1_LINK}">Chapter 1</a>
                                         </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" onclick="$('#myModal').modal('show');">Edit Title</a>
+                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href='javascript:$("#myModal").modal("show");'>Edit Title</a>
 
                                         </td>
                                     </tr>
