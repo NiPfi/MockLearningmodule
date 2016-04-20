@@ -16,6 +16,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 	{
 		global $ilCtrl, $root;
 		$this->ctrl = $ilCtrl;
+
 		parent::__construct(0, $a_parent_obj, null);
 
 		$builder = new Tree\Builder\NodeBuilder;
@@ -37,8 +38,10 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 	function getRootNode()
 	{
+
 		global $root;
 		return $root;
+
 	}
 
 	function getChildsOfNode($a_parent_node_id)
