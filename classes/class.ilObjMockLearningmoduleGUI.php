@@ -417,7 +417,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setDescription("");
         $tpl->setTitle("Chapter 1");
         $ilTabs->activateTab("chapter");
-        $ilTabs->addSubTab("subchapterSubtab","Subchaper and Pages",  $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
+        $ilTabs->addSubTab("subchapterSubtab","Subchapter and Pages",  $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
         $ilTabs->addSubTab("preconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showPreconditionsSubtab"));
         $ilTabs->addSubTab("subchapterMetadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showSubchapterMetadataSubtab"));
     }
