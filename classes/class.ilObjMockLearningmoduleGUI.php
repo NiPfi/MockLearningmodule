@@ -27,11 +27,14 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         return "xmlm";
     }
 
-    /**
+	/**
      * Handles all commmands of this class, centralizes permission checks
      */
     function performCommand($cmd)
     {
+
+	    $this->showTree();
+
         switch ($cmd)
         {
             case "showSettingsSubtab":   // list all commands that need write permission here
@@ -108,18 +111,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl, $ilAccess;
         $this->setTemplateDescription();
-
-        // Navigational tree
-        include_once ("class.ilObjMockTree.php");
-
-        global $tpl;
-        $this->ctrl = $ilCtrl;
-        $this->tpl = $tpl;
-
-        $ilExplorer = new ilObjMockTree($this);
-
-        $tpl->setLeftNavContent($ilExplorer->getHTML());
-
         
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -528,7 +519,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             $ilTabs->addTab("page", "Page",
                 $ilCtrl->getLinkTarget($this, "showEditSubtab"));
         }
-
     }
 
     function showEditSubtab()
@@ -597,5 +587,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setContent($my_tpl->get());
     }
 
+    function showTree()
+    {
+	    // Navigational tree
+	    include_once ("class.ilObjMockTree.php");
+
+	    global $tpl;
+	    $this->ctrl = $ilCtrl;
+	    $this->tpl = $tpl;
+
+	    $ilExplorer = new ilObjMockTree($this);
+
+	    $tpl->setLeftNavContent($ilExplorer->getHTML());
+    }
 
 }
