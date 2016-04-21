@@ -434,7 +434,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
-            $ilTabs->addTab("backToLearningModule", "<- Learning Module",
+            $ilTabs->addTab("backToLearningModule", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Learning Module",
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
 
@@ -510,7 +510,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
-            $ilTabs->addTab("backToChapter", "<- Chapter",
+            $ilTabs->addTab("backToChapter", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Chapter",
                 $ilCtrl->getLinkTarget($this, "showChapter"));
         }
 
