@@ -409,6 +409,7 @@
     <!-- Modal functionality -->
     <script>
         var titleId = "";
+        var treeId ="";
 
         function init() {
             
@@ -425,16 +426,23 @@
             for (i = 0; i < x.length; i++) {
                 x[i].onclick = function () {
                     titleId = $(this).data('whatever');
+                    treeId = $(this).data('tree');
                     (document.getElementById('newTitle')).value = (document.getElementById(titleId)).innerHTML;
                     $("#myModal").modal("show");
+                    (document.getElementById('newTitle')).focus();
                 };
             };
-            
+
             //Changes temporarly the Title by clicking save
             document.getElementById('saveTitle').onclick = function () {
                 var tmpTitle = (document.getElementById('newTitle')).value;
                 document.getElementById(titleId).innerHTML = tmpTitle;
+                var treeElements = document.getElementById(treeId).querySelectorAll(".ilExp2NodeContent");
+                if (treeElements != null) {
+                    treeElements[0].innerHTML = tmpTitle;
+                };
                 titleId = "";
+                treeId ="";
             };
         }
         
@@ -560,7 +568,7 @@
                                         <td class="ilHFormInput">
                                             <a id="inp54" class="form-control" name="title[54]" style="width:100%" href="{CHAP1_LINK}">Chapter 1</a>
                                         </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp54">Edit Title</a>
+                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp54" data-tree="exp_node_0_1">Edit Title</a>
 
                                         </td>
                                     </tr>
@@ -622,7 +630,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp55" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_LINK}">Page 1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp55">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp55" data-tree="exp_node_0_2">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -679,7 +687,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp60" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp60">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp60" data-tree="exp_node_0_3">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -743,7 +751,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp61" class="form-control" name="title[61]" style="width:100%" href="{SUBCHAP1_LINK}">Subchapter 1.1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp61">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp61" data-tree="exp_node_0_4">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -805,7 +813,7 @@
                                                                         <td class="ilHFormInput">
                                                                             <a id="inp56" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_SUBCHAP1.1_LINK}">Page 1</a>
                                                                         </td>
-                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp56">Edit Title</a>
+                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp56" data-tree="exp_node_0_5">Edit Title</a>
 
                                                                         </td>
                                                                     </tr>
@@ -862,7 +870,7 @@
                                                                         <td class="ilHFormInput">
                                                                             <a id="inp62" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
                                                                         </td>
-                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp62">Edit Title</a>
+                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp62" data-tree="exp_node_0_6">Edit Title</a>
 
                                                                         </td>
                                                                     </tr>
@@ -980,7 +988,7 @@
                                         <td class="ilHFormInput">
                                             <a id="inp58" class="form-control" name="title[54]" style="width:100%" href="{CHAP2_LINK}">Chapter 2</a>
                                         </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp58">Edit Title</a>
+                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp58" data-tree="exp_node_0_7">Edit Title</a>
 
                                         </td>
                                     </tr>
@@ -1042,7 +1050,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp59" class="form-control" name="title[59]" style="width:100%" href="{PAGE1_LINK}">Page 1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp59">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp59" data-tree="exp_node_0_8">Edit Title</a>
 
                                                         </td>
                                                     </tr>
