@@ -394,9 +394,77 @@
             z-index: 0;
         }
     </style>
+    
+    <!-- Modal Style fix -->
+    <style>
+        /* scroll fixes */
+        
+        .modal-open .modal {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            overflow-y: scroll;
+        }
+    </style>
+    
+    <!-- Modal functionality -->
+    <script>
+        var titleId = "";
+
+        function init() {
+            
+            //center modal
+            var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
+            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+            top = top > 0 ? top : 0;
+            $clone.remove();
+            $("#myModal").find('.modal-content').css("margin-top", top);
+
+            //Adds the correct handling for all "Edit Title" links with the correct Chapter/Page Id
+            var x = document.getElementsByName("editTitle");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].onclick = function () {
+                    titleId = $(this).data('whatever');
+                    (document.getElementById('newTitle')).value = (document.getElementById(titleId)).innerHTML;
+                    $("#myModal").modal("show");
+                };
+            };
+            
+            //Changes temporarly the Title by clicking save
+            document.getElementById('saveTitle').onclick = function () {
+                var tmpTitle = (document.getElementById('newTitle')).value;
+                document.getElementById(titleId).innerHTML = tmpTitle;
+                titleId = "";
+            };
+        }
+        
+        window.onload = init;
+    </script>
 </head>
 
+
 <body>
+    <!-- Modal for title editing -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Title</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input id="newTitle" type="text" value="" whatever="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="saveTitle" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid" id="ilContentContainer">
         <div class="row">
 
@@ -418,7 +486,7 @@
 
 
                 </div>
-                <form id="form_hform" role="form" class="form-horizontal " style="margin-top:10px;" action="ilias.php?ref_id=75&amp;backcmd=chapters&amp;cmd=post&amp;cmdClass=ilobjlearningmodulegui&amp;cmdNode=jm:kb&amp;baseClass=ilLMEditorGUI&amp;rtoken=2a9c5a42f4c11a6ba440ea82715445a0" method="post">
+                <form id="form_hform" role="form" class="form-horizontal " style="margin-top:10px;" action="" method="post">
 
                     <div class="form-horizontal">
                         <input type="hidden" id="il_hform_cmd" name="" value="">
@@ -464,7 +532,7 @@
                                                     <tbody>
                                                         <!-- Insert Chapter -->
                                                         <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '1', 1, 1);">
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_1t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                 Insert Chapter
                                                             </td>
                                                         </tr>
@@ -492,7 +560,7 @@
                                         <td class="ilHFormInput">
                                             <a id="inp54" class="form-control" name="title[54]" style="width:100%" href="{CHAP1_LINK}">Chapter 1</a>
                                         </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=54&amp;backcmd=chapters&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp54">Edit Title</a>
 
                                         </td>
                                     </tr>
@@ -518,13 +586,13 @@
                                                                     <tbody>
                                                                         <!-- Insert Page -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Page
                                                                             </td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Paste Pages from Clipboard
                                                                             </td>
                                                                         </tr>
@@ -554,7 +622,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp55" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_LINK}">Page 1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=55&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp55">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -575,13 +643,13 @@
                                                                     <tbody>
                                                                         <!-- Insert Page -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Page
                                                                             </td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '55', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Paste Pages from Clipboard
                                                                             </td>
                                                                         </tr>
@@ -611,7 +679,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp60" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=60&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp60">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -632,14 +700,21 @@
                                                                     <tbody>
                                                                         <!-- Insert Page -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Page
                                                                             </td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '60', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Paste Pages from Clipboard
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <!-- Insert Chapter -->
+                                                                        <tr>
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                                Insert Sub-chapter
                                                                             </td>
                                                                         </tr>
 
@@ -668,7 +743,7 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp61" class="form-control" name="title[61]" style="width:100%" href="{SUBCHAP1_LINK}">Subchapter 1.1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=61&amp;backcmd=showHierarchy&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp61">Edit Title</a>
 
                                                         </td>
                                                     </tr>
@@ -694,13 +769,13 @@
                                                                                     <tbody>
                                                                                         <!-- Insert Page -->
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Insert Page
                                                                                             </td>
                                                                                         </tr>
 
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Paste Pages from Clipboard
                                                                                             </td>
                                                                                         </tr>
@@ -728,9 +803,9 @@
 
                                                                         </td>
                                                                         <td class="ilHFormInput">
-                                                                            <a id="inp55" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_SUBCHAP1.1_LINK}">Page 1</a>
+                                                                            <a id="inp56" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_SUBCHAP1.1_LINK}">Page 1</a>
                                                                         </td>
-                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=55&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp56">Edit Title</a>
 
                                                                         </td>
                                                                     </tr>
@@ -751,13 +826,13 @@
                                                                                     <tbody>
                                                                                         <!-- Insert Page -->
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Insert Page
                                                                                             </td>
                                                                                         </tr>
 
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '55', 0, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Paste Pages from Clipboard
                                                                                             </td>
                                                                                         </tr>
@@ -785,9 +860,9 @@
 
                                                                         </td>
                                                                         <td class="ilHFormInput">
-                                                                            <a id="inp60" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
+                                                                            <a id="inp62" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
                                                                         </td>
-                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=60&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp62">Edit Title</a>
 
                                                                         </td>
                                                                     </tr>
@@ -808,13 +883,13 @@
                                                                                     <tbody>
                                                                                         <!-- Insert Page -->
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '60', 0, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Insert Page
                                                                                             </td>
                                                                                         </tr>
 
                                                                                         <tr>
-                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '60', 0, 1);">
+                                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                                 Paste Pages from Clipboard
                                                                                             </td>
                                                                                         </tr>
@@ -846,17 +921,10 @@
                                                                     <tbody>
                                                                         <!-- Insert Sub-Chapter -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '61', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Sub-chapter
                                                                             </td>
                                                                         </tr>
-                                                                        <!-- Insert Chapter -->
-                                                                        <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_61t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '61', 0, 1);">
-                                                                                Insert Chapter
-                                                                            </td>
-                                                                        </tr>
-
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -867,7 +935,33 @@
                                             </table>
                                         </td>
                                     </tr>
+                                    <!-- Dropdown-Row -->
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td>
+                                            <div class="il_droparea  ilHFormDropArea" id="droparea_59" onclick="doMouseClick(event, '59');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                        </td>
+                                    </tr>
+                                    <!-- Dropdown-Menu -->
+                                    <tr>
+                                        <td>
+                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_59">
+                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
+                                                    <tbody>
+                                                        <!-- Insert Chapter -->
+                                                        <tr>
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                Insert Chapter
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </td>
+                                    </tr>
                                     <!-- Chapter Row -->
                                     <tr>
                                         <td class="ilHFormExpIcon">
@@ -884,9 +978,9 @@
 
                                         </td>
                                         <td class="ilHFormInput">
-                                            <a id="inp54" class="form-control" name="title[54]" style="width:100%" href="{CHAP2_LINK}">Chapter 2</a>
+                                            <a id="inp58" class="form-control" name="title[54]" style="width:100%" href="{CHAP2_LINK}">Chapter 2</a>
                                         </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=54&amp;backcmd=chapters&amp;cmd=view&amp;cmdClass=ilstructureobjectgui&amp;cmdNode=jm:kb:k2&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp58">Edit Title</a>
 
                                         </td>
                                     </tr>
@@ -912,13 +1006,13 @@
                                                                     <tbody>
                                                                         <!-- Insert Page -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Page
                                                                             </td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Paste Pages from Clipboard
                                                                             </td>
                                                                         </tr>
@@ -948,41 +1042,43 @@
                                                         <td class="ilHFormInput">
                                                             <a id="inp59" class="form-control" name="title[59]" style="width:100%" href="{PAGE1_LINK}">Page 1</a>
                                                         </td>
-                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=59&amp;cmd=edit&amp;cmdClass=illmpageobjectgui&amp;cmdNode=jm:kb:jy&amp;baseClass=ilLMEditorGUI">Edit Title</a>
+                                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp59">Edit Title</a>
 
                                                         </td>
                                                     </tr>
 
                                                     <!-- Dropdown-Row -->
+                                                    <!-- Dropdown-Row -->
                                                     <tr>
                                                         <td colspan="3"></td>
                                                         <td>
-                                                            <div class="il_droparea  ilHFormDropArea" id="droparea_59" onclick="doMouseClick(event, '59');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                                            <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
                                                         </td>
                                                     </tr>
                                                     <!-- Dropdown-Menu -->
                                                     <tr>
                                                         <td>
-                                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_59">
+                                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
                                                                 <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
                                                                     <tbody>
                                                                         <!-- Insert Page -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Insert Page
                                                                             </td>
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '59', 0, 1);">
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                                 Paste Pages from Clipboard
                                                                             </td>
                                                                         </tr>
+
                                                                         <!-- Insert Chapter -->
                                                                         <tr>
-                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">
-                                                                                Insert Chapter
+                                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                                Insert Sub-chapter
                                                                             </td>
                                                                         </tr>
 
@@ -1011,21 +1107,9 @@
                                                 <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
                                                     <tbody>
-                                                        <!-- Insert Page -->
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '59', 0, 1);">
-                                                                Insert Page
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '59', 0, 1);">
-                                                                Paste Pages from Clipboard
-                                                            </td>
-                                                        </tr>
                                                         <!-- Insert Chapter -->
                                                         <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertChapter', '59', 0, 1);">
+                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                 Insert Chapter
                                                             </td>
                                                         </tr>
