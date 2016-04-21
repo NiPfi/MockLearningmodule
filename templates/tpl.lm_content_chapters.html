@@ -394,10 +394,32 @@
             z-index: 0;
         }
     </style>
+    
+    <!-- Modal Style fix -->
+    <style>
+        /* scroll fixes */
+        
+        .modal-open .modal {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            overflow-y: scroll;
+        }
+    </style>
+    
+    <!-- Modal functionality -->
     <script>
         var titleId = "";
 
         function init() {
+            
+            //center modal
+            var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
+            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+            top = top > 0 ? top : 0;
+            $clone.remove();
+            $("#myModal").find('.modal-content').css("margin-top", top);
+
+            //Adds the correct handling for all "Edit Title" links with the correct Chapter/Page Id
             var x = document.getElementsByName("editTitle");
             var i;
             for (i = 0; i < x.length; i++) {
@@ -407,12 +429,15 @@
                     $("#myModal").modal("show");
                 };
             };
+            
+            //Changes temporarly the Title by clicking save
             document.getElementById('saveTitle').onclick = function () {
                 var tmpTitle = (document.getElementById('newTitle')).value;
                 document.getElementById(titleId).innerHTML = tmpTitle;
                 titleId = "";
             };
         }
+        
         window.onload = init;
     </script>
 </head>
@@ -420,7 +445,7 @@
 
 <body>
     <!-- Modal for title editing -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
