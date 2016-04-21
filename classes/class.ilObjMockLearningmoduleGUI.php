@@ -144,8 +144,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     private function setTemplateDescription()
     {
         global $tpl;
-        $tpl->setDescription( $this->object->getDescription());
-
+        $desc = $this->object->getDescription();
+        $desc .= "<br> <span style='color: #00aa00'>Status: online</span>";
+        $tpl->setDescription( $desc);
     }
 
 //
