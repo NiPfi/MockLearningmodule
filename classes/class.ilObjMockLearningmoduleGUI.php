@@ -1,5 +1,4 @@
 <?php
-
 include_once ("./Services/Repository/classes/class.ilObjectPluginGUI.php");
 
 /**
@@ -28,14 +27,16 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         return "xmlm";
     }
 
-    /**
+	/**
      * Handles all commmands of this class, centralizes permission checks
      */
     function performCommand($cmd)
     {
+
+	    $this->showTree();
+
         switch ($cmd)
         {
-
             case "showSettingsSubtab":   // list all commands that need write permission here
             case "showQuestions":
             case "showSettingsSubtab":
@@ -120,7 +121,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl, $ilAccess;
         $this->setTemplateDescription();
-
+        
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
@@ -178,8 +179,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->addSubTab("export","Export",  $ilCtrl->getLinkTarget($this, "showExportSubtab"));
 
     }
-
-
 
     function showChapterSubtab()
     {
@@ -262,7 +261,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateTab("settings");
 
         $tpl->setContent("Settings");
-
 
     }
 
@@ -447,7 +445,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
-            $ilTabs->addTab("backToLearningModule", "<- Learning Module",
+            $ilTabs->addTab("backToLearningModule", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Learning Module",
                 $ilCtrl->getLinkTarget($this, "showChapterSubtab"));
         }
 
@@ -523,7 +521,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
-            $ilTabs->addTab("backToChapter", "<- Chapter",
+            $ilTabs->addTab("backToChapter", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Chapter",
                 $ilCtrl->getLinkTarget($this, "showChapter"));
         }
 
@@ -532,7 +530,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             $ilTabs->addTab("page", "Page",
                 $ilCtrl->getLinkTarget($this, "showEditSubtab"));
         }
-
     }
 
     function showEditSubtab()
@@ -664,5 +661,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     }
 
 
+    function showTree()
+    {
+	    // Navigational tree
+	    include_once ("class.ilObjMockTree.php");
+
+	    global $tpl;
+	    $this->ctrl = $ilCtrl;
+	    $this->tpl = $tpl;
+
+	    $ilExplorer = new ilObjMockTree($this);
+
+	    $tpl->setLeftNavContent($ilExplorer->getHTML());
+    }
 
 }
