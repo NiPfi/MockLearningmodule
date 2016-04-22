@@ -2,7 +2,6 @@
 
 include_once ("./Services/Repository/classes/class.ilObjectPluginGUI.php");
 
-
 /**
  * User Interface class for repository object.
  * ...
@@ -76,7 +75,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 break;
 
             // list all commands that need read permission here
-            //case "":
+            case "showUserView":
+            case "showUserInfoSubtab":
+            case "showContentSubtab":
+            case "showTableOfContentsSubtab":
+            case "showPrintViewSubtab":
+
 
                 $this->checkPermission("read");
                 $this->$cmd();
@@ -89,7 +93,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getAfterCreationCmd()
     {
-       return "showChapterSubtab";
+            return "showChapterSubtab";
     }
 
     /**
@@ -97,7 +101,12 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      */
     function getStandardCmd()
     {
-        return "showChapterSubtab";
+        global $ilAccess;
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            return "showChapterSubtab";
+        }
+        return "showContentSubtab";
     }
 
 //
@@ -179,6 +188,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_chapters.html",false,false);
         $my_tpl->setVariable("CHAP1_LINK",$ilCtrl->getLinkTarget($this, "showChapter"));
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
+
         $this->generateContentSubtabs();
         $ilTabs->activateSubTab("chapter");
         $tpl->setContent($my_tpl->get());
@@ -589,6 +599,68 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $this->generatePageSubtabs();
         $ilTabs->activateSubtab("activationSubtab");
         $tpl->setContent($my_tpl->get());
+    }
+
+
+    /*
+     * Userview
+     */
+
+    function generateUserViewSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
+        $ilTabs->addSubTab("contentSubtab","Content",  $ilCtrl->getLinkTarget($this, "showContentSubtab"));
+        $ilTabs->addSubTab("tableOfContentsSubtab","Table of Contents",  $ilCtrl->getLinkTarget($this, "showTableOfContentsSubtab"));
+        $ilTabs->addSubTab("printViewSubtab","Print View",  $ilCtrl->getLinkTarget($this, "showPrintViewSubtab"));
+        $ilTabs->addSubTab("userInfoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showUserInfoSubtab"));
+    }
+
+    function showUserView()
+    {
+        $this->showContentSubtab();
+    }
+
+    function hideNonUserInfo()
+    {
+        global $ilTabs, $tpl;
+        $ilTabs->clearTargets();
+        $tpl->setDescription($this->object->getDescription());
+    }
+
+    function showContentSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->hideNonUserInfo();
+        $this->generateUserViewSubtabs();
+        $ilTabs->activateSubtab("contentSubtab");
+        $tpl->setContent("Content");
+    }
+
+    function showTableOfContentsSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->hideNonUserInfo();
+        $this->generateUserViewSubtabs();
+        $ilTabs->activateSubtab("tableOfContentsSubtab");
+        $tpl->setContent("Table of Contents");
+    }
+
+    function showPrintViewSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->hideNonUserInfo();
+        $this->generateUserViewSubtabs();
+        $ilTabs->activateSubtab("printViewSubtab");
+        $tpl->setContent("Print View");
+    }
+
+    function showUserInfoSubtab()
+    {
+        global $tpl, $ilTabs;
+        $this->hideNonUserInfo();
+        $this->generateUserViewSubtabs();
+        $ilTabs->activateSubtab("infoSubtab");
+        $tpl->setContent("Info");
     }
 
 
