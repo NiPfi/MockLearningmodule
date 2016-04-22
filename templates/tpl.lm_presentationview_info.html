@@ -1,0 +1,289 @@
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+            <form name="formInfoScreen" method="post" action="">
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_1">
+                    <h3 class="ilHeader">Description</h3>
+
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenPropertyValue col-xs-offset-3 col-xs-9">This is only an example</div>
+                    </div>
+
+                </div>
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_2">
+                    <h3 class="ilHeader">General</h3>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Language</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            English
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_3">
+                    <h3 class="ilHeader">Tags</h3>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">My Tags</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="il_tags" value="">
+                                <span class="input-group-btn">
+	<input class="btn btn-default" type="submit" name="cmd[saveTags]" value="Save">
+	</span>
+                            </div>
+                            <div class="help-block il_Description">Comma Separated</div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_4">
+                    <h3 class="ilHeader">Additional Information</h3>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Permanent Link</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            <label for="current_perma_link">
+                                <a href="" onclick="with(document.getElementById('current_perma_link')){focus();select();} return false;" class="permalink_label"></a>
+                            </label>&nbsp;
+                            <input id="current_perma_link" type="text" value="http://localhost/ilias/goto.php?target=lm_75&amp;client_id=pseHS16" readonly="readonly" onclick="this.focus();this.select();return false;">
+
+                            <div class="btn-group">
+                                <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+                                <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_socialbm_actions">
+                                    <span></span> <span class="caret"></span>
+                                </button>
+
+
+                                <ul class="dropdown-menu pull-right" role="menu" id="ilAdvSelListTable_socialbm_actions">
+
+
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('ilias.php?cmd=redirect&amp;baseClass=ilPersonalDesktopGUI&amp;redirectClass=ilbookmarkadministrationgui&amp;redirectCmd=newFormBookmark&amp;param_bmf_id=1&amp;param_return_to=true&amp;param_bm_title=Learning%2BModule&amp;param_bm_link=http%253A%252F%252Flocalhost%252Filias%252Fgoto.php%253Ftarget%253Dlm_75%2526client_id%253DpseHS16&amp;param_return_to_url=%252Filias%252Filias.php%253Fref_id%253D75%2526obj_id%253D54%2526cmd%253DshowSummary%2526cmdClass%253Dilinfoscreengui%2526cmdNode%253Djp%253A7l%2526baseClass%253DilLMPresentationGUI','_top');">
+                                        <a id="socialbm_actions_" href="" target="_top"><span><img src="./templates/default/images/socialbookmarks/icon_bm_15x15.gif" alt="ILIAS Bookmarks"> ILIAS Bookmarks</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://del.icio.us/post?url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/delicious.gif" alt=""> Del.icio.us</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/digg.gif" alt=""> Digg</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.facebook.com/share.php?u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;t=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/facebook.png" alt=""> Facebook</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.folkd.com/submit/http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/folkd.gif" alt=""> Folkd</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.google.com/bookmarks/mark?op=add&amp;hl=de&amp;bkmk=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;annotation=&amp;labels=&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="http://www.google.com/bookmarks/mark?op=add&amp;hl=de&amp;bkmk=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;annotation=&amp;labels=&amp;title=Learning+Module" target="_blank"><span><img src="templates/default/images/socialbookmarks/google.gif" alt=""> Google</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://linkarena.com/bookmarks/addlink/?url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module&amp;desc=&amp;tags=','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/linkarena.gif" alt=""> Linkarena</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://favorites.live.com/quickadd.aspx?marklet=1&amp;mkt=en-us&amp;top=0&amp;url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/live.png" alt=""> Live</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.mister-wong.de/index.php?action=addurl&amp;bm_url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="http://www.mister-wong.de/index.php?action=addurl&amp;bm_url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module" target="_blank"><span><img src="templates/default/images/socialbookmarks/wong.jpg" alt=""> Mister Wong</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.myspace.com/index.cfm?fuseaction=postto&amp;u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;t=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="http://www.myspace.com/index.cfm?fuseaction=postto&amp;u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;t=Learning+Module" target="_blank"><span><img src="templates/default/images/socialbookmarks/myspace.gif" alt=""> MySpace</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.newsvine.com/_wine/save?popoff=1&amp;u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;tags=&amp;blurb=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/newsvine.gif" alt=""> Newsvine</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://reddit.com/submit?url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="http://reddit.com/submit?url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module" target="_blank"><span><img src="templates/default/images/socialbookmarks/reddit.gif" alt=""> Reddit</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.studivz.net/Link/Selection/Url/?u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;desc=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/studiVZ.gif" alt=""> studiVZ meinVZ schülerVZ</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://www.stumbleupon.com/submit?url=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16&amp;title=Learning+Module','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/stumbleupon.jpg" alt=""> StumbleUpon</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://myweb2.search.yahoo.com/myresults/bookmarklet?t=Learning+Module&amp;d=&amp;tag=&amp;u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16','_blank');">
+                                        <a id="socialbm_actions_" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?t=Learning+Module&amp;d=&amp;tag=&amp;u=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16" target="_blank"><span><img src="templates/default/images/socialbookmarks/yahoo.gif" alt=""> Yahoo</span></a>
+                                    </li>
+
+                                    <li onclick="return il.AdvancedSelectionList.openTarget('http://yigg.de/neu?exturl=http%3A%2F%2Flocalhost%2Filias%2Fgoto.php%3Ftarget%3Dlm_75%26client_id%3DpseHS16','_blank');">
+                                        <a id="socialbm_actions_" href="" target="_blank"><span><img src="templates/default/images/socialbookmarks/yigg.png" alt=""> Yigg</span></a>
+                                    </li>
+
+
+
+                                </ul>
+
+                            </div>
+                            <script type="text/javascript">
+                                il.AdvancedSelectionList.init['socialbm_actions'] = function () {
+                                    il.AdvancedSelectionList.add('socialbm_actions', {
+                                        "trigger_event": "click",
+                                        "auto_hide": false,
+                                        "anchor_id": "ilAdvSelListAnchorElement_socialbm_actions",
+                                        "asynch": false,
+                                        "asynch_url": false
+                                    });
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'ILIAS Bookmarks');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Del.icio.us');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Digg');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Facebook');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Folkd');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Google');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Linkarena');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Live');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Mister Wong');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'MySpace');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Newsvine');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Reddit');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'studiVZ meinVZ schülerVZ');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'StumbleUpon');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Yahoo');
+
+                                    il.AdvancedSelectionList.addItem('socialbm_actions', '', '', 'Yigg');
+
+
+                                }
+                                il.AdvancedSelectionList.init['socialbm_actions']();
+                            </script>
+                            &nbsp;
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Created on</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            15. Apr 2016, 16:11
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Owner</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            root
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_">
+                    <h3 class="ilHeader"></h3>
+
+
+                </div>
+
+
+
+            </form>
+
+
+
+            <br>
+            <a name="notes_top"></a>
+
+
+
+
+            <div class="ilNotesHeader">
+
+
+                <h3 class="ilHeader"></h3>
+            </div>
+            <div class="ilNotes" id="ilNotes">
+                <form id="ilNoteForm" action="ilias.php?ref_id=75&amp;note_type=2&amp;cmd=post&amp;cmdClass=ilnotegui&amp;cmdNode=jp:7l:1u&amp;baseClass=ilLMPresentationGUI&amp;fallbackCmd=getNotesHTML&amp;rtoken=8db37f0160568e6be5727606c89b0378#notes_top" name="cmd" method="post">
+                    <div class="il_ContainerItemCommands2" style="text-align:right;">
+
+
+
+
+
+                        <!-- <a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;note_type=2&amp;cmd=addNoteForm&amp;cmdClass=ilnotegui&amp;cmdNode=jp:7l:1u&amp;baseClass=ilLMPresentationGUI#note_edit">Add Comment</a> -->
+
+                    </div>
+
+
+                    <div class="small light">No comment has been posted yet.</div>
+
+                    <table class="fullwidth_invisible" width="100%" style="clear:both;">
+
+
+                        <tbody>
+                            <tr>
+                                <td valign="top" colspan="2">
+                                    <a name="note_edit"></a>
+                                    <div class="ilNoteInput">
+                                        <textarea class="form-control" id="note" wrap="virtual" name="note"></textarea>
+                                        <br>
+                                        <input class="btn btn-default" type="submit" value="Add Comment" name="cmd[addNote]">
+                                        <input type="hidden" value="" name="note_id">
+                                    </div>
+
+                                </td>
+                            </tr>
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+
+
+            <div class="il_ContainerItemCommands" style="margin:10px;">
+
+
+                <a class="il_ContainerItemCommand2" href="">Deactivate Public Comments</a>
+            </div>
+        </div>
+    </div>
+</div>

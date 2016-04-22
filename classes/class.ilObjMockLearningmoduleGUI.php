@@ -627,37 +627,45 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showContentSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_content.html",false,false);
+
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
         $ilTabs->activateSubtab("contentSubtab");
-        $tpl->setContent("Content");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showTableOfContentsSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
+
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
         $ilTabs->activateSubtab("tableOfContentsSubtab");
-        $tpl->setContent("Table of Contents");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showPrintViewSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
+
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
         $ilTabs->activateSubtab("printViewSubtab");
-        $tpl->setContent("Print View");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showUserInfoSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
+
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
         $ilTabs->activateSubtab("infoSubtab");
-        $tpl->setContent("Info");
+        $tpl->setContent($my_tpl->get());
     }
 
 
