@@ -153,10 +153,26 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     private function setTemplateDescription()
     {
-        global $tpl;
+        global $tpl, $ilCtrl;
         $desc = $this->object->getDescription();
         $desc .= "<br> <span style='color: #00aa00'>Status: online</span>";
+        $desc .= $this->userViewButton();
         $tpl->setDescription( $desc);
+    }
+
+
+    private function userViewButton()
+    {    global $ilCtrl;
+        return $button = "<a style='float: right;' href="
+        . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
+            . " class=\"btn btn-default\" role=\"button\">User View</a>";
+    }
+
+    private function editViewButton()
+    {    global $ilCtrl;
+        return $button = "<a style='float: right;' href="
+            . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
+            . " class=\"btn btn-default\" role=\"button\">Edit View</a>";
     }
 
 //
@@ -425,7 +441,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function generateSubchapterSubtabs()
     {
         global $ilTabs, $ilCtrl, $tpl;
-        $tpl->setDescription("");
+        $tpl->setDescription($this->userViewButton());
         $tpl->setTitle("Chapter 1");
         $ilTabs->activateTab("chapter");
         $ilTabs->addSubTab("subchapterSubtab","Subchapter and Pages",  $ilCtrl->getLinkTarget($this, "showSubchaptersSubtab"));
@@ -498,7 +514,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function generatePageSubtabs()
     {
         global $ilTabs, $ilCtrl, $tpl;
-        $tpl->setDescription("");
+        $tpl->setDescription($this->userViewButton());
         $tpl->setTitle("Page 1");
         $ilTabs->activateTab("page");
         $ilTabs->addSubTab("editSubtab","Edit",  $ilCtrl->getLinkTarget($this, "showEditSubtab"));
@@ -621,7 +637,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $tpl;
         $ilTabs->clearTargets();
-        $tpl->setDescription($this->object->getDescription());
+        $tpl->setDescription($this->object->getDescription() . $this->editViewButton());
     }
 
     function showContentSubtab()
