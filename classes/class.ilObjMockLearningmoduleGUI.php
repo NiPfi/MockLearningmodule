@@ -665,7 +665,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showPrintViewSubtab()
     {
         global $tpl, $ilTabs;
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_printView.html",false,false);
 
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
@@ -676,7 +676,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showUserInfoSubtab()
     {
         global $tpl, $ilTabs;
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_info.html",false,false);
 
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
