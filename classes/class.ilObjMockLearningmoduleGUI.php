@@ -33,7 +33,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function performCommand($cmd)
     {
 
-	    $this->showTree();
+	    $this->showTree($cmd);
 
         switch ($cmd)
         {
@@ -669,16 +669,16 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     }
 
 
-    function showTree()
+    function showTree($cmd)
     {
 	    // Navigational tree
 	    include_once ("class.ilObjMockTree.php");
 
-	    global $tpl;
+	    global $tpl, $ilCtrl;
 	    $this->ctrl = $ilCtrl;
 	    $this->tpl = $tpl;
 
-	    $ilExplorer = new ilObjMockTree($this);
+	    $ilExplorer = new ilObjMockTree($this, $cmd);
 
 	    $tpl->setLeftNavContent($ilExplorer->getHTML());
     }
