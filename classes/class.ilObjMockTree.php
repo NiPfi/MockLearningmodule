@@ -101,7 +101,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 	function isNodeHighlighted($a_node)
 	{
-		global $root;
+		global $root,$ilLocator, $ilCtrl;
 
 		switch ($this->parent_cmd)
 		{
@@ -143,6 +143,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showPreconditionsSubtab":
 				if ($this->getNodeId($a_node)== 1)
 				{
+					$ilLocator->addItem("Chapter",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter"));
 					return true;
 				}
 				break;
