@@ -394,7 +394,7 @@
             z-index: 0;
         }
     </style>
-    
+
     <!-- Modal Style fix -->
     <style>
         /* scroll fixes */
@@ -405,14 +405,14 @@
             overflow-y: scroll;
         }
     </style>
-    
+
     <!-- Modal functionality -->
     <script>
         var titleId = "";
-        var treeId ="";
+        var treeId = "";
 
         function init() {
-            
+
             //center modal
             var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
             var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
@@ -442,16 +442,29 @@
                     treeElements[0].innerHTML = tmpTitle;
                 };
                 titleId = "";
-                treeId ="";
+                treeId = "";
             };
         }
-        
+
         window.onload = init;
     </script>
 </head>
 
 
 <body>
+    <script>
+        function buttonResize() {
+            if ($(document).width() <= 767) {
+                if (document.getElementById('editModetxt') != null) {
+                    (document.getElementById('editModetxt')).style.display = "none";
+                } else if (document.getElementById('usersModetxt') != null) {
+                    (document.getElementById('usersModetxt')).style.display = "none";
+                };
+            };
+        }
+
+        window.addEventListener("load", buttonResize());
+    </script>
     <!-- Modal for title editing -->
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

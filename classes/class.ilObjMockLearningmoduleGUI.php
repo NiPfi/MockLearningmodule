@@ -165,14 +165,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {    global $ilCtrl;
         return $button = "<a style='float: right;' href="
         . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
-            . " class=\"btn btn-default\" role=\"button\">User View</a>";
+            . " class=\"btn btn-default\" role=\"button\">
+            <span class=\"glyphicon glyphicon-pencil\"></span>
+            <span id=\"editModetxt\" class=\"\"> Edit Mode</span></a>";
     }
 
     private function editViewButton()
     {    global $ilCtrl;
         return $button = "<a style='float: right;' href="
             . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
-            . " class=\"btn btn-default\" role=\"button\">Edit View</a>";
+            . " class=\"btn btn-default\" role=\"button\">
+            <span class=\"glyphicon glyphicon-eye-open\"></span>
+            <span id=\"usersModetxt\"> Users Mode</span></a>";
     }
 
 //
@@ -337,6 +341,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_info_info.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
 
         $this->generateInfoSubtabs();
         $ilTabs->activateSubtab("infoSubtab");
@@ -376,6 +381,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $tpl, $ilTabs;
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_settings.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("settingsSubtab");
 
@@ -431,6 +437,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $tpl, $ilTabs;
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_metadata.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("metadataSubtab");
         $tpl->setContent($my_tpl->get());

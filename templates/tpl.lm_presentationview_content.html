@@ -414,6 +414,20 @@
             z-index: 0;
         }
     </style>
+    
+    <script>
+        function buttonResize() {
+            if ($(document).width() <= 767) {
+                if (document.getElementById('editModetxt') != null) {
+                    (document.getElementById('editModetxt')).style.display = "none";
+                } else if (document.getElementById('usersModetxt') != null) {
+                    (document.getElementById('usersModetxt')).style.display = "none";
+                };
+            };
+        }
+
+        window.addEventListener("load", buttonResize());
+    </script>
 </head>
 
 <div id="ilLMPageContent" class="ilc_page_frame_PageFrame">
