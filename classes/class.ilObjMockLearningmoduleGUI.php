@@ -444,6 +444,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function generateSubchapterSubtabs()
     {
         global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setTitleIcon("./templates/default/images/icon_st.svg", "chapter");
         $tpl->setDescription($this->userViewButton());
         $tpl->setTitle("Chapter 1");
         $ilTabs->activateTab("chapter");
@@ -517,6 +518,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function generatePageSubtabs()
     {
         global $ilTabs, $ilCtrl, $tpl;
+        $tpl->setTitleIcon("./templates/default/images/icon_pg.svg", "page");
         $tpl->setDescription($this->userViewButton());
         $tpl->setTitle("Page 1");
         $ilTabs->activateTab("page");
