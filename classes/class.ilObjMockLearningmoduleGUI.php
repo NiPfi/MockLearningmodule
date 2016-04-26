@@ -31,7 +31,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      * Handles all commmands of this class, centralizes permission checks
      */
     function performCommand($cmd)
-    {
+    {   
+	    $this->showTree($cmd);
 
         switch ($cmd)
         {
@@ -119,7 +120,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $ilTabs, $ilCtrl, $ilAccess;
         $this->setTemplateDescription();
-	    $this->showTree($cmd);
         
         // tab for the "show content" command
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
