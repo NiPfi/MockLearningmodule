@@ -18,11 +18,11 @@ class ilObjMockTree extends ilExplorerBaseGUI
 		$this->ctrl = $ilCtrl;
 
 		parent::__construct(0, $a_parent_obj, $cmd);
-
+		
 		$builder = new Tree\Builder\NodeBuilder;
 
 		$builder
-			->value('MockLearningmodule')
+			->value($a_parent_obj->object->getTitle())
 			->tree('Chapter 1')
 				->leaf('Page 1')
 				->leaf('Page 2')
@@ -105,6 +105,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 		switch ($this->parent_cmd)
 		{
+			// Mark root highlighted
 			case "showChapterSubtab":
 			case "showAllPagesSubtab":
 			case "showWeblinkCheckSubtab":
@@ -119,11 +120,6 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showInfo":
 			case "showInfoSubtab":
 			case "showInfoHistorySubtab":
-			case "showUserView":
-			case "showUserInfoSubtab":
-			case "showContentSubtab":
-			case "showTableOfContentsSubtab":
-			case "showPrintViewSubtab":
 			case "showSettingsSubtab":
 			case "showQuestions":
 			case "showSettingsSubtab":
@@ -138,6 +134,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				}
 				break;
 
+			// Mark chapter 1 highlighted
 			case "showChapter":
 			case "showSubchapterMetadataSubtab":
 			case "showPreconditionsSubtab":
@@ -151,6 +148,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				}
 				break;
 
+			// Mark page 1 highlighted
 			case "showSubchapterSubtab":
 			case "showPageMetadataSubtab":
 			case "showPage":
@@ -159,7 +157,14 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showHistorySubtab":
 			case "showClipboardSubtab":
 			case "showActivationSubtab":
-				if ($this->getNodeId($a_node)== 2)
+			// User view tree
+			case "showUserView":
+			case "showUserInfoSubtab":
+			case "showContentSubtab":
+			case "showTableOfContentsSubtab":
+			case "showPrintViewSubtab":
+
+			if ($this->getNodeId($a_node)== 2)
 				{
 					global $ilLocator, $tpl, $ilCtrl;
 
