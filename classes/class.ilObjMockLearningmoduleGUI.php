@@ -157,7 +157,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilCtrl;
         $desc = $this->object->getDescription();
-        $desc .= "<br> <span style='color: #00aa00'>Status: online</span>";
+        $desc .= "<br> <span style='color: #6ea03c'>Status: online</span>";
         $desc .= $this->userViewButton();
         $tpl->setDescription( $desc);
     }
@@ -493,7 +493,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
-        $ilTabs->activateSubtab("chapterSubchapterSubtab");
+        $ilTabs->activateSubtab("chapterSubchaptersSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
