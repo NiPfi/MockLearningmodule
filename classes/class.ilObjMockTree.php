@@ -111,7 +111,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showWeblinkCheckSubtab":
 			case "showMediaSubtitlesSubtab":
 			case "showInternalLinksSubtab":
-			case "showSubchaptersSubtab":
+			case "showChapterSubchaptersSubtab":
 			case "showImportSubtab":
 			case "showExportSubtab":
 			case "showQuestions":
@@ -136,8 +136,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 			// Mark chapter 1 highlighted
 			case "showChapter":
-			case "showSubchapterMetadataSubtab":
-			case "showPreconditionsSubtab":
+			case "showChapterMetadataSubtab":
+			case "showChapterPreconditionsSubtab":
 				if ($this->getNodeId($a_node)== 1)
 				{
 					global $ilLocator, $tpl, $ilCtrl;
