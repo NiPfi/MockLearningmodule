@@ -31,8 +31,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      * Handles all commmands of this class, centralizes permission checks
      */
     function performCommand($cmd)
-    {
-
+    {   
 	    $this->showTree($cmd);
 
         switch ($cmd)
