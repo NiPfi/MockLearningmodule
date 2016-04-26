@@ -101,10 +101,11 @@ class ilObjMockTree extends ilExplorerBaseGUI
 
 	function isNodeHighlighted($a_node)
 	{
-		global $root;
+		global $root,$ilLocator, $ilCtrl;
 
 		switch ($this->parent_cmd)
 		{
+			// Mark root highlighted
 			case "showChapterSubtab":
 			case "showAllPagesSubtab":
 			case "showWeblinkCheckSubtab":
@@ -119,11 +120,6 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showInfo":
 			case "showInfoSubtab":
 			case "showInfoHistorySubtab":
-			case "showUserView":
-			case "showUserInfoSubtab":
-			case "showContentSubtab":
-			case "showTableOfContentsSubtab":
-			case "showPrintViewSubtab":
 			case "showSettingsSubtab":
 			case "showQuestions":
 			case "showSettingsSubtab":
@@ -138,15 +134,18 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				}
 				break;
 
+			// Mark chapter 1 highlighted
 			case "showChapter":
 			case "showSubchapterMetadataSubtab":
 			case "showPreconditionsSubtab":
 				if ($this->getNodeId($a_node)== 1)
 				{
+					$ilLocator->addItem("Chapter",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter"));
 					return true;
 				}
 				break;
 
+			// Mark page 1 highlighted
 			case "showSubchapterSubtab":
 			case "showPageMetadataSubtab":
 			case "showPage":
@@ -155,7 +154,14 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showHistorySubtab":
 			case "showClipboardSubtab":
 			case "showActivationSubtab":
-				if ($this->getNodeId($a_node)== 2)
+			// User view tree
+			case "showUserView":
+			case "showUserInfoSubtab":
+			case "showContentSubtab":
+			case "showTableOfContentsSubtab":
+			case "showPrintViewSubtab":
+
+			if ($this->getNodeId($a_node)== 2)
 				{
 					return true;
 				}
