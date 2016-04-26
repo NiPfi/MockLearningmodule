@@ -31,8 +31,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      * Handles all commmands of this class, centralizes permission checks
      */
     function performCommand($cmd)
-    {
-
+    {   
 	    $this->showTree($cmd);
 
         switch ($cmd)
@@ -165,14 +164,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {    global $ilCtrl;
         return $button = "<a style='float: right;' href="
         . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
-            . " class=\"btn btn-default\" role=\"button\">User View</a>";
+            . " class=\"btn btn-default\" role=\"button\">
+            <span class=\"glyphicon glyphicon-pencil\"></span>
+            <span id=\"editModetxt\" class=\"\"> Edit Mode</span></a>";
     }
 
     private function editViewButton()
     {    global $ilCtrl;
         return $button = "<a style='float: right;' href="
             . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
-            . " class=\"btn btn-default\" role=\"button\">Edit View</a>";
+            . " class=\"btn btn-default\" role=\"button\">
+            <span class=\"glyphicon glyphicon-eye-open\"></span>
+            <span id=\"usersModetxt\"> Users Mode</span></a>";
     }
 
 //
