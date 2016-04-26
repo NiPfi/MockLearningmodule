@@ -18,11 +18,11 @@ class ilObjMockTree extends ilExplorerBaseGUI
 		$this->ctrl = $ilCtrl;
 
 		parent::__construct(0, $a_parent_obj, $cmd);
-
+		
 		$builder = new Tree\Builder\NodeBuilder;
 
 		$builder
-			->value('MockLearningmodule')
+			->value($a_parent_obj->object->getTitle())
 			->tree('Chapter 1')
 				->leaf('Page 1')
 				->leaf('Page 2')
