@@ -208,7 +208,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
 
         $this->generateContentSubtabs();
-        $ilTabs->activateSubTab("chapter");
+        $ilTabs->activateSubTab("chapterSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
@@ -306,7 +306,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_questions_statistics.html",false,false);
 
         $this->generateQuestionsSubtabs();
-        $ilTabs->activateSubtab("stasticSubtab");
+        $ilTabs->activateSubtab("statisticSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
@@ -393,7 +393,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_style.html",false,false);
         $this->generateSettingSubtabs();
-        $ilTabs->activateSubtab("styletingsSubtab");
+        $ilTabs->activateSubtab("stlyeSubtab");
 
         $tpl->setContent($my_tpl->get());
     }
@@ -607,7 +607,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $this->generatePageTabs();
         $this->generatePageSubtabs();
-        $ilTabs->activateSubtab("clipboardSubtab");
+        $ilTabs->activateSubtab("ClipboardSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
@@ -688,7 +688,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $this->hideNonUserInfo();
         $this->generateUserViewSubtabs();
-        $ilTabs->activateSubtab("infoSubtab");
+        $ilTabs->activateSubtab("userInfoSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
