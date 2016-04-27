@@ -160,12 +160,14 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $desc .= "<br> <span style='color: #6ea03c'>Status: online</span>";
         $desc .= $this->userViewButton();
         $tpl->setDescription( $desc);
+        $tpl->addJavaScript(__DIR__ . "/../js/il.MockLearningModule.js");
+        $tpl->addOnLoadCode('il.MockLearningModule.init();');
     }
 
 
     private function userViewButton()
     {    global $ilCtrl;
-        return $button = "<a style='float: right;' href="
+        return $button = "<a style='margin-right: 5px; height: 26px;' id='switchMode' href="
         . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
             . " class=\"btn btn-default\" role=\"button\">
             <span class=\"glyphicon glyphicon-eye-open\"></span>
@@ -174,7 +176,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     private function editViewButton()
     {    global $ilCtrl;
-        return $button = "<a style='float: right;' href="
+        return $button = "<a style='margin-right: 5px; height: 26px;' id='switchMode' href="
             . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
             . " class=\"btn btn-default\" role=\"button\">
             <span class=\"glyphicon glyphicon-pencil\"></span>
@@ -199,6 +201,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->addSubTab("mediaSubtitles","Media Subtitles",  $ilCtrl->getLinkTarget($this, "showMediaSubtitlesSubtab"));
         $ilTabs->addSubTab("import","Import",  $ilCtrl->getLinkTarget($this, "showImportSubtab"));
         $ilTabs->addSubTab("export","Export",  $ilCtrl->getLinkTarget($this, "showExportSubtab"));
+        $this->addHeaderAction();
 
     }
 
@@ -302,6 +305,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateTab("questions");
         $ilTabs->addSubTab("statisticSubtab","Statistic",  $ilCtrl->getLinkTarget($this, "showStatisticSubtab"));
         $ilTabs->addSubTab("blockedUsersSubtab","Blocked Users",  $ilCtrl->getLinkTarget($this, "showBlockedUsersSubtab"));
+        $this->addHeaderAction();
     }
 
     function showStatisticSubtab()
@@ -338,6 +342,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->activateTab("info");
         $ilTabs->addSubTab("infoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showInfoSubtab"));
         $ilTabs->addSubTab("infoHistorySubtab","History",  $ilCtrl->getLinkTarget($this, "showInfoHistorySubtab"));
+        $this->addHeaderAction();
     }
 
     function showInfoSubtab()
@@ -376,6 +381,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->addSubTab("glossariesSubtab","Glossaries",  $ilCtrl->getLinkTarget($this, "showGlossariesSubtab"));
         $ilTabs->addSubTab("multilinguismSubtab","Multilinguism",  $ilCtrl->getLinkTarget($this, "showMultilinguismSubtab"));
         $ilTabs->addSubTab("metadataSubtab","Metadata",  $ilCtrl->getLinkTarget($this, "showMetadataSubtab"));
+        $this->addHeaderAction();
 
     }
 
@@ -710,6 +716,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $ilTabs->addSubTab("tableOfContentsSubtab","Table of Contents",  $ilCtrl->getLinkTarget($this, "showTableOfContentsSubtab"));
         $ilTabs->addSubTab("printViewSubtab","Print View",  $ilCtrl->getLinkTarget($this, "showPrintViewSubtab"));
         $ilTabs->addSubTab("userInfoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showUserInfoSubtab"));
+        $this->addHeaderAction();
     }
 
     function showUserView()
