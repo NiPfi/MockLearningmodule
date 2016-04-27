@@ -64,6 +64,28 @@
         }
 
         window.onload = init;
+
+        function changeChildBoxes(obj) {
+            var childs = obj.dataset.params.split(",");
+            if (obj.checked == false) {
+                for (i = 0; i < childs.length; i++) {
+                    document.getElementById(childs[i]).checked = false;
+                }
+            } else {
+                for (i = 0; i < childs.length; i++) {
+                    document.getElementById(childs[i]).checked = true;
+                }
+            }
+        }
+
+        function changeParentBoxes(obj) {
+            var parents = obj.dataset.parents.split(",");
+            if (obj.checked == false) {
+                for (i = 0; i < parents.length; i++) {
+                    document.getElementById(parents[i]).checked = false;
+                }
+            }
+        }
     </script>
 </head>
 
@@ -187,7 +209,7 @@
                                         </td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" value="54">
+                                            <input type="checkbox" name="id[]" id="inp1" value="54" onchange="changeChildBoxes(this);" data-params="inp2,inp3,inp4,inp5,inp6">
 
                                         </td>
                                         <td class="ilHFormIcon">
@@ -249,7 +271,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" name="id[]" value="55">
+                                                            <input type="checkbox" id="inp2" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
@@ -306,7 +328,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" name="id[]" value="60">
+                                                            <input type="checkbox" id="inp3" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
@@ -370,7 +392,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" name="id[]" value="61">
+                                                            <input type="checkbox" id="inp4" name="id[]" value="61" onchange="changeChildBoxes(this);changeParentBoxes(this);" data-params="inp5,inp6" data-parents="inp1">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
@@ -432,7 +454,7 @@
                                                                         </td>
                                                                         <td class="ilHFormCheckbox">
 
-                                                                            <input type="checkbox" name="id[]" value="55">
+                                                                            <input type="checkbox" id="inp5" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1,inp4">
 
                                                                         </td>
                                                                         <td class="ilHFormIcon">
@@ -489,7 +511,7 @@
                                                                         </td>
                                                                         <td class="ilHFormCheckbox">
 
-                                                                            <input type="checkbox" name="id[]" value="60">
+                                                                            <input type="checkbox" id="inp6" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1,inp4">
 
                                                                         </td>
                                                                         <td class="ilHFormIcon">
@@ -570,6 +592,8 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
+
+
                                             </table>
                                         </td>
                                     </tr>
@@ -607,7 +631,7 @@
                                         </td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" value="54">
+                                            <input type="checkbox" name="id[]" id="inp7" value="54" onchange="changeChildBoxes(this);" data-params="inp8">
 
                                         </td>
                                         <td class="ilHFormIcon">
@@ -669,7 +693,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" name="id[]" value="59">
+                                                            <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
