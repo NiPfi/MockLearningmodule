@@ -168,8 +168,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         return $button = "<a style='float: right;' href="
         . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
             . " class=\"btn btn-default\" role=\"button\">
-            <span class=\"glyphicon glyphicon-pencil\"></span>
-            <span id=\"editModetxt\" class=\"\"> Edit Mode</span></a>";
+            <span class=\"glyphicon glyphicon-eye-open\"></span>
+            <span id=\"editModetxt\" class=\"\"> User Mode</span></a>";
     }
 
     private function editViewButton()
@@ -177,8 +177,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         return $button = "<a style='float: right;' href="
             . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
             . " class=\"btn btn-default\" role=\"button\">
-            <span class=\"glyphicon glyphicon-eye-open\"></span>
-            <span id=\"usersModetxt\"> Users Mode</span></a>";
+            <span class=\"glyphicon glyphicon-pencil\"></span>
+            <span id=\"usersModetxt\"> Admin Mode</span></a>";
     }
 
 //
