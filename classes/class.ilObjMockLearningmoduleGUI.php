@@ -547,7 +547,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
         {
-            $ilTabs->addTab("backToChapter", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Chapter 1",
+            $ilTabs->addTab("backToChapter", "<span class=\"glyphicon glyphicon-chevron-left\"::before></span> Chapter",
                 $ilCtrl->getLinkTarget($this, "showChapter"));
         }
 
@@ -573,21 +573,23 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showSubchapterPreconditionsSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_preconditions.html",false,false);
 
         $this->generateSubchapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterPreconditionsSubtab");
-        $tpl->setContent("Precondition");
+        $tpl->setContent($my_tpl->get());
     }
 
     function showSubchapterMetadataSubtab()
     {
         global $tpl, $ilTabs;
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_metadata.html",false,false);
 
         $this->generateSubchapterTabs();
         $this->generateSubchapterSubtabs();
         $ilTabs->activateSubtab("subchapterMetadataSubtab");
-        $tpl->setContent("Metadata");
+        $tpl->setContent($my_tpl->get());
     }
 
     /*
