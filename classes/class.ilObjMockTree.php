@@ -169,10 +169,10 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				break;
 			// User view tree
 			case "showUserView":
-			case "showUserInfoSubtab":
-			case "showContentSubtab":
-			case "showTableOfContentsSubtab":
-			case "showPrintViewSubtab":
+			case "showUserInfoTab":
+			case "showContentTab":
+			case "showTableOfContentsTab":
+			case "showPrintViewTab":
 			if ($this->getNodeId($a_node)== 2)
 			{
 				global $ilLocator, $tpl, $ilCtrl;
@@ -212,10 +212,10 @@ class ilObjMockTree extends ilExplorerBaseGUI
 		switch ($this->parent_cmd)
 		{
 			case "showUserView":
-			case "showUserInfoSubtab":
-			case "showContentSubtab":
-			case "showTableOfContentsSubtab":
-			case "showPrintViewSubtab":
+			case "showUserInfoTab":
+			case "showContentTab":
+			case "showTableOfContentsTab":
+			case "showPrintViewTab":
 				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserView");
 			break;
 			default:
