@@ -510,8 +510,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showChapterPreconditionsSubtab()
     {
         global $tpl, $ilTabs;
-        $parentObjHandler = new parentObjectHandler();
-        $my_tpl = new ilTemplate($parentObjHandler->preconditionTemplateDir($this->chapterName),false,false);
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_preconditions.html",false,false);
 
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
