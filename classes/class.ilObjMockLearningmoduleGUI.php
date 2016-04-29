@@ -11,7 +11,7 @@ include_once("parentObjectHandler.php");
 class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 {
 
-    private $chapterName;
+    public $chapterName;
     /**
      * Initialisation
      */
@@ -497,8 +497,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showChapterSubchaptersSubtab()
     {
         global $tpl, $ilTabs, $ilCtrl;
-        $parentObjHandler = new parentObjectHandler();
-        $my_tpl = new ilTemplate($parentObjHandler->subchapterTemplateDir($this->chapterName),false,false);
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter"));
 

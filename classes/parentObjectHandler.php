@@ -42,7 +42,7 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
-                return __DIR__ ."/../templates/tpl.lm_chapter_preconditions.html";
+                return "/../templates/tpl.lm_chapter_preconditions.html";
         }
     }
 
