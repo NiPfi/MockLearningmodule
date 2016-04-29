@@ -452,6 +452,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $this->showChapterSubchaptersSubtab();
     }
 
+    function showChapter2() {
+        $_SESSION["chapter"] = "Chapter 2";
+        $this->showChapterSubchaptersSubtab();
+    }
+
     function  showSubchapter1() {
         $_SESSION["chapter"] = "Subchapter 1.1";
         $this->showChapterSubchaptersSubtab();
@@ -503,42 +508,34 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function showChapterSubchaptersSubtab()
     {
-        global $tpl, $ilTabs, $ilCtrl;
-        $parentObjHandler = new parentObjectHandler();
-        $my_tpl = new ilTemplate($parentObjHandler->subchapterTemplate($_SESSION["chapter"]),false,false);
-        $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
-        $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter"));
-
+        global $tpl, $ilTabs;
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
+        $parentObjHandler = new parentObjectHandler();
         $ilTabs->activateSubtab("chapterSubchaptersSubtab");
-        $tpl->setContent($my_tpl->get());
+        $tpl->setContent($parentObjHandler->subchapterTemplate($_SESSION["chapter"]));
     }
 
     function showChapterPreconditionsSubtab()
     {
         global $tpl, $ilTabs;
-        $parentObjHandler = new parentObjectHandler();
-        $my_tpl = new ilTemplate($parentObjHandler->preconditionTemplate($_SESSION["chapter"]),false,false);
-
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
         $ilTabs->activateSubtab("chapterPreconditionsSubtab");
-        $tpl->setContent($my_tpl->get());
+        $parentObjHandler = new parentObjectHandler();
+        $tpl->setContent($parentObjHandler->preconditionTemplate($_SESSION["chapter"]));
     }
 
     function showChapterMetadataSubtab()
     {
         global $tpl, $ilTabs;
-        $parentObjHandler = new parentObjectHandler();
-        $my_tpl = new ilTemplate($parentObjHandler->metadataTemplate($_SESSION["chapter"]),false,false);
-
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
         $ilTabs->activateSubtab("chapterMetadataSubtab");
-        $tpl->setContent($my_tpl->get());
+        $parentObjHandler = new parentObjectHandler();
+        $tpl->setContent($parentObjHandler->metadataTemplate($_SESSION["chapter"]));
     }
-    
+
     /*
      * Page Edit
      */

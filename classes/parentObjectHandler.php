@@ -14,6 +14,7 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
+            case "Chapter 2":
                 return "Learning Module";
 
             case "Subchapter 1.1":
@@ -27,6 +28,7 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
+            case "Chapter 2":
                 return "showChapterSubtab";
             case "Subchapter 1.1":
                 return "showChapter1";
@@ -35,13 +37,20 @@ class parentObjectHandler
 
     public function subchapterTemplate($name)
     {
+        global $ilCtrl;
         switch($name)
         {
             case "Chapter 1":
-                return __DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html";
+                $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
+                $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showPage"));
+                $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showSubchapter1"));
+                break;
             case "Subchapter 1.1":
-                return __DIR__ ."/../templates/tpl.lm_subchapter_subchaptersAndPages.html";
+                $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_subchaptersAndPages.html",false,false);
+                break;
         }
+
+        return $my_tpl->get();
     }
 
     public function  preconditionTemplate($name)
@@ -49,10 +58,14 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
-                return __DIR__ ."/../templates/tpl.lm_chapter_preconditions.html";
+                $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_preconditions.html",false,false);
+                break;
             case "Subchapter 1.1":
-                return __DIR__ ."/../templates/tpl.lm_subchapter_preconditions.html";
+                $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_preconditions.html",false,false);
+                break;
         }
+
+        return $my_tpl->get();
     }
 
     public  function metadataTemplate($name)
@@ -60,10 +73,14 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
-                return __DIR__ ."/../templates/tpl.lm_chapter_metadata.html";
+                $mytpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_metadata.html",false,false);
+                break;
             case "Subchapter 1.1":
-                return __DIR__ ."/../templates/tpl.lm_subchapter_metadata.html";
+                $mytpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_metadata.html",false,false);
+                break;
         }
+
+        return $mytpl->get();
     }
 
 
