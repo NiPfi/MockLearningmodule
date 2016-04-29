@@ -45,6 +45,8 @@ class parentObjectHandler
                 $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showPage"));
                 $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showSubchapter1"));
                 break;
+            case "Chapter 2":
+                $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter2_subchaptersAndPages.html",false,false);
             case "Subchapter 1.1":
                 $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_subchaptersAndPages.html",false,false);
                 break;
@@ -58,6 +60,7 @@ class parentObjectHandler
         switch($name)
         {
             case "Chapter 1":
+            case "Chapter 2":
                 $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_preconditions.html",false,false);
                 break;
             case "Subchapter 1.1":
@@ -74,6 +77,9 @@ class parentObjectHandler
         {
             case "Chapter 1":
                 $mytpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_metadata.html",false,false);
+                break;
+            case "Chapter 2":
+                $mytpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter2_metadata.html",false,false);
                 break;
             case "Subchapter 1.1":
                 $mytpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_metadata.html",false,false);

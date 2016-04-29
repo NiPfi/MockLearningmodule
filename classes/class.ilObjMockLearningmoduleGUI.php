@@ -70,6 +70,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showInfoSubtab":
             case "showInfoHistorySubtab":
             case "showChapter1":
+            case "showChapter2":
             case "showSubchapter1":
 
                 $this->checkPermission("write");
@@ -207,6 +208,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_content_chapters.html",false,false);
         $my_tpl->setVariable("CHAP1_LINK",$ilCtrl->getLinkTarget($this, "showChapter1"));
+        $my_tpl->setVariable("CHAP2_LINK",$ilCtrl->getLinkTarget($this, "showChapter2"));
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter1"));
 
