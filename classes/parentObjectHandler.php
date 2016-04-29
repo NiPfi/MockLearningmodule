@@ -16,6 +16,9 @@ class parentObjectHandler
             case "Chapter 1":
                 return "Learning Module";
 
+            case "Subchapter 1.1":
+                return "parent chapter";
+
         }
     }
 
@@ -23,27 +26,45 @@ class parentObjectHandler
 
         switch($name)
         {
-            case "Learning Module":
+            case "Chapter 1":
                 return "showChapterSubtab";
+            case "Subchapter 1.1":
+                return "showChapter1";
         }
     }
 
-    public function subchapterTemplateDir($name)
+    public function subchapterTemplate($name)
     {
         switch($name)
         {
             case "Chapter 1":
                 return __DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html";
+            case "Subchapter 1.1":
+                return __DIR__ ."/../templates/tpl.lm_subchapter_subchaptersAndPages.html";
         }
     }
 
-    public function  preconditionTemplateDir($name)
+    public function  preconditionTemplate($name)
     {
         switch($name)
         {
             case "Chapter 1":
-                return "/../templates/tpl.lm_chapter_preconditions.html";
+                return __DIR__ ."/../templates/tpl.lm_chapter_preconditions.html";
+            case "Subchapter 1.1":
+                return __DIR__ ."/../templates/tpl.lm_subchapter_preconditions.html";
         }
     }
+
+    public  function metadataTemplate($name)
+    {
+        switch($name)
+        {
+            case "Chapter 1":
+                return __DIR__ ."/../templates/tpl.lm_chapter_metadata.html";
+            case "Subchapter 1.1":
+                return __DIR__ ."/../templates/tpl.lm_subchapter_metadata.html";
+        }
+    }
+
 
 }
