@@ -16,9 +16,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      * Initialisation
      */
     protected function afterConstructor()
-    {
-        $parentObjHandler = new parentObjectHandler();
-    }
+    {}
     /**
      * Get type.
      */
@@ -455,7 +453,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $ilTabs, $ilCtrl, $tpl;
         $tpl->setTitleIcon("./templates/default/images/icon_st.svg", "chapter");
         $tpl->setDescription($this->userViewButton());
-        $tpl->setTitle($this->chapterName);
+        $chapter = $_SESSION["chapter"];
+        $tpl->setTitle($chapter);
         $ilTabs->activateTab("chapter");
         $ilTabs->addSubTab("chapterSubchaptersSubtab","Subchapter and Pages",  $ilCtrl->getLinkTarget($this, "showChapterSubchaptersSubtab"));
         $ilTabs->addSubTab("chapterPreconditionsSubtab","Preconditions",  $ilCtrl->getLinkTarget($this, "showChapterPreconditionsSubtab"));
@@ -468,7 +467,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     }
 
     function showChapter1() {
-        $this->chapterName = "Chapter 1";
+        $_SESSION["chapter"] = "Chapter 1";
         $this->showChapterSubchaptersSubtab();
     }
 
@@ -476,8 +475,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs, $ilCtrl, $ilAccess;
         $ilTabs->clearTargets();
+        $chapter =  $_SESSION["chapter"];
         $parentObjHandler = new parentObjectHandler();
-        $backObj = $parentObjHandler->parentName($this->chapterName);
+        $backObj = $parentObjHandler->parentName($chapter);
         $backCmd = $parentObjHandler->displayCommand($backObj);
 
         if ($ilAccess->checkAccess("read", "", $this->object->getRefId()))
@@ -497,7 +497,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showChapterSubchaptersSubtab()
     {
         global $tpl, $ilTabs, $ilCtrl;
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
+        $parentObjHandler = new parentObjectHandler();
+        $my_tpl = new ilTemplate($parentObjHandler->subchapterTemplateDir($_SESSION["chapter"]),false,false);
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
         $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter"));
 
@@ -510,7 +511,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showChapterPreconditionsSubtab()
     {
         global $tpl, $ilTabs;
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_preconditions.html",false,false);
+        $parentObjHandler = new parentObjectHandler();
+        $my_tpl = new ilTemplate($parentObjHandler->preconditionTemplateDir($_SESSION["chapter"]),false,false);
 
         $this->generateChapterTabs();
         $this->generateChapterSubtabs();
