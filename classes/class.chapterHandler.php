@@ -47,6 +47,7 @@ class chapterHandler
                 break;
             case "Chapter 2":
                 $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter2_subchaptersAndPages.html",false,false);
+                break;
             case "Subchapter 1.1":
                 $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_subchapter_subchaptersAndPages.html",false,false);
                 break;
