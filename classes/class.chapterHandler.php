@@ -42,7 +42,8 @@ class chapterHandler
         {
             case "Chapter 1":
                 $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_chapter_subchaptersAndPages.html",false,false);
-                $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showPage"));
+                $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showPage1"));
+                $my_tpl->setVariable("PAGE2_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showPage2"));
                 $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTargetByClass("ilObjMockLearningmoduleGUI", "showSubchapter1"));
                 break;
             case "Chapter 2":

@@ -121,8 +121,6 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showInfoSubtab":
 			case "showInfoHistorySubtab":
 			case "showSettingsSubtab":
-			case "showQuestions":
-			case "showSettingsSubtab":
 			case "showStyleSubtab":
 			case "showMenuSubtab":
 			case "showGlossariesSubtab":
@@ -134,35 +132,49 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				}
 				break;
 
-			// Mark chapter 1 highlighted
-			case "showChapter":
+			// Mark chapter 1 or 2 highlighted
+			case "showChapter1":
+			case "showChapter2":
+			case "showChapterEditSubtab":
 			case "showChapterMetadataSubtab":
 			case "showChapterPreconditionsSubtab":
-				if ($this->getNodeId($a_node)== 1)
+				if ($this->getNodeId($a_node)== 1 && $_SESSION["chapter"] == "Chapter 1")
 				{
 					global $ilLocator, $tpl, $ilCtrl;
 
-					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter"));
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
 					$tpl->setLocator();
 					return true;
 				}
+
+				if ($this->getNodeId($a_node)== 7 && $_SESSION["chapter"] == "Chapter 2")
+				{
+					global $ilLocator, $tpl, $ilCtrl;
+
+					$ilLocator->addItem("Chapter 2",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter2"));
+					$tpl->setLocator();
+					return true;
+				}
+
 				break;
+
+
 
 			// Mark page 1 highlighted
 			case "showSubchapterSubtab":
 			case "showPageMetadataSubtab":
-			case "showPage":
+			case "showPage1":
 			case "showEditSubtab":
 			case "showPreviewSubtab":
 			case "showHistorySubtab":
 			case "showClipboardSubtab":
 			case "showActivationSubtab":
-			if ($this->getNodeId($a_node)== 2)
+			if ($this->getNodeId($a_node)== 2 && $_SESSION["page"] == "Page 1")
 				{
 					global $ilLocator, $tpl, $ilCtrl;
 
-					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter"));
-					$ilLocator->addItem("Page 1",$ilCtrl->getLinkTarget($this->parent_obj, "showPage"));
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
+					$ilLocator->addItem("Page 1",$ilCtrl->getLinkTarget($this->parent_obj, "showPage1"));
 					$tpl->setLocator();
 					return true;
 				}
@@ -187,7 +199,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			break;
 			// Show Subchapter 1.1 highlighted
 
-			case "showSubchapter":
+			case "showSubchapter1":
 			case "showSubchapterMetadataSubtab":
 			case "showSubchapterPreconditionsSubtab":
 			case "showSubchapterSubchaptersSubtab":
@@ -195,8 +207,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				{
 					global $ilLocator, $tpl, $ilCtrl;
 
-					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter"));
-					$ilLocator->addItem("Subchapter 1.1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter"));
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
+					$ilLocator->addItem("Subchapter 1.1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
 					$tpl->setLocator();
 					return true;
 				}
@@ -220,12 +232,14 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			break;
 			default:
 				if ($a_node->isLeaf())
-					return $ilCtrl->getLinkTarget($this->parent_obj, "showPage");
+					return $ilCtrl->getLinkTarget($this->parent_obj, "showPage1");
 				elseif ($a_node->isChild())
 				{
 					if ($this->getNodeId($a_node)==4)
-						return $ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter");
-					return $ilCtrl->getLinkTarget($this->parent_obj, "showChapter");
+						return $ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1");
+					if ($this->getNodeId($a_node)==1)
+						return $ilCtrl->getLinkTarget($this->parent_obj, "showChapter1");
+					return $ilCtrl->getLinkTarget($this->parent_obj, "showChapter2");
 				}
 				else return $ilCtrl->getLinkTarget($this->parent_obj, "showChapterSubtab");
 		}
