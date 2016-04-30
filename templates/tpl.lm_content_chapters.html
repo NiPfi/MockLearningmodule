@@ -23,7 +23,6 @@
         }
     </style>
 
-    <!-- Modal functionality -->
     <script>
         var titleId = "";
         var treeId = "";
@@ -51,24 +50,27 @@
                     document.getElementById('newTitle').value = document.getElementById(titleId).innerHTML;
                     $("#myModal").modal("show");
                     document.getElementById('newTitle').focus();
+                    document.getElementById('saveModal').onclick = function () {
+                        saveTitle();
+                    }
                 };
             };
 
-            //Changes temporarly the Title by clicking save
-            document.getElementById('saveModal').onclick = function () {
-                var tmpTitle = (document.getElementById('newTitle')).value;
-                document.getElementById(titleId).innerHTML = tmpTitle;
-                var treeElements = document.getElementById(treeId).querySelectorAll(".ilExp2NodeContent");
-                if (treeElements != null) {
-                    treeElements[0].innerHTML = tmpTitle;
-                };
-                titleId = "";
-                treeId = "";
-            };
         }
 
         window.onload = init;
 
+        function saveTitle() {
+            var tmpTitle = (document.getElementById('newTitle')).value;
+            document.getElementById(titleId).innerHTML = tmpTitle;
+            var treeElements = document.getElementById(treeId).querySelectorAll(".ilExp2NodeContent");
+            if (treeElements != null) {
+                treeElements[0].innerHTML = tmpTitle;
+            };
+            titleId = "";
+            treeId = "";
+        }
+        
         function changeChildBoxes(obj) {
             var childs = obj.dataset.params.split(",");
             if (obj.checked == false) {
@@ -103,6 +105,7 @@
                     if(tree != null) {
                         tree.style.display = "none"; 
                     }
+                    checkedBoxes[i].checked = false;
                 }
             }
         }
