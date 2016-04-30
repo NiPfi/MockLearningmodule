@@ -79,10 +79,10 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
             // list all commands that need read permission here
             case "showUserView":
-            case "showUserInfoSubtab":
-            case "showContentSubtab":
-            case "showTableOfContentsSubtab":
-            case "showPrintViewSubtab":
+            case "showUserInfoTab":
+            case "showContentTab":
+            case "showTableOfContentsTab":
+            case "showPrintViewTab":
 
 
                 $this->checkPermission("read");
@@ -705,18 +705,18 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      * Userview
      */
 
-    function generateUserViewSubtabs()
+    function generateUserViewTabs()
     {
         global $ilTabs, $ilCtrl;
-        $ilTabs->addSubTab("contentSubtab","Content",  $ilCtrl->getLinkTarget($this, "showContentSubtab"));
-        $ilTabs->addSubTab("tableOfContentsSubtab","Table of Contents",  $ilCtrl->getLinkTarget($this, "showTableOfContentsSubtab"));
-        $ilTabs->addSubTab("printViewSubtab","Print View",  $ilCtrl->getLinkTarget($this, "showPrintViewSubtab"));
-        $ilTabs->addSubTab("userInfoSubtab","Info",  $ilCtrl->getLinkTarget($this, "showUserInfoSubtab"));
+        $ilTabs->addTab("contentTab","Content",  $ilCtrl->getLinkTarget($this, "showContentTab"));
+        $ilTabs->addTab("tableOfContentsTab","Table of Contents",  $ilCtrl->getLinkTarget($this, "showTableOfContentsTab"));
+        $ilTabs->addTab("printViewTab","Print View",  $ilCtrl->getLinkTarget($this, "showPrintViewTab"));
+        $ilTabs->addTab("userInfoTab","Info",  $ilCtrl->getLinkTarget($this, "showUserInfoTab"));
     }
 
     function showUserView()
     {
-        $this->showContentSubtab();
+        $this->showContentTab();
     }
 
     function hideNonUserInfo()
@@ -726,47 +726,47 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setDescription($this->object->getDescription() . $this->editViewButton());
     }
 
-    function showContentSubtab()
+    function showContentTab()
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_content.html",false,false);
 
         $this->hideNonUserInfo();
-        $this->generateUserViewSubtabs();
-        $ilTabs->activateSubtab("contentSubtab");
+        $this->generateUserViewTabs();
+        $ilTabs->activateTab("contentTab");
         $tpl->setContent($my_tpl->get());
     }
 
-    function showTableOfContentsSubtab()
+    function showTableOfContentsTab()
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_tableOfContents.html",false,false);
 
         $this->hideNonUserInfo();
-        $this->generateUserViewSubtabs();
-        $ilTabs->activateSubtab("tableOfContentsSubtab");
+        $this->generateUserViewTabs();
+        $ilTabs->activateTab("tableOfContentsTab");
         $tpl->setContent($my_tpl->get());
     }
 
-    function showPrintViewSubtab()
+    function showPrintViewTab()
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_printView.html",false,false);
 
         $this->hideNonUserInfo();
-        $this->generateUserViewSubtabs();
-        $ilTabs->activateSubtab("printViewSubtab");
+        $this->generateUserViewTabs();
+        $ilTabs->activateTab("printViewSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
-    function showUserInfoSubtab()
+    function showUserInfoTab()
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_info.html",false,false);
 
         $this->hideNonUserInfo();
-        $this->generateUserViewSubtabs();
-        $ilTabs->activateSubtab("userInfoSubtab");
+        $this->generateUserViewTabs();
+        $ilTabs->activateTab("userInfoSubtab");
         $tpl->setContent($my_tpl->get());
     }
 
