@@ -27,12 +27,12 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				->leaf('Page 1')
 				->leaf('Page 2')
 				->tree('Subchapter 1.1')
-					->leaf('Page 1')
-					->leaf('Page 2')
+					->leaf('Page 3')
+					->leaf('Page 4')
 					->end()
 				->end()
 			->tree('Chapter 2')
-				->leaf('Page 1')
+				->leaf('Page 5')
 				->end()
 		;
 		$root = $builder->getNode()->root();
