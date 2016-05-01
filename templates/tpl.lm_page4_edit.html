@@ -1,0 +1,382 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="./Services/COPage/css/syntaxhighlight.css">
+
+    <link rel="stylesheet" type="text/css" href="./Services/Calendar/css/panel_min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/UIComponent/Tooltip/lib/qtip_2_2_1/jquery.qtip.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/Accordion/css/accordion.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/Accordion/lib/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Modules/Scorm2004/templates/default/question_handling.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="Modules/TestQuestionPool/templates/default/test_javascript.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/COPage/css/content.css">
+
+    <script type="text/javascript" src="./Services/jQuery/js/maphilight_14_03_20/maphilight.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/COPage/js/ilCOPagePres.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/YUI/js/2_9_0/animation/animation-min.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="Services/Form/js/Form.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/UIComponent/AdvancedSelectionList/js/AdvancedSelectionList.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/YUI/js/2_9_0/dragdrop/dragdrop-min.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/YUI/js/2_9_0/element/element-min.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/YUI/js/2_9_0/container/container-min.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/COPage/js/ilcopagecallback.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="Services/COPage/js/page_editing.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/UIComponent/Modal/js/Modal.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="Services/COPage/tiny/4_2_4/tinymce.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/UIComponent/Tooltip/lib/qtip_2_2_1/jquery.qtip.min.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/UIComponent/Tooltip/js/ilTooltip.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/UIComponent/Explorer/js/ilExplorer.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/Link/js/ilIntLink.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/Accordion/lib/owl.carousel.2.0.0-beta.2.4/owl.carousel.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/pure.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/question_handling.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="Modules/TestQuestionPool/js/ilMatchingQuestion.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/COPage/js/ilCOPageQuestionHandler.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/Accordion/js/accordion.js?vers=5-1-2-2016-01-27"></script>
+
+    <!-- Modal Style fix -->
+    <style>
+        /* scroll fixes */
+        
+        .modal-open .modal {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            overflow-y: scroll;
+        }
+    </style>
+
+    <!-- Modal functionality -->
+    <script>
+        var areaId = "";
+        var nextId = "";
+
+        function init() {
+
+            //center modal
+            var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
+            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+            top = top > 0 ? top : 0;
+            $clone.remove();
+            $("#myModal").find('.modal-content').css("margin-top", top);
+
+            //Adds the correct handling for all "Delete" links with the correct Id
+            var x = document.getElementsByName("delete");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].onclick = function () {
+                    areaId = $(this).data('thisid');
+                    nextId = $(this).data('nextid');
+                    $("#myModal").modal("show");
+                };
+            };
+
+            //removes temporarly the content by clicking OK
+            document.getElementById('delete').onclick = function () {
+                var area = document.getElementById(areaId);
+                area.parentElement.removeChild(area);
+                var next = document.getElementById(nextId);
+                next.parentElement.removeChild(next);
+                areaId = "";
+                nextId = "";
+            };
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+
+    <!-- Modal for title editing -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+                </div>
+                <div class="modal-body">
+                    Do you really want to delete this item(s)?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="delete" type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ilTabsContentOuter">
+        <div class="clearfix"></div>
+
+        <span class="ilAccHidden"><a id="after_sub_tabs" name="after_sub_tabs"></a></span>
+
+
+
+        <div>
+
+
+        </div>
+
+        <div class="container-fluid" id="ilContentContainer">
+            <div class="row">
+
+                <div id="il_center_col" class="col-sm-12">
+
+
+
+
+                    <div id="ilPageEditLegend" style="margin-top: 0px;">
+                        <div>
+                            <div class="il_droparea"><span class="sr-only"></span><span class="glyphicon glyphicon-plus"></span></div>
+                            <span class="subtitle">Click on placeholders to add new elements.</span>
+                        </div>
+                        <div>
+                            <div class="ilPageEditLegendElement">&nbsp;</div>
+                            <span class="sr-only"></span><span class="glyphicon glyphicon-share-alt"></span>
+                            <div class="il_droparea"><span class="sr-only"></span><span class="glyphicon glyphicon-plus"></span></div>
+                            <span class="subtitle">Drag and drop content elements on placeholders to move elements.</span>
+                        </div>
+                        <div>
+                            <div class="ilPageEditLegendElement">&nbsp;</div>
+                            <span class="subtitle">Double-click on content elements to select them for (de-)activation or deletion.</span>
+                        </div>
+                    </div>
+
+                    <div class="small" style="margin-bottom: 5px; width: 100%; text-align: right; margin-top: 10px;"><span style="padding-right:20px;">
+<div class="btn-group">
+    <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_copage_act">
+        <span>Actions</span> <span class="caret"></span>
+                        </button>
+
+
+                        <ul class="dropdown-menu pull-right" role="menu" id="ilAdvSelListTable_copage_act">
+
+
+
+                            <li onclick="">
+                                <a id="copage_act_" href=""><span>Deactivate Page</span></a>
+                            </li>
+
+                            <li onclick="">
+                                <a id="copage_act_" href=""><span>Initial Extra Content</span></a>
+                            </li>
+
+
+
+                        </ul>
+
+                    </div>
+                    <script type="text/javascript">
+                        il.AdvancedSelectionList.init['copage_act'] = function () {
+                            il.AdvancedSelectionList.add('copage_act', {
+                                "trigger_event": "click",
+                                "auto_hide": false,
+                                "anchor_id": "ilAdvSelListAnchorElement_copage_act",
+                                "asynch": false,
+                                "asynch_url": false
+                            });
+
+                            il.AdvancedSelectionList.addItem('copage_act', '', '', 'Deactivate Page');
+
+                            il.AdvancedSelectionList.addItem('copage_act', '', '', 'Initial Extra Content');
+
+
+                        }
+                        il.AdvancedSelectionList.init['copage_act']();
+                    </script>
+                    </span>
+                    <div class="btn-group">
+                        <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_copage_ed_mode">
+                            <span>Edit Mode</span> <span class="caret"></span>
+                        </button>
+
+
+                        <ul class="dropdown-menu pull-right" role="menu" id="ilAdvSelListTable_copage_ed_mode">
+
+
+
+                            <li onclick="">
+                                <a id="copage_ed_mode_" href=""><span>Deactivate Media</span></a>
+                            </li>
+
+                            <li onclick="">
+                                <a id="copage_ed_mode_" href=""><span>Deactivate HTML Rendering</span></a>
+                            </li>
+
+                            <li onclick="">
+                                <a id="copage_ed_mode_" href=""><span>Activate Form Mode</span></a>
+                            </li>
+
+
+
+                        </ul>
+
+                    </div>
+                    <script type="text/javascript">
+                        il.AdvancedSelectionList.init['copage_ed_mode'] = function () {
+                            il.AdvancedSelectionList.add('copage_ed_mode', {
+                                "trigger_event": "click",
+                                "auto_hide": false,
+                                "anchor_id": "ilAdvSelListAnchorElement_copage_ed_mode",
+                                "asynch": false,
+                                "asynch_url": false
+                            });
+
+                            il.AdvancedSelectionList.addItem('copage_ed_mode', '', '', 'Deactivate Media');
+
+                            il.AdvancedSelectionList.addItem('copage_ed_mode', '', '', 'Deactivate HTML Rendering');
+
+                            il.AdvancedSelectionList.addItem('copage_ed_mode', '', '', 'Activate Form Mode');
+
+
+                        }
+                        il.AdvancedSelectionList.init['copage_ed_mode']();
+                    </script>
+                </div>
+                <div id="il_EditPage">
+                    <form action="" name="objectItems" method="post">
+                        <div class="ilc_page_cont_PageContainer" id="ilEditorTD">
+                            <div class="ilc_page_Page">
+                                <h1 class="ilc_page_title_PageTitle">Subchapter 1.1 (2/2)</h1>
+                                <div class="il_droparea" id="TARGETpg:" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + 'pg' + ':' + '', null, null);"><span class="glyphicon glyphicon-plus"><!--Dummy--></span></div>
+                                <div class="ilOverlay il_editmenu ilNoDisplay" id="dropareamenu_pg">
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Text</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Image/Media</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Question</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert File List</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Data Table</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced Table</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced List</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Section</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Accordion</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Interactive Image</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
+                                </div>
+                                <div>
+                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Code');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Code');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Code');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT1:fa2c670f22e89a3263b7db346d3c93ab">
+                                        <div class="ilEditLabel" style="display: none;" id="TCONTENT1:fa2c670f22e89a3263b7db346d3c93ab">Code
+                                            <!--Dummy-->
+                                        </div>
+                                        <a name="jump1">
+                                            <!--Break-->
+                                        </a>
+                                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
+                                            <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                    <tr valign="top">
+                                                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span><br><span class="ilc_LineNumber">11</span><br><span class="ilc_LineNumber">12</span><br><span class="ilc_LineNumber">13</span></pre></td>
+                                                        <td class="ilc_Sourcecode"><pre class="ilc_Code"><a href="http://www.php.net/function">function</a> generateContentSubtabs()<br>{<br>        <span class="ilc_CodeCategory_1">global</span> $ilTabs, $ilCtrl;<br>        $ilTabs-&gt;activateTab("<span class="ilc_CodeQuote">content</span>");<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">chapterSubtab</span>","<span class="ilc_CodeQuote">Chapter</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showChapterSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">allPages</span>","<span class="ilc_CodeQuote">All Pages</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showAllPagesSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">internalLinks</span>","<span class="ilc_CodeQuote">Internal Links</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showInternalLinksSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">weblinkCheck</span>","<span class="ilc_CodeQuote">Weblink Check</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showWeblinkCheckSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">mediaSubtitles</span>","<span class="ilc_CodeQuote">Media Subtitles</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showMediaSubtitlesSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">import</span>","<span class="ilc_CodeQuote">Import</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showImportSubtab</span>"));<br>        $ilTabs-&gt;addSubTab("<span class="ilc_CodeQuote">export</span>","<span class="ilc_CodeQuote">Export</span>",  $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showExportSubtab</span>"));<br> <br>}</pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div><a href="">Download</a></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <br>
+                                        <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_1">
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Delete</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
+                                        </div>
+                                    </div>
+                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '1' + ':' + 'fa2c670f22e89a3263b7db346d3c93ab', null, null);" id="TARGET1:fa2c670f22e89a3263b7db346d3c93ab"><span class="glyphicon glyphicon-plus"></span></div>
+                                    <div class="ilOverlay il_editmenu ilNoDisplay" id="dropareamenu_1">
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Text</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Image/Media</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Question</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert File List</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Data Table</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced Table</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced List</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Section</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Accordion</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Interactive Image</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Code');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Code');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Code');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT2:dc4d17bc2311d61ef7aa734db542f40f">
+                                        <div class="ilEditLabel" style="display:none;" id="TCONTENT2:dc4d17bc2311d61ef7aa734db542f40f">Code
+                                            <!--Dummy-->
+                                        </div>
+                                        <a name="jump2">
+                                            <!--Break-->
+                                        </a>
+                                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
+                                            <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                    <tr valign="top">
+                                                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span></pre></td>
+                                                        <td class="ilc_Sourcecode"><pre class="ilc_Code">private <a href="http://www.php.net/function">function</a> userViewButton()<br>{    <span class="ilc_CodeCategory_1">global</span> $ilCtrl;<br>        <span class="ilc_CodeCategory_1">return</span> $button = "<span class="ilc_CodeQuote">&lt;a style='float: right;' href=</span>"<br>        . $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showUserView</span>") . "<span class="ilc_CodeQuote">\"</span>"<br>        . "<span class="ilc_CodeQuote"> class=\"btn btn-default\" role=\"button\"&gt;<br>        &lt;span class=\"glyphicon glyphicon-eye-open\"&gt;&lt;/span&gt;<br>        &lt;span id=\"editModetxt\" class=\"\"&gt; User Mode&lt;/span&gt;&lt;/a&gt;</span>";<br>}</pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div><a href="">Download</a></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <br>
+                                        <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_2">
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Delete</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to New Page</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to Next Page</a>
+                                        </div>
+                                    </div>
+                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '2' + ':' + 'dc4d17bc2311d61ef7aa734db542f40f', null, null);" id="TARGET2:dc4d17bc2311d61ef7aa734db542f40f"><span class="glyphicon glyphicon-plus"></span></div>
+                                    <div class="ilOverlay il_editmenu ilNoDisplay" id="dropareamenu_2">
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Text</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Image/Media</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Question</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert File List</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Data Table</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced Table</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Advanced List</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Section</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Accordion</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Interactive Image</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a>
+                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
+                                    </div>
+                                </div>
+                                <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
+                                    <!--Break-->
+                                </div>
+                            </div>
+                        </div>
+                        <table class="fullwidth" id="ilPageEditActionBar">
+
+                            <tbody>
+                                <tr>
+                                    <td class="submit">
+                                        <img border="0" src="./templates/default/images/arrow_downright.svg" style="vertical-align:middle;">
+                                        <input class="btn btn-default" onclick="" type="submit" value="Delete" name="cmd[deleteSelected]">
+                                        <input class="btn btn-default" onclick="" type="submit" value="Copy" name="cmd[copySelected]">
+                                        <input class="btn btn-default" onclick="" type="submit" value="Cut" name="cmd[cutSelected]">
+                                        <input class="btn btn-default" onclick="" type="submit" value="(De-)Activate Elements" name="cmd[activateSelected]">
+                                        <input class="btn btn-default" onclick="" type="submit" value="Assign Characteristic" name="cmd[assignCharacteristicForm]">
+                                        <input class="btn btn-default" onclick="" type="submit" value="Select All">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
