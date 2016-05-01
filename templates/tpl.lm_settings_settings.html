@@ -1,3 +1,14 @@
+<script>
+    function init() {
+        var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+        if (btn_group.length != null) {
+            $('#switchMode').prependTo(btn_group[0]);
+        }
+    }
+    
+    window.onload = init();
+</script>
+
 <div class="container-fluid" id="ilContentContainer">
     <div class="row">
 

@@ -56,6 +56,11 @@
                 };
             };
 
+        var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+        if (btn_group.length != null) {
+            $('#switchMode').prependTo(btn_group[0]);
+        }
+   
         }
 
         window.onload = init;
