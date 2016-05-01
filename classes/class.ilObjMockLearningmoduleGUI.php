@@ -215,6 +215,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $my_tpl->setVariable("CHAP1_LINK",$ilCtrl->getLinkTarget($this, "showChapter1"));
         $my_tpl->setVariable("CHAP2_LINK",$ilCtrl->getLinkTarget($this, "showChapter2"));
         $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage1"));
+        $my_tpl->setVariable("PAGE2_LINK", $ilCtrl->getLinkTarget($this, "showPage2"));
+        $my_tpl->setVariable("PAGE3_LINK", $ilCtrl->getLinkTarget($this, "showPage3"));
+        $my_tpl->setVariable("PAGE4_LINK", $ilCtrl->getLinkTarget($this, "showPage4"));
+        $my_tpl->setVariable("PAGE5_LINK", $ilCtrl->getLinkTarget($this, "showPage5"));
+
         $my_tpl->setVariable("SUBCHAP1_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter1"));
 
         $this->generateContentSubtabs();
