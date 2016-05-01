@@ -71,13 +71,31 @@
             document.getElementById('delete').onclick = function () {
                 elementDelete();
             };
+
+            var div_tag = document.createElement('div');
+            div_tag.className = 'ilHeadAction';
+            div_tag.id = 'il_head_action';
+            var inner_div = document.createElement('div');
+            inner_div.id = 'tttt';
+            inner_div.style = 'white-space: nowrap;';
+            var btn_group_div = document.createElement('div');
+            btn_group_div.className = 'btn-group';
+            $('#switchMode').prependTo(btn_group_div);
+            inner_div.appendChild(btn_group_div);
+            div_tag.appendChild(inner_div);
+            var header = document.getElementsByClassName('media il_HeaderInner');
+            if (header.length != null) {
+                header[0].appendChild(div_tag);
+                $('#il_head_action').prependTo(header[0]);
+            };
+
         }
 
         window.onload = init;
 
         function formDelete() {
             var area = document.getElementsByClassName('il_editarea_selected');
-            for(j = 0; j < area.length; j++) {
+            for (j = 0; j < area.length; j++) {
                 var selected = area[j].querySelectorAll("a[name=delete]");
                 for (i = 0; i < selected.length; i++) {
                     areaId = selected[0].dataset.thisid;
@@ -266,8 +284,8 @@
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Section</a>
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Accordion</a>
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Interactive Image</a>
-                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a><
-                                    a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
+                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a>
+                                    < a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
                                 </div>
                                 <div>
                                     <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Code');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Code');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Code');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT1:5ddced945ac0b58fc837581563e91942">
@@ -295,7 +313,7 @@
                                         <br>
                                         <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_1">
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick=""  data-thisid="CONTENT1:5ddced945ac0b58fc837581563e91942" data-nextid="TARGET1:5ddced945ac0b58fc837581563e91942" name="delete">Delete</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT1:5ddced945ac0b58fc837581563e91942" data-nextid="TARGET1:5ddced945ac0b58fc837581563e91942" name="delete">Delete</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>

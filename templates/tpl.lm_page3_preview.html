@@ -13,6 +13,29 @@
     <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/question_handling.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="Modules/TestQuestionPool/js/ilMatchingQuestion.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="./Services/Accordion/js/accordion.js?vers=5-1-2-2016-01-27"></script>
+
+    <script>
+        function init() {
+            var div_tag = document.createElement('div');
+            div_tag.className = 'ilHeadAction';
+            div_tag.id = 'il_head_action';
+            var inner_div = document.createElement('div');
+            inner_div.id = 'tttt';
+            inner_div.style = 'white-space: nowrap;';
+            var btn_group_div = document.createElement('div');
+            btn_group_div.className = 'btn-group';
+            $('#switchMode').prependTo(btn_group_div);
+            inner_div.appendChild(btn_group_div);
+            div_tag.appendChild(inner_div);
+            var header = document.getElementsByClassName('media il_HeaderInner');
+            if (header.length != null) {
+                header[0].appendChild(div_tag);
+                $('#il_head_action').prependTo(header[0]);
+            };
+        }
+
+        window.onload = init();
+    </script>
 </head>
 
 <body>

@@ -1,4 +1,3 @@
-
 <head>
     <link rel="stylesheet" type="text/css" href="./Services/COPage/css/syntaxhighlight.css">
     <link rel="stylesheet" type="text/css" href="./Services/Accordion/css/accordion.css" media="screen">
@@ -14,6 +13,29 @@
     <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/question_handling.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="Modules/TestQuestionPool/js/ilMatchingQuestion.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="./Services/Accordion/js/accordion.js?vers=5-1-2-2016-01-27"></script>
+
+    <script>
+        function init() {
+            var div_tag = document.createElement('div');
+            div_tag.className = 'ilHeadAction';
+            div_tag.id = 'il_head_action';
+            var inner_div = document.createElement('div');
+            inner_div.id = 'tttt';
+            inner_div.style = 'white-space: nowrap;';
+            var btn_group_div = document.createElement('div');
+            btn_group_div.className = 'btn-group';
+            $('#switchMode').prependTo(btn_group_div);
+            inner_div.appendChild(btn_group_div);
+            div_tag.appendChild(inner_div);
+            var header = document.getElementsByClassName('media il_HeaderInner');
+            if (header.length != null) {
+                header[0].appendChild(div_tag);
+                $('#il_head_action').prependTo(header[0]);
+            };
+        }
+
+        window.onload = init();
+    </script>
 </head>
 
 <body>
@@ -80,7 +102,7 @@
                         <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
                             <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
                                 <tbody>
-                                   <tr valign="top">
+                                    <tr valign="top">
                                         <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span></pre></td>
                                         <td class="ilc_Sourcecode"><pre class="ilc_Code">&lt;!DOCTYPE html&gt;<br>&lt;html lang="<span class="ilc_CodeQuote">en</span>"&gt;<br>&lt;head&gt;<br>&lt;meta charset="<span class="ilc_CodeQuote">UTF-8</span>"&gt;<br>&lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br> <br>&lt;/body&gt;<br>&lt;/html&gt;</pre></td>
                                     </tr>
@@ -88,21 +110,41 @@
                             </table>
                         </div>
 
-                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_question_Standard">	 <form onsubmit="return false;">
-                            <h4><u>Historical question</u></h4>
-                            <div id="container16" class="ilc_question_OrderingQuestion">
-                                <div class="ilc_qtitle_Title question id" id="16">Sort the list historical</div>
-                                <div style="margin-bottom:10px">
-                                    <ul id="order16" class="ilc_qordul_OrderListHorizontal ui-sortable" style="font-size: 100%;">
-                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="6"><div class="ilc_qanswer_Answer answertext">Lenin</div></li><li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="1"><div class="ilc_qanswer_Answer answertext">Nero</div></li><li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="4"><div class="ilc_qanswer_Answer answertext">Karl der Grosse</div></li><li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="2"><div class="ilc_qanswer_Answer answertext">Sokrates</div></li><li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="3"><div class="ilc_qanswer_Answer answertext">Napoleon</div></li><li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="5"><div class="ilc_qanswer_Answer answertext">Louis XIV</div></li>
-                                    </ul>
-                                    <div style="clear:both;"></div>
+                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_question_Standard">
+                            <form onsubmit="return false;">
+                                <h4><u>Historical question</u></h4>
+                                <div id="container16" class="ilc_question_OrderingQuestion">
+                                    <div class="ilc_qtitle_Title question id" id="16">Sort the list historical</div>
+                                    <div style="margin-bottom:10px">
+                                        <ul id="order16" class="ilc_qordul_OrderListHorizontal ui-sortable" style="font-size: 100%;">
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="6">
+                                                <div class="ilc_qanswer_Answer answertext">Lenin</div>
+                                            </li>
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="1">
+                                                <div class="ilc_qanswer_Answer answertext">Nero</div>
+                                            </li>
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="4">
+                                                <div class="ilc_qanswer_Answer answertext">Karl der Grosse</div>
+                                            </li>
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="2">
+                                                <div class="ilc_qanswer_Answer answertext">Sokrates</div>
+                                            </li>
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="3">
+                                                <div class="ilc_qanswer_Answer answertext">Napoleon</div>
+                                            </li>
+                                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="5">
+                                                <div class="ilc_qanswer_Answer answertext">Louis XIV</div>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                    <div id="feedback16" style="display:none"></div>
+                                    <input type="button" class="ilc_qsubmit_Submit" id="button16" onclick="ilias.questions.checkAnswers(16)" value="Submit">
                                 </div>
-                                <div id="feedback16" style="display:none"></div>
-                                <input type="button" class="ilc_qsubmit_Submit" id="button16" onclick="ilias.questions.checkAnswers(16)" value="Submit">
-                            </div>
 
-                        </form>	</div>
+                            </form>
+                        </div>
                         <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
                             <!--Break-->
                         </div>

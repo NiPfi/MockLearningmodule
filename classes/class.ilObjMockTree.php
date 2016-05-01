@@ -207,7 +207,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				if ($this->getNodeId($a_node)== 5)
 				{
 					global $ilLocator, $tpl, $ilCtrl;
-
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
 					$ilLocator->addItem("Subchapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
 					$ilLocator->addItem("Page 3",$ilCtrl->getLinkTarget($this->parent_obj, "showPage3"));
 					$tpl->setLocator();
@@ -218,7 +218,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				if ($this->getNodeId($a_node)== 6)
 				{
 					global $ilLocator, $tpl, $ilCtrl;
-
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
 					$ilLocator->addItem("Subchapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
 					$ilLocator->addItem("Page 4",$ilCtrl->getLinkTarget($this->parent_obj, "showPage4"));
 					$tpl->setLocator();
@@ -267,7 +267,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			if ($this->getNodeId($a_node)== 5 && $_SESSION["page"] == "Page 3")
 			{
 				global $ilLocator, $tpl, $ilCtrl;
-
+				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
 				$ilLocator->addItem("Subchapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
 				$ilLocator->addItem("Page 3",$ilCtrl->getLinkTarget($this->parent_obj, "showPage3"));
 				$tpl->setLocator();
@@ -277,7 +277,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			if ($this->getNodeId($a_node)== 6 && $_SESSION["page"] == "Page 4")
 			{
 				global $ilLocator, $tpl, $ilCtrl;
-
+				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
 				$ilLocator->addItem("Subchapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
 				$ilLocator->addItem("Page 4",$ilCtrl->getLinkTarget($this->parent_obj, "showPage4"));
 				$tpl->setLocator();

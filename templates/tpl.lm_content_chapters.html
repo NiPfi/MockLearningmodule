@@ -46,7 +46,7 @@
                     document.getElementById('myModalLabel').innerHTML = "Edit Title";
                     document.getElementById('newTitle').style.display = "block";
                     document.getElementById('saveModal').innerHTML = "Save Changes";
-                    document.getElementById('modalParagraph').style.display ="none";
+                    document.getElementById('modalParagraph').style.display = "none";
                     document.getElementById('newTitle').value = document.getElementById(titleId).innerHTML;
                     $("#myModal").modal("show");
                     document.getElementById('newTitle').focus();
@@ -56,9 +56,49 @@
                 };
             };
 
+            var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+            if (btn_group.length != null) {
+                $('#switchMode').prependTo(btn_group[0]);
+            }
+
+            //Switch Online/Offline status
+            var actionList = document.getElementById('ilAdvSelListTable_act_77_pref_77');
+            var onlineElement = document.createElement('li');
+            var innerElement = document.createElement('span');
+            var linkElement = document.createElement('a');
+
+            innerElement.className = "xsmall";
+            innerElement.innerHTML = "Set Online";
+            innerElement.id = "innerElement";
+            linkElement.id = "act_77_pref_77_";
+            linkElement.href = "#";
+            linkElement.target = "_top";
+            onlineElement.id = "onlineElement";
+            var statusDesc = document.getElementById('statusDesc');
+            onlineElement.onclick = function () {
+                changeOnlineStatus();
+            }
+            linkElement.appendChild(innerElement);
+            onlineElement.appendChild(linkElement);
+            actionList.appendChild(onlineElement);
+
         }
 
         window.onload = init;
+
+        function changeOnlineStatus(){
+            var statusDesc = document.getElementById('statusDesc');
+            var innerElement = document.getElementById('innerElement');
+            if (innerElement.innerHTML == "Set Online") {
+                    statusDesc.style.color = "#6ea03c";
+                    statusDesc.innerHTML = "Status: Online";
+                    innerElement.innerHTML = "Set Offline";
+                } else if (innerElement.innerHTML == "Set Offline") {
+                    statusDesc.style.color = "#fa8228";
+                    statusDesc.innerHTML = "Status: Offline";
+                    innerElement.innerHTML = "Set Online";
+                }
+        }
 
         function saveTitle() {
             var tmpTitle = (document.getElementById('newTitle')).value;
@@ -70,7 +110,7 @@
             titleId = "";
             treeId = "";
         }
-        
+
         function changeChildBoxes(obj) {
             var childs = obj.dataset.params.split(",");
             if (obj.checked == false) {
@@ -102,23 +142,23 @@
                         rows[j].style.display = "none";
                     }
                     var tree = document.getElementById(checkedBoxes[i].dataset.tree);
-                    if(tree != null) {
-                        tree.style.display = "none"; 
+                    if (tree != null) {
+                        tree.style.display = "none";
                     }
                     checkedBoxes[i].checked = false;
                 }
             }
         }
-        
+
         function deleteContentModal() {
             var checkedBoxes = document.querySelectorAll('input[id*="inp"]:checked');
             if (checkedBoxes.length != 0) {
-                document.getElementById('modalParagraph').style.display ="block";
+                document.getElementById('modalParagraph').style.display = "block";
                 document.getElementById('myModalLabel').innerHTML = "Delete Item(s)";
                 document.getElementById('modalParagraph').innerHTML = "Are you sure that you want to delete the following item(s)?";
                 document.getElementById('saveModal').innerHTML = "Confirm";
                 document.getElementById('newTitle').style.display = "none";
-                document.getElementById('saveModal').onclick = function() {
+                document.getElementById('saveModal').onclick = function () {
                     deleteCheckedContent();
                 }
                 $("#myModal").modal("show");
@@ -369,7 +409,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" id="inp3" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row4"  data-tree="exp_node_0_3">
+                                                            <input type="checkbox" id="inp3" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row4" data-tree="exp_node_0_3">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
@@ -433,7 +473,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" id="inp4" name="id[]" value="61" onchange="changeChildBoxes(this);changeParentBoxes(this);" data-params="inp5,inp6" data-parents="inp1" data-row="row5"  data-tree="exp_node_0_4">
+                                                            <input type="checkbox" id="inp4" name="id[]" value="61" onchange="changeChildBoxes(this);changeParentBoxes(this);" data-params="inp5,inp6" data-parents="inp1" data-row="row5" data-tree="exp_node_0_4">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
@@ -495,7 +535,7 @@
                                                                         </td>
                                                                         <td class="ilHFormCheckbox">
 
-                                                                            <input type="checkbox" id="inp5" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row6"  data-tree="exp_node_0_5">
+                                                                            <input type="checkbox" id="inp5" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row6" data-tree="exp_node_0_5">
 
                                                                         </td>
                                                                         <td class="ilHFormIcon">
@@ -552,7 +592,7 @@
                                                                         </td>
                                                                         <td class="ilHFormCheckbox">
 
-                                                                            <input type="checkbox" id="inp6" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row7"  data-tree="exp_node_0_6">
+                                                                            <input type="checkbox" id="inp6" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row7" data-tree="exp_node_0_6">
 
                                                                         </td>
                                                                         <td class="ilHFormIcon">
@@ -672,7 +712,7 @@
                                         </td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" id="inp7" value="54" onchange="changeChildBoxes(this);" data-params="inp8" data-row="row2"  data-tree="exp_node_0_7">
+                                            <input type="checkbox" name="id[]" id="inp7" value="54" onchange="changeChildBoxes(this);" data-params="inp8" data-row="row2" data-tree="exp_node_0_7">
 
                                         </td>
                                         <td class="ilHFormIcon">
@@ -734,7 +774,7 @@
                                                         </td>
                                                         <td class="ilHFormCheckbox">
 
-                                                            <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8"  data-tree="exp_node_0_8">
+                                                            <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8" data-tree="exp_node_0_8">
 
                                                         </td>
                                                         <td class="ilHFormIcon">
