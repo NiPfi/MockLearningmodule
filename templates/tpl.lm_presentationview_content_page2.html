@@ -44,10 +44,15 @@
 
     <div class="ilc_page_tnav_TopNavigation">
 
+        <div class="ilc_page_lnav_LeftNavigation">
+            <a class="ilc_page_lnavlink_LeftNavigationLink" href="">
+                <img class="ilc_page_lnavimage_LeftNavigationImage" src="./templates/default/images/spacer.png" alt="Previous" title="Previous">Chapter 1 (1/2)&nbsp;</a>
+        </div>
+
 
         <div class="ilc_page_rnav_RightNavigation">
             <a class="ilc_page_rnavlink_RightNavigationLink" href="">&nbsp;
-                Chapter 1 (2/2)
+                Subchapter 1.1 (1/2)
                 <img class="ilc_page_rnavimage_RightNavigationImage" src="./templates/default/images/spacer.png" alt="Next" title="Next"></a>
         </div>
 
@@ -68,94 +73,25 @@
             //-->
         </script>
 
-        <script>
-            var ScormApi = null;
-            var questions = new Array();
-        </script>
-        <script>
-            questions[16] = {
-                "id": 16,
-                "type": "assOrderingHorizontal",
-                "title": "Historical Sorting",
-                "question": "Sort the list historical",
-                "nr_of_tries": 1,
-                "shuffle": true,
-                "points": true,
-                "textsize": 100,
-                "feedback": {
-                    "onenotcorrect": "",
-                    "allcorrect": ""
-                },
-                "answers": [{
-                    "answertext": "Nero",
-                    "order": 1
-                }, {
-                    "answertext": "Sokrates",
-                    "order": 2
-                }, {
-                    "answertext": "Napoleon",
-                    "order": 3
-                }, {
-                    "answertext": "Karl der Grosse",
-                    "order": 4
-                }, {
-                    "answertext": "Louis XIV",
-                    "order": 5
-                }, {
-                    "answertext": "Lenin",
-                    "order": 6
-                }],
-                "mobs": []
-            };
-        </script><a class="small" id="ilPageShowAdvContent" style="display:none; text-align:right;" href="#"><span>Show Advanced Knowledge</span><span>Hide Advanced Knowledge</span></a>
-        <h1 class="ilc_page_title_PageTitle">Chapter 1 (1/2)</h1>
-        <div class="ilc_Paragraph ilc_text_block_Standard">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            <!--Break-->
-        </div>
+        <a class="small" id="ilPageShowAdvContent" style="display:none; text-align:right;" href="#"><span>Show Advanced Knowledge</span><span>Hide Advanced Knowledge</span></a>
+        <h1 class="ilc_page_title_PageTitle">Chapter 1 (2/2)</h1>
         <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
             <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
                 <tbody>
                     <tr valign="top">
-                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span></pre></td>
-                        <td class="ilc_Sourcecode"><pre class="ilc_Code">&lt;!DOCTYPE html&gt;<br>&lt;html lang="<span class="ilc_CodeQuote">en</span>"&gt;<br>&lt;head&gt;<br>&lt;meta charset="<span class="ilc_CodeQuote">UTF-8</span>"&gt;<br>&lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br> <br>&lt;/body&gt;<br>&lt;/html&gt;</pre></td>
+                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span><br><span class="ilc_LineNumber">11</span><br><span class="ilc_LineNumber">12</span><br><span class="ilc_LineNumber">13</span><br><span class="ilc_LineNumber">14</span></pre></td>
+                        <td class="ilc_Sourcecode"><pre class="ilc_Code"><a href="http://www.php.net/function">function</a> showChapterSubtab()<br>{<br>        <span class="ilc_CodeCategory_1">global</span> $tpl, $ilTabs, $ilCtrl;<br> <br>        $my_tpl = new ilTemplate(__DIR__ ."<span class="ilc_CodeQuote">/../templates/tpl.lm_content_chapters.html</span>",false,false);<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">CHAP1_LINK</span>",$ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showChapter1</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">CHAP2_LINK</span>",$ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showChapter2</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">PAGE1_LINK</span>", $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showPage1</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">SUBCHAP1_LINK</span>", $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showSubchapter1</span>"));<br> <br>        $this-&gt;generateContentSubtabs();<br>        $ilTabs-&gt;activateSubTab("<span class="ilc_CodeQuote">chapterSubtab</span>");<br>        $tpl-&gt;setContent($my_tpl-&gt;get());<br>}</pre></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div><a href="ilias.php?ref_id=75&amp;cmdClass=illmpresentationgui&amp;cmdNode=jp&amp;baseClass=ilLMPresentationGUI&amp;cmd=download_paragraph&amp;downloadtitle=Show Chapter Subtab&amp;pg_id=60&amp;par_id=1">Download</a></div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_question_Standard">
-            <h4><u>Historical question</u></h4>
-            <form onsubmit="return false;">
-
-                <div id="container16" class="ilc_question_OrderingQuestion">
-                    <div class="ilc_qtitle_Title question id" id="16">Sort the list historical</div>
-                    <div style="margin-bottom:10px">
-                        <ul id="order16" class="ilc_qordul_OrderListHorizontal ui-sortable" style="font-size: 100%;">
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="1">
-                                <div class="ilc_qanswer_Answer answertext">Nero</div>
-                            </li>
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="2">
-                                <div class="ilc_qanswer_Answer answertext">Sokrates</div>
-                            </li>
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="4">
-                                <div class="ilc_qanswer_Answer answertext">Karl der Grosse</div>
-                            </li>
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="5">
-                                <div class="ilc_qanswer_Answer answertext">Louis XIV</div>
-                            </li>
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="6">
-                                <div class="ilc_qanswer_Answer answertext">Lenin</div>
-                            </li>
-                            <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="3">
-                                <div class="ilc_qanswer_Answer answertext">Napoleon</div>
-                            </li>
-                        </ul>
-                        <div style="clear:both;"></div>
-                    </div>
-                    <div id="feedback16" style="display:none"></div>
-                    <input type="button" class="ilc_qsubmit_Submit" id="button16" onclick="ilias.questions.checkAnswers(16)" value="Submit">
-                </div>
-            </form>
+        <div class="ilc_Paragraph ilc_text_block_Example">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            <!--Break-->
         </div>
         <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
             <!--Break-->
@@ -168,10 +104,15 @@
 
     <div class="ilc_page_bnav_BottomNavigation">
 
+        <div class="ilc_page_lnav_LeftNavigation">
+            <a class="ilc_page_lnavlink_LeftNavigationLink" href="">
+                <img class="ilc_page_lnavimage_LeftNavigationImage" src="./templates/default/images/spacer.png" alt="Previous" title="Previous">Chapter 1 (1/2)&nbsp;</a>
+        </div>
+
 
         <div class="ilc_page_rnav_RightNavigation">
             <a class="ilc_page_rnavlink_RightNavigationLink" href="">&nbsp;
-                Chapter 1 (2/2)
+                Subchapter 1.1 (1/2)
                 <img class="ilc_page_rnavimage_RightNavigationImage" src="./templates/default/images/spacer.png" alt="Next" title="Next"></a>
         </div>
 
@@ -182,9 +123,9 @@
     <br>
 
     <label for="current_perma_link">
-        <a href="" onclick="th(document.getElementById('current_perma_link')){focus();select();} return false;" class="permalink_label">Permanent Link:</a>
+        <a href="" onclick="with(document.getElementById('current_perma_link')){focus();select();} return false;" class="permalink_label">Permanent Link:</a>
     </label>&nbsp;
-    <input id="current_perma_link" type="text" value="http://localhost/ilias/goto.php?target=pg_55_75&amp;client_id=pseHS16" readonly="readonly" onclick="this.focus();this.select();return false;">
+    <input id="current_perma_link" type="text" value="http://localhost/ilias/goto.php?target=pg_60_75&amp;client_id=pseHS16" readonly="readonly" onclick="this.focus();this.select();return false;">
 
     <div class="btn-group">
         <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
@@ -335,7 +276,7 @@
 
 
 
-                <!-- <a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=55&amp;note_type=2&amp;cmd=addNoteForm&amp;cmdClass=ilnotegui&amp;cmdNode=jp:1u&amp;baseClass=ilLMPresentationGUI#note_edit">Add Comment</a> -->
+                <!-- <a class="il_ContainerItemCommand2" href="ilias.php?ref_id=75&amp;obj_id=60&amp;note_type=2&amp;cmd=addNoteForm&amp;cmdClass=ilnotegui&amp;cmdNode=jp:1u&amp;baseClass=ilLMPresentationGUI#note_edit">Add Comment</a> -->
 
             </div>
 
