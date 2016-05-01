@@ -31,7 +31,7 @@
     <script type="text/javascript" src="Modules/TestQuestionPool/js/ilMatchingQuestion.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="./Services/COPage/js/ilCOPageQuestionHandler.js?vers=5-1-2-2016-01-27"></script>
     <script type="text/javascript" src="./Services/Accordion/js/accordion.js?vers=5-1-2-2016-01-27"></script>
-    
+
     <!-- Modal Style fix -->
     <style>
         /* scroll fixes */
@@ -42,14 +42,13 @@
             overflow-y: scroll;
         }
     </style>
-    
-    <!-- Modal functionality -->
+
     <script>
         var areaId = "";
-        var nextId ="";
+        var nextId = "";
 
         function init() {
-            
+
             //center modal
             var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
             var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
@@ -70,21 +69,37 @@
 
             //removes temporarly the content by clicking OK
             document.getElementById('delete').onclick = function () {
-                var area = document.getElementById(areaId);
-                area.parentElement.removeChild(area);
-                var next = document.getElementById(nextId);
-                next.parentElement.removeChild(next);
-                areaId = "";
-                nextId ="";
+                elementDelete();
             };
         }
-        
+
         window.onload = init;
+
+        function formDelete() {
+            var area = document.getElementsByClassName('il_editarea_selected');
+            for(j = 0; j < area.length; j++) {
+                var selected = area[j].querySelectorAll("a[name=delete]");
+                for (i = 0; i < selected.length; i++) {
+                    areaId = selected[0].dataset.thisid;
+                    nextId = selected[0].dataset.nextid;
+                    $("#myModal").modal("show");
+                }
+            }
+        }
+
+        function elementDelete() {
+            var area = document.getElementById(areaId);
+            area.parentElement.removeChild(area);
+            var next = document.getElementById(nextId);
+            next.parentElement.removeChild(next);
+            areaId = "";
+            nextId = "";
+        }
     </script>
 </head>
 
 <body>
-    
+
     <!-- Modal for title editing -->
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -103,7 +118,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="ilTabsContentOuter">
         <div class="clearfix"></div>
 
@@ -235,7 +250,7 @@
                     </script>
                 </div>
                 <div id="il_EditPage">
-                    <form action="" name="objectItems" method="post">
+                    <form action="" name="objectItems" method="post" onsubmit="return false;">
                         <div class="ilc_page_cont_PageContainer" id="ilEditorTD">
                             <div class="ilc_page_Page">
                                 <script>
@@ -304,7 +319,7 @@
                                             <a name="jump1">
                                                 <!--Break-->
                                             </a>
-                                            <h4><u>Lorem ipsum</u></h4> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                                             <br>
                                             <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_1">
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
@@ -341,7 +356,6 @@
                                         <a name="jump2">
                                             <!--Break-->
                                         </a>
-                                        <h4><u>HTML code sample</u></h4>
                                         <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
                                             <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
                                                 <tbody>
@@ -429,7 +443,7 @@
                                 <tr>
                                     <td class="submit">
                                         <img border="0" src="./templates/default/images/arrow_downright.svg" style="vertical-align:middle;">
-                                        <input class="btn btn-default" onclick="" type="submit" value="Delete" name="cmd[deleteSelected]">
+                                        <input class="btn btn-default" onclick="formDelete();" type="submit" value="Delete" name="cmd[deleteSelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="Copy" name="cmd[copySelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="Cut" name="cmd[cutSelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="(De-)Activate Elements" name="cmd[activateSelected]">

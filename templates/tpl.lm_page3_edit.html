@@ -43,7 +43,6 @@
         }
     </style>
 
-    <!-- Modal functionality -->
     <script>
         var areaId = "";
         var nextId = "";
@@ -70,16 +69,32 @@
 
             //removes temporarly the content by clicking OK
             document.getElementById('delete').onclick = function () {
-                var area = document.getElementById(areaId);
-                area.parentElement.removeChild(area);
-                var next = document.getElementById(nextId);
-                next.parentElement.removeChild(next);
-                areaId = "";
-                nextId = "";
+                elementDelete();
             };
         }
 
         window.onload = init;
+
+        function formDelete() {
+            var area = document.getElementsByClassName('il_editarea_selected');
+            for(j = 0; j < area.length; j++) {
+                var selected = area[j].querySelectorAll("a[name=delete]");
+                for (i = 0; i < selected.length; i++) {
+                    areaId = selected[0].dataset.thisid;
+                    nextId = selected[0].dataset.nextid;
+                    $("#myModal").modal("show");
+                }
+            }
+        }
+
+        function elementDelete() {
+            var area = document.getElementById(areaId);
+            area.parentElement.removeChild(area);
+            var next = document.getElementById(nextId);
+            next.parentElement.removeChild(next);
+            areaId = "";
+            nextId = "";
+        }
     </script>
 </head>
 
@@ -235,7 +250,7 @@
                     </script>
                 </div>
                 <div id="il_EditPage">
-                    <form action="" name="objectItems" method="post">
+                    <form action="" name="objectItems" method="post" onsubmit="return false;">
                         <div class="ilc_page_cont_PageContainer" id="ilEditorTD">
                             <div class="ilc_page_Page">
                                 <h1 class="ilc_page_title_PageTitle">Subchapter 1.1 (1/2)</h1>
@@ -265,7 +280,7 @@
                                         <h1 style="position:static;" class="ilc_Paragraph ilc_heading1_Headline1"><!--PageTocPH--><a name="jump1"><!--Break--></a>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br>
                                             <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_1">
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Delete</a>
+                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT1:2f917f81c039d195e7e15bb90b18f2f8" data-nextid="TARGET1:2f917f81c039d195e7e15bb90b18f2f8" name="delete">Delete</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
@@ -303,7 +318,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="2">
-                                                            <div><a href="ilias.php?ref_id=75&amp;baseClass=ilLMPresentationGUI&amp;cmd=download_paragraph&amp;downloadtitle=Metadata Template&amp;pg_id=62&amp;par_id=2">Download</a></div>
+                                                            <div><a href="">Download</a></div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -312,7 +327,7 @@
                                         <br>
                                         <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_2">
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Delete</a>
+                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT2:79d106d17c35f14a747aca2531286d00" data-nextid="TARGET2:79d106d17c35f14a747aca2531286d00" name="delete">Delete</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
                                             <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
@@ -347,7 +362,7 @@
                                 <tr>
                                     <td class="submit">
                                         <img border="0" src="./templates/default/images/arrow_downright.svg" style="vertical-align:middle;">
-                                        <input class="btn btn-default" onclick="" type="submit" value="Delete" name="cmd[deleteSelected]">
+                                        <input class="btn btn-default" onclick="formDelete();" type="submit" value="Delete" name="cmd[deleteSelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="Copy" name="cmd[copySelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="Cut" name="cmd[cutSelected]">
                                         <input class="btn btn-default" onclick="" type="submit" value="(De-)Activate Elements" name="cmd[activateSelected]">
