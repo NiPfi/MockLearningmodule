@@ -22,8 +22,6 @@
         }
     </style>
 
-
-    <!-- Modal functionality -->
     <script>
         var titleId = "";
         var treeId = "";
@@ -44,26 +42,33 @@
                 x[i].onclick = function () {
                     titleId = $(this).data('whatever');
                     treeId = $(this).data('tree');
-                    (document.getElementById('newTitle')).value = (document.getElementById(titleId)).innerHTML;
+                    document.getElementById('myModalLabel').innerHTML = "Edit Title";
+                    document.getElementById('newTitle').style.display = "block";
+                    document.getElementById('saveModal').innerHTML = "Save Changes";
+                    document.getElementById('modalParagraph').style.display = "none";
+                    document.getElementById('newTitle').value = document.getElementById(titleId).innerHTML;
                     $("#myModal").modal("show");
-                    (document.getElementById('newTitle')).focus();
+                    document.getElementById('newTitle').focus();
+                    document.getElementById('saveModal').onclick = function () {
+                        saveTitle();
+                    }
                 };
             };
 
-            //Changes temporarly the Title by clicking save
-            document.getElementById('saveTitle').onclick = function () {
-                var tmpTitle = (document.getElementById('newTitle')).value;
-                document.getElementById(titleId).innerHTML = tmpTitle;
-                var treeElements = document.getElementById(treeId).querySelectorAll(".ilExp2NodeContent");
-                if (treeElements != null) {
-                    treeElements[0].innerHTML = tmpTitle;
-                };
-                titleId = "";
-                treeId = "";
-            };
         }
 
         window.onload = init;
+
+        function saveTitle() {
+            var tmpTitle = (document.getElementById('newTitle')).value;
+            document.getElementById(titleId).innerHTML = tmpTitle;
+            var treeElements = document.getElementById(treeId).querySelectorAll(".ilExp2NodeContent");
+            if (treeElements != null) {
+                treeElements[0].innerHTML = tmpTitle;
+            };
+            titleId = "";
+            treeId = "";
+        }
 
         function changeChildBoxes(obj) {
             var childs = obj.dataset.params.split(",");
@@ -86,6 +91,38 @@
                 }
             }
         }
+
+        function deleteCheckedContent() {
+            var checkedBoxes = document.querySelectorAll('input[id*="inp"]:checked');
+            if (checkedBoxes.length != 0) {
+                for (i = 0; i < checkedBoxes.length; i++) {
+                    var rows = document.getElementsByName(checkedBoxes[i].dataset.row);
+                    for (j = 0; j < rows.length; j++) {
+                        rows[j].style.display = "none";
+                    }
+                    var tree = document.getElementById(checkedBoxes[i].dataset.tree);
+                    if (tree != null) {
+                        tree.style.display = "none";
+                    }
+                    checkedBoxes[i].checked = false;
+                }
+            }
+        }
+
+        function deleteContentModal() {
+            var checkedBoxes = document.querySelectorAll('input[id*="inp"]:checked');
+            if (checkedBoxes.length != 0) {
+                document.getElementById('modalParagraph').style.display = "block";
+                document.getElementById('myModalLabel').innerHTML = "Delete Item(s)";
+                document.getElementById('modalParagraph').innerHTML = "Are you sure that you want to delete the following item(s)?";
+                document.getElementById('saveModal').innerHTML = "Confirm";
+                document.getElementById('newTitle').style.display = "none";
+                document.getElementById('saveModal').onclick = function () {
+                    deleteCheckedContent();
+                }
+                $("#myModal").modal("show");
+            }
+        }
     </script>
 
 </head>
@@ -103,10 +140,11 @@
                     <form>
                         <input id="newTitle" type="text" autofocus>
                     </form>
+                    <p id="modalParagraph"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button id="saveTitle" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    <button id="saveModal" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
         </div>
@@ -138,7 +176,7 @@
 
                 </div>
 
-                <form id="form_hform" role="form" class="form-horizontal " style="margin-top:10px;" action="" method="post">
+                <form id="form_hform" role="form" class="form-horizontal " style="margin-top:10px;" action="" method="post" onsubmit="return false;">
 
                     <div class="form-horizontal">
                         <input type="hidden" id="il_hform_cmd" name="" value="">
@@ -155,7 +193,7 @@
 
                                 <img border="0" alt="-commands-" src="./templates/default/images/arrow_upright.svg">
 
-                                <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete">
+                                <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete" onclick="deleteContentModal();">
 
                                 <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
 
@@ -173,7 +211,7 @@
                                 <table style="width:100%;">
                                     <tbody>
                                         <!-- Dropdown-Row -->
-                                        <tr>
+                                        <tr name="row8">
                                             <td colspan="3"></td>
                                             <td>
                                                 <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
@@ -188,13 +226,13 @@
                                                         <tbody>
                                                             <!-- Insert Page -->
                                                             <tr>
-                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '54', 1, 1);">
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                     Insert Page
                                                                 </td>
                                                             </tr>
 
                                                             <tr>
-                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '54', 1, 1);">
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                     Paste Pages from Clipboard
                                                                 </td>
                                                             </tr>
@@ -207,13 +245,13 @@
                                         </tr>
 
                                         <!-- Page Row -->
-                                        <tr>
+                                        <tr name="row8">
                                             <td class="ilHFormExpIcon">
 
                                             </td>
                                             <td class="ilHFormCheckbox">
 
-                                                <input type="checkbox" name="id[]" value="59">
+                                                <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8" data-tree="exp_node_0_8">
 
                                             </td>
                                             <td class="ilHFormIcon">
@@ -229,38 +267,37 @@
                                             </td>
                                         </tr>
 
-
                                         <!-- Dropdown-Row -->
                                         <tr>
                                             <td colspan="3"></td>
                                             <td>
-                                                <div class="il_droparea  ilHFormDropArea" id="droparea_55" onclick="doMouseClick(event, '55');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
                                             </td>
                                         </tr>
                                         <!-- Dropdown-Menu -->
                                         <tr>
                                             <td>
-                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_55">
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
                                                     <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
                                                         <tbody>
                                                             <!-- Insert Page -->
                                                             <tr>
-                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPage', '55', 0, 1);">
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                     Insert Page
                                                                 </td>
                                                             </tr>
 
                                                             <tr>
-                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertPageClip', '55', 0, 1);">
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
                                                                     Paste Pages from Clipboard
                                                                 </td>
                                                             </tr>
-                                                            
+
                                                             <!-- Insert Chapter -->
                                                             <tr>
-                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="doActionForm('insertSubchapter', '60', 0, 1);">
-                                                                    Insert Chapter
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Insert Sub-chapter
                                                                 </td>
                                                             </tr>
 
@@ -270,7 +307,6 @@
 
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
 
@@ -281,7 +317,7 @@
 
                             <img border="0" alt="-commands-" src="./templates/default/images/arrow_downright.svg">
 
-                            <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete">
+                            <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete" onclick="deleteContentModal();">
 
                             <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
 
