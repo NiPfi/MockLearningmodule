@@ -160,7 +160,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $desc .= "<br> <span style='color: #6ea03c'>Status: online</span>";
         $desc .= $this->userViewButton();
         $tpl->setDescription( $desc);
-        $tpl->addJavaScript(__DIR__ . "/../js/il.MockLearningModule.js");
+        $tpl->addJavaScript(dirname(__FILE__)."../js/il.MockLearningModule.js");
         $tpl->addOnLoadCode('il.MockLearningModule.init();');
     }
 

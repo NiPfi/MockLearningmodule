@@ -31,7 +31,7 @@ il.MockLearningModule = {
 
     init: function () {
         var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
-        if (btn_group.length != null) {
+        if (btn_group.length != 0) {
             $('#switchMode').prependTo(btn_group[0]);
         } else {
             var div_tag = document.createElement('div');
