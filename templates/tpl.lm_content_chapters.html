@@ -170,19 +170,6 @@
 
 
 <body>
-    <script>
-        function buttonResize() {
-            if ($(document).width() <= 767) {
-                if (document.getElementById('editModetxt') != null) {
-                    (document.getElementById('editModetxt')).style.display = "none";
-                } else if (document.getElementById('usersModetxt') != null) {
-                    (document.getElementById('usersModetxt')).style.display = "none";
-                };
-            };
-        }
-
-        window.addEventListener("load", buttonResize());
-    </script>
     <!-- Modal for title editing -->
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

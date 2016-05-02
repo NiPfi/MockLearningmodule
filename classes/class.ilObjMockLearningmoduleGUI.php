@@ -764,6 +764,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 	    $ilExplorer = new ilObjMockTree($this, $cmd);
 
 	    $tpl->setLeftNavContent($ilExplorer->getHTML());
+	    $tpl->addInlineCss("@media (max-width: 767px) {
+	        #editModetxt{display: none;}
+	    }");
     }
 
 }
