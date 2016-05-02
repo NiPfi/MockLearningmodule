@@ -71,7 +71,7 @@
             document.getElementById('delete').onclick = function () {
                 elementDelete();
             };
-
+            
             var div_tag = document.createElement('div');
             div_tag.className = 'ilHeadAction';
             div_tag.id = 'il_head_action';
@@ -88,14 +88,13 @@
                 header[0].appendChild(div_tag);
                 $('#il_head_action').prependTo(header[0]);
             };
-
         }
 
         window.onload = init;
 
         function formDelete() {
             var area = document.getElementsByClassName('il_editarea_selected');
-            for (j = 0; j < area.length; j++) {
+            for(j = 0; j < area.length; j++) {
                 var selected = area[j].querySelectorAll("a[name=delete]");
                 for (i = 0; i < selected.length; i++) {
                     areaId = selected[0].dataset.thisid;
@@ -176,9 +175,9 @@
 
                     <div class="small" style="margin-bottom: 5px; width: 100%; text-align: right; margin-top: 10px;"><span style="padding-right:20px;">
 <div class="btn-group">
-<!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
-<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_copage_act">
-<span>Actions</span> <span class="caret"></span>
+    <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_copage_act">
+        <span>Actions</span> <span class="caret"></span>
                         </button>
 
 
@@ -271,50 +270,9 @@
                     <form action="" name="objectItems" method="post" onsubmit="return false;">
                         <div class="ilc_page_cont_PageContainer" id="ilEditorTD">
                             <div class="ilc_page_Page">
-                                <script>
-                                    var ScormApi = null;
-                                    var questions = new Array();
-                                </script>
-                                <script>
-                                    questions[16] = {
-                                        "id": 16,
-                                        "type": "assOrderingHorizontal",
-                                        "title": "Historical Sorting",
-                                        "question": "Sort the list historical",
-                                        "nr_of_tries": 1,
-                                        "shuffle": true,
-                                        "points": true,
-                                        "textsize": 100,
-                                        "feedback": {
-                                            "onenotcorrect": "",
-                                            "allcorrect": ""
-                                        },
-                                        "answers": [{
-                                            "answertext": "Nero",
-                                            "order": 1
-                                    }, {
-                                            "answertext": "Sokrates",
-                                            "order": 2
-                                    }, {
-                                            "answertext": "Napoleon",
-                                            "order": 3
-                                    }, {
-                                            "answertext": "Karl der Grosse",
-                                            "order": 4
-                                    }, {
-                                            "answertext": "Louis XIV",
-                                            "order": 5
-                                    }, {
-                                            "answertext": "Lenin",
-                                            "order": 6
-                                    }],
-                                        "mobs": []
-                                    };
-                                </script>
-                                <h1 class="ilc_page_title_PageTitle">Chapter 1 (1/2)</h1>
+                                <h1 class="ilc_page_title_PageTitle">Chapter 2</h1>
                                 <div class="il_droparea" id="TARGETpg:" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + 'pg' + ':' + '', null, null);"><span class="glyphicon glyphicon-plus"><!--Dummy--></span></div>
                                 <div class="ilOverlay il_editmenu ilNoDisplay" id="dropareamenu_pg">
-                                    <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste</a>
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Text</a>
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Image/Media</a>
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Question</a>
@@ -329,19 +287,28 @@
                                     <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
                                 </div>
                                 <div>
-                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Standard');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Standard');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Standard');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT1:2fe32fd56bf27afa2ed51cca3e971818">
-                                        <div class="ilEditLabel" style="display: none;" id="TCONTENT1:2fe32fd56bf27afa2ed51cca3e971818">Text
+                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Standard');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Standard');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Standard');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT1:2868a4e00df4b6181fc29850b253be04">
+                                        <div class="ilEditLabel" style="display:none;" id="TCONTENT1:2868a4e00df4b6181fc29850b253be04">Text
                                             <!--Dummy-->
                                         </div>
                                         <div style="position:static;" class="ilc_Paragraph ilc_text_block_Standard">
                                             <a name="jump1">
                                                 <!--Break-->
-                                            </a>
-                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                            </a>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                            <br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                            <br>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                            <br>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                            <br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+                                            <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+                                            <br>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.
+                                            <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                            <br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                            <br>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                            <br>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
                                             <br>
                                             <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_1">
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT1:2fe32fd56bf27afa2ed51cca3e971818" data-nextid="TARGET1:2fe32fd56bf27afa2ed51cca3e971818" name="delete">Delete</a>
+                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT1:2868a4e00df4b6181fc29850b253be04" data-nextid="TARGET1:2868a4e00df4b6181fc29850b253be04" name="delete">Delete</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
                                                 <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
@@ -349,9 +316,8 @@
                                             <!--Break-->
                                         </div>
                                     </div>
-                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '1' + ':' + '2fe32fd56bf27afa2ed51cca3e971818', null, null);" id="TARGET1:2fe32fd56bf27afa2ed51cca3e971818"><span class="glyphicon glyphicon-plus"></span></div>
+                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '1' + ':' + '2868a4e00df4b6181fc29850b253be04', null, null);" id="TARGET1:2868a4e00df4b6181fc29850b253be04"><span class="glyphicon glyphicon-plus"></span></div>
                                     <div class="ilOverlay il_editmenu ilNoDisplay" id="dropareamenu_1">
-                                        <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste</a>
                                         <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Text</a>
                                         <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Image/Media</a>
                                         <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Question</a>
@@ -365,90 +331,6 @@
                                         <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Insert Code</a>
                                         <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Paste From Clipboard</a>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Paragraph','Code');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Paragraph','Code');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Paragraph','Code');" ondblclick="doMouseDblClick(event,this.id,'Paragraph');" id="CONTENT2:319a8feaadd4a6ac141e9c7d6970f40c">
-                                        <div class="ilEditLabel" style="display: none;" id="TCONTENT2:319a8feaadd4a6ac141e9c7d6970f40c">Code
-                                            <!--Dummy-->
-                                        </div>
-                                        <a name="jump2">
-                                            <!--Break-->
-                                        </a>
-                                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
-                                            <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
-                                                <tbody>
-                                                    <tr valign="top">
-                                                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span></pre></td>
-                                                        <td class="ilc_Sourcecode"><pre class="ilc_Code">&lt;!DOCTYPE html&gt;<br>&lt;html lang="<span class="ilc_CodeQuote">en</span>"&gt;<br>&lt;head&gt;<br>&lt;meta charset="<span class="ilc_CodeQuote">UTF-8</span>"&gt;<br>&lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br> <br>&lt;/body&gt;<br>&lt;/html&gt;</pre></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <br>
-                                        <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_2">
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT2:319a8feaadd4a6ac141e9c7d6970f40c" data-nextid="TARGET2:319a8feaadd4a6ac141e9c7d6970f40c" name="delete">Delete</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to New Page</a>
-                                            <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to Next Page</a>
-                                        </div>
-                                    </div>
-                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '1' + ':' + '319a8feaadd4a6ac141e9c7d6970f40c', null, null);" id="TARGET2:319a8feaadd4a6ac141e9c7d6970f40c"><span class="glyphicon glyphicon-plus"></span></div>
-                                </div>
-                                <div>
-                                    <div class="il_editarea" onmouseover="doMouseOver(this.id, 'il_editarea_active', 'Question','');" onmouseout="doMouseOut(this.id, 'il_editarea', 'Question','');" onmousedown="doMouseDown(this.id);" onmouseup="doMouseUp(this.id);" onclick="doMouseClick(event,this.id,'Question','');" ondblclick="doMouseDblClick(event,this.id,'Question');" id="CONTENT3:14a077ac24e6e3e448b6fbb8fb7a77db">
-                                        <div class="ilEditLabel" style="display:none;" id="TCONTENT3:14a077ac24e6e3e448b6fbb8fb7a77db">Question
-                                            <!--Dummy-->
-                                        </div>
-                                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_question_Standard">
-                                            <a name="jump3">
-                                                <!--Break-->
-                                            </a>
-                                            <h4><u>Historical Question</u></h4>
-                                            <div id="container16" class="ilc_question_OrderingQuestion">
-                                                <div class="ilc_qtitle_Title question id" id="16">Sort the list historical</div>
-                                                <div style="margin-bottom:10px">
-                                                    <ul id="order16" class="ilc_qordul_OrderListHorizontal ui-sortable" style="font-size: 100%;">
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="4">
-                                                            <div class="ilc_qanswer_Answer answertext">Karl der Grosse</div>
-                                                        </li>
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="3">
-                                                            <div class="ilc_qanswer_Answer answertext">Napoleon</div>
-                                                        </li>
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="1">
-                                                            <div class="ilc_qanswer_Answer answertext">Nero</div>
-                                                        </li>
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="2">
-                                                            <div class="ilc_qanswer_Answer answertext">Sokrates</div>
-                                                        </li>
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="6">
-                                                            <div class="ilc_qanswer_Answer answertext">Lenin</div>
-                                                        </li>
-                                                        <li class="answers ilc_qordli_OrderListItemHorizontal order ui-sortable-handle" id="5">
-                                                            <div class="ilc_qanswer_Answer answertext">Louis XIV</div>
-                                                        </li>
-                                                    </ul>
-                                                    <div style="clear:both;"></div>
-                                                </div>
-                                                <div id="feedback16" style="display:none"></div>
-                                                <input type="button" class="ilc_qsubmit_Submit" id="button16" style="display:none" onclick="ilias.questions.checkAnswers(16)" value="Submit">
-                                            </div>
-
-                                            <br>
-                                            <div class="ilOverlay il_editmenu ilNoDisplay" id="contextmenu_3">
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Edit</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="" data-thisid="CONTENT3:14a077ac24e6e3e448b6fbb8fb7a77db" data-nextid="TARGET3:14a077ac24e6e3e448b6fbb8fb7a77db" name="delete">Delete</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Copy</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Cut</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">(De-)Activate</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to New Page</a>
-                                                <a href="#" class="ilGroupedListLE" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">Split to Next Page</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="il_droparea" onmouseover="doMouseOver(this.id, '', null, null);" onmouseout="doMouseOut(this.id, '', null, null);" onclick="doMouseClick(event, 'TARGET' + '1' + ':' + '14a077ac24e6e3e448b6fbb8fb7a77db', null, null);" id="TARGET3:14a077ac24e6e3e448b6fbb8fb7a77db"><span class="glyphicon glyphicon-plus"></span></div>
                                 </div>
                                 <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
                                     <!--Break-->
@@ -469,14 +351,9 @@
                                         <input class="btn btn-default" onclick="" type="submit" value="Select All">
                                     </td>
                                 </tr>
-
-
-
-
                             </tbody>
                         </table>
                     </form>
-
                 </div>
             </div>
         </div>

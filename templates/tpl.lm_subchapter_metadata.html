@@ -99,25 +99,56 @@
                 <div class="form-horizontal">
                     <!-- todo: HIDE_LABELS_STYLE -->
 
+
                     <!-- Please note the usage of datatable attribute which is non-standard
                         but ensures that JAWS treats this table as a layout table -->
                     <!-- removed a width="" -->
+
+
+
+
 
                     <div class="ilFormHeader">
                         <h3 class="ilHeader"><a name="il_form_top"></a>Quick Edit</h3>
                         <div class="ilFormCmds">
 
+
+
                             <input class="btn btn-default btn-sm" type="SUBMIT" name="cmd[updateQuickEdit]" value="Save">
+
 
                         </div>
                         <div class="ilHeaderDesc"></div>
                     </div>
 
+
+
+
+
+
                     <div class="form-group" id="il_prop_cont_gen_title">
                         <label for="gen_title" class="col-sm-3 control-label">Title <span class="asterisk">*</span></label>
                         <div class="col-sm-9">
 
-                            <input class="form-control" type="text" id="gen_title" maxlength="200" name="gen_title" value="{PAGE_TITLE}">
+
+
+
+
+
+
+
+
+
+                            <input class="form-control" type="text" id="gen_title" maxlength="200" name="gen_title" value="Subchapter 1.1">
+
+
+
+
+
+
+
+
+
 
                         </div>
                     </div>
@@ -128,11 +159,33 @@
                     });
                     </script> -->
 
-                    <div class="form-group" id="il_prop_cont_gen_description__67____description__">
-                        <label for="gen_description__67____description__" class="col-sm-3 control-label">Description</label>
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_gen_description__73____description__">
+                        <label for="gen_description__73____description__" class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-9">
 
-                            <textarea class="form-control  noRTEditor" name="gen_description[67][description]" id="gen_description__67____description__" wrap="virtual" rows="4"></textarea>
+
+
+
+
+
+
+
+
+
+                            <textarea class="form-control  noRTEditor" name="gen_description[73][description]" id="gen_description__73____description__" wrap="virtual" rows="4"></textarea>
+
+
+
+
+
+
+
+
+
 
                         </div>
                     </div>
@@ -143,11 +196,24 @@
                     });
                     </script> -->
 
-                    <div class="form-group" id="il_prop_cont_gen_language__67____language__">
-                        <label for="gen_language__67____language__" class="col-sm-3 control-label">Language</label>
+
+
+
+
+                    <div class="form-group" id="il_prop_cont_gen_language__73____language__">
+                        <label for="gen_language__73____language__" class="col-sm-3 control-label">Language</label>
                         <div class="col-sm-9">
 
-                            <select class="form-control" id="gen_language__67____language__" name="gen_language[67][language]">
+
+
+
+
+
+
+
+
+
+                            <select class="form-control" id="gen_language__73____language__" name="gen_language[73][language]">
 
                                 <option value="ab">Abkhazian</option>
 
@@ -429,6 +495,15 @@
 
                             </select>
 
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                     <!-- end of ilFormRow -->
@@ -438,11 +513,26 @@
                     });
                     </script> -->
 
+
+
+
+
                     <div class="form-group" id="il_prop_cont_keywords__value____en__">
                         <label for="keywords__value____en__" class="col-sm-3 control-label">Keywords</label>
                         <div class="col-sm-9">
 
+
+
+
+
+
+
+
+
+
                             <div id="ilFormField~keywords__value____en__~0" style="margin-bottom:5px">
+
+
 
                                 <div class="form-inline">
 
@@ -485,11 +575,11 @@
                                                 }
                                             });
 
-                                          //  ilMultiFormValues.addAutocomplete('keywords__value____en__', 'ilias.php?ref_id=75&obj_id=55&active_node=55&cmd=keywordAutocomplete&cmdClass=ilmdeditorgui&cmdNode=jm:kb:jy:jo:tv:85&baseClass=ilLMEditorGUI&cmdMode=asynch');
+                                           // ilMultiFormValues.addAutocomplete('keywords__value____en__', 'ilias.php?ref_id=75&obj_id=61&cmd=keywordAutocomplete&cmdClass=ilmdeditorgui&cmdNode=jm:kb:k2:tv:85&baseClass=ilLMEditorGUI&cmdMode=asynch');
 
 
                                             $('[id^="keywords__value____en__"]').iladvancedautocomplete({
-                                                requestUrl: "ilias.php?ref_id=75&obj_id=55&active_node=55&cmd=keywordAutocomplete&cmdClass=ilmdeditorgui&cmdNode=jm:kb:jy:jo:tv:85&baseClass=ilLMEditorGUI&cmdMode=asynch",
+                                                requestUrl: "",
                                                 source: function (request, response) {
                                                     var that = this;
                                                     $.getJSON(that.options.requestUrl, {
@@ -505,11 +595,24 @@
                                                 },
                                                 minLength: 3
                                             });
+
+
+
+
+
                                         }
                                     );
                                 </script>
 
+
+
                             </div>
+
+
+
+
+
+
 
                         </div>
                     </div>
@@ -519,13 +622,35 @@
                         il.Form.initItem('', );
                     });
                     </script> -->
+
+
+
+
 
                     <div class="form-group" id="il_prop_cont_life_authors">
                         <label for="life_authors" class="col-sm-3 control-label">Authors
                             <br>(Separated by ,)</label>
                         <div class="col-sm-9">
 
+
+
+
+
+
+
+
+
+
                             <textarea class="form-control  noRTEditor" name="life_authors" id="life_authors" wrap="virtual" rows="2"></textarea>
+
+
+
+
+
+
+
+
+
 
                         </div>
                     </div>
@@ -535,12 +660,34 @@
                         il.Form.initItem('', );
                     });
                     </script> -->
+
+
+
+
 
                     <div class="form-group" id="il_prop_cont_copyright">
                         <label for="copyright" class="col-sm-3 control-label">Copyright</label>
                         <div class="col-sm-9">
 
+
+
+
+
+
+
+
+
+
                             <textarea class="form-control" name="copyright[ta]" id="copyright" wrap="virtual" cols="50" rows="3"></textarea>
+
+
+
+
+
+
+
+
+
 
                         </div>
                     </div>
@@ -551,9 +698,22 @@
                     });
                     </script> -->
 
+
+
+
+
                     <div class="form-group" id="il_prop_cont_tlt">
                         <label for="tlt" class="col-sm-3 control-label">Typical Learning Time</label>
                         <div class="col-sm-9">
+
+
+
+
+
+
+
+
+
 
                             <div class="form-inline">
                                 Month:
@@ -712,6 +872,15 @@
                                 &nbsp; (hh:mm)
                             </div>
 
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                     <!-- end of ilFormRow -->
@@ -720,6 +889,11 @@
                         il.Form.initItem('', );
                     });
                     </script> -->
+
+
+
+
+
 
                     <div class="ilFormFooter clearfix">
                         <div class="col-sm-6 ilFormRequired">
@@ -739,7 +913,13 @@
                 </div>
             </form>
 
+
+
+
         </div>
+
+
+
 
     </div>
 </div>

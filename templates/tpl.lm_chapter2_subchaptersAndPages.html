@@ -22,8 +22,6 @@
         }
     </style>
 
-
-
     <script>
         var titleId = "";
         var treeId = "";
@@ -168,10 +166,12 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid" id="ilContentContainer">
         <div class="row">
 
             <div id="il_center_col" class="col-sm-12">
+
 
                 <div id="ilPageEditLegend" style="margin-top:0px;">
                     <div>
@@ -204,181 +204,132 @@
                         <input type="hidden" id="il_hform_source_id" name="il_hform_source_id" value="">
                         <input type="hidden" id="il_hform_target_id" name="il_hform_target_id" value="">
                         <input type="hidden" id="il_hform_expand" name="il_hform_expand" value="">
+                        <div>
 
-                        <div class="ilHFormHeader">
+                            <div class="ilHFormHeader">
 
-                            <img border="0" alt="-commands-" src="./templates/default/images/arrow_upright.svg">
+                                <img border="0" alt="-commands-" src="./templates/default/images/arrow_upright.svg">
 
-                            <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete" onclick="deleteContentModal();">
+                                <input class="btn btn-default" type="submit" name="cmd[delete]" value="Delete" onclick="deleteContentModal();">
 
-                            <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
+                                <input class="btn btn-default" type="submit" name="cmd[cutItems]" value="Cut">
 
-                            <input class="btn btn-default" type="submit" name="cmd[copyItems]" value="Copy">
+                                <input class="btn btn-default" type="submit" name="cmd[copyItems]" value="Copy">
 
-                            <input class="btn btn-default" type="submit" name="cmd[activatePages]" value="(De-)Activate">
+                                <input class="btn btn-default" type="submit" name="cmd[activatePages]" value="(De-)Activate">
 
 
-                        </div>
+                            </div>
 
-                        <div class="ilHFormContent form-inline">
-                            <!-- looking for a better way than using a (layout) table, using DIVs and display table cell does not allow colspan
+                            <div class="ilHFormContent form-inline">
+                                <!-- looking for a better way than using a (layout) table, using DIVs and display table cell does not allow colspan
                          the table is at least responsive and allows proper rtl support
                     -->
-                            <table style="width:100%;">
-                                <tbody>
-                                    <!-- Dropdown-Row -->
-                                    <tr name="row6">
-                                        <td colspan="3"></td>
-                                        <td>
-                                            <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
-                                        </td>
-                                    </tr>
-                                    <!-- Dropdown-Menu -->
-                                    <tr>
-                                        <td>
-                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_54fc">
-                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+                                <table style="width:100%;">
+                                    <tbody>
+                                        <!-- Dropdown-Row -->
+                                        <tr name="row8">
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_54fc" onclick="doMouseClick(event, '54fc');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_54fc">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
-                                                    <tbody>
-                                                        <!-- Insert Page -->
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Insert Page
-                                                            </td>
-                                                        </tr>
+                                                        <tbody>
+                                                            <!-- Insert Page -->
+                                                            <tr>
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t1fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Insert Page
+                                                                </td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Paste Pages from Clipboard
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_54t2fc_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Paste Pages from Clipboard
+                                                                </td>
+                                                            </tr>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
 
-                                    <!-- Page Row -->
-                                    <tr name="row6">
-                                        <td class="ilHFormExpIcon">
+                                        <!-- Page Row -->
+                                        <tr name="row8">
+                                            <td class="ilHFormExpIcon">
 
-                                        </td>
-                                        <td class="ilHFormCheckbox">
+                                            </td>
+                                            <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp5" name="id[]" value="55" data-row="row6" data-tree="exp_node_0_5">
+                                                <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8" data-tree="exp_node_0_8">
 
-                                        </td>
-                                        <td class="ilHFormIcon">
+                                            </td>
+                                            <td class="ilHFormIcon">
 
-                                            <a name="node_55"><img class="il_img_pg" id="il_img_55" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
+                                                <a name="node_59"><img class="il_img_pg" id="il_img_59" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
-                                        </td>
-                                        <td class="ilHFormInput">
-                                            <a id="inp56" class="form-control" name="title[55]" style="width:100%" href="{PAGE3_LINK}">Page 3</a>
-                                        </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp56" data-tree="exp_node_0_5" style="white-space: nowrap;">Edit Title</a>
+                                            </td>
+                                            <td class="ilHFormInput">
+                                                <a id="inp59" class="form-control" name="title[59]" style="width:100%" href="{PAGE5_LINK}">Page 5</a>
+                                            </td>
+                                            <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp59" data-tree="exp_node_0_8" style="white-space: nowrap;">Edit Title</a>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
 
-                                    <!-- Dropdown-Row -->
-                                    <tr name="row7">
-                                        <td colspan="3"></td>
-                                        <td>
-                                            <div class="il_droparea  ilHFormDropArea" id="droparea_55" onclick="doMouseClick(event, '55');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
-                                        </td>
-                                    </tr>
-                                    <!-- Dropdown-Menu -->
-                                    <tr>
-                                        <td>
-                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_55">
-                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
+                                        <!-- Dropdown-Row -->
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td>
+                                                <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Dropdown-Menu -->
+                                        <tr>
+                                            <td>
+                                                <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
+                                                    <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
 
-                                                    <tbody>
-                                                        <!-- Insert Page -->
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Insert Page
-                                                            </td>
-                                                        </tr>
+                                                        <tbody>
+                                                            <!-- Insert Page -->
+                                                            <tr>
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Insert Page
+                                                                </td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_55t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Paste Pages from Clipboard
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Paste Pages from Clipboard
+                                                                </td>
+                                                            </tr>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                            <!-- Insert Chapter -->
+                                                            <tr>
+                                                                <td class="il_editmenu" style="white-space:nowrap;" id="hftd_59t3_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
+                                                                    Insert Sub-chapter
+                                                                </td>
+                                                            </tr>
 
-                                        </td>
-                                    </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
 
-                                    <!-- Page Row -->
-                                    <tr name="row7">
-                                        <td class="ilHFormExpIcon">
-
-                                        </td>
-                                        <td class="ilHFormCheckbox">
-
-                                            <input type="checkbox" id="inp6" name="id[]" value="60" data-row="row7" data-tree="exp_node_0_6">
-
-                                        </td>
-                                        <td class="ilHFormIcon">
-
-                                            <a name="node_60"><img class="il_img_pg" id="il_img_60" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
-
-                                        </td>
-                                        <td class="ilHFormInput">
-                                            <a id="inp62" class="form-control" name="title[60]" style="width:100%" href="{PAGE4_LINK}">Page 4</a>
-                                        </td>
-                                        <td class="ilHFormItemCmd"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp62" data-tree="exp_node_0_6" style="white-space: nowrap;">Edit Title</a>
-
-                                        </td>
-                                    </tr>
-
-                                    <!-- Dropdown-Row -->
-                                    <tr>
-                                        <td colspan="3"></td>
-                                        <td>
-                                            <div class="il_droparea  ilHFormDropArea" id="droparea_60" onclick="doMouseClick(event, '60');" onmouseover="doMouseOver(this.id, '');" onmouseout="doMouseOut(this.id, '');"><span class="glyphicon glyphicon-plus"></span></div>
-                                        </td>
-                                    </tr>
-                                    <!-- Dropdown-Menu -->
-                                    <tr>
-                                        <td>
-                                            <div style="position:absolute;left:0;top:0;visibility:hidden;" id="dropareamenu_60">
-                                                <table class="il_editmenu ilOverlay" cellspacing="0" cellpadding="3">
-
-                                                    <tbody>
-                                                        <!-- Insert Page -->
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t1_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Insert Page
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="il_editmenu" style="white-space:nowrap;" id="hftd_60t2_0" onmouseover="M_in(this);" onmouseout="M_out(this);" onclick="">
-                                                                Paste Pages from Clipboard
-                                                            </td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
 
+                            </div>
                         </div>
-
                         <div class="ilHFormFooter">
 
                             <img border="0" alt="-commands-" src="./templates/default/images/arrow_downright.svg">
@@ -394,31 +345,48 @@
 
                         </div>
 
-
-
-
                         <script language="JavaScript" type="text/javascript">
                             var as_subitem = Object();
 
+                            as_subitem['54fc' + '_' + 'grp_pg'] = "1";
+
+                            as_subitem['55' + '_' + 'grp_pg'] = "0";
+
+                            as_subitem['60' + '_' + 'grp_pg'] = "0";
+
+                            as_subitem['60' + '_' + 'grp_st'] = "0";
+
                             as_subitem['61fc' + '_' + 'grp_pg'] = "1";
 
                             as_subitem['62' + '_' + 'grp_pg'] = "0";
 
                             as_subitem['63' + '_' + 'grp_pg'] = "0";
 
-                            as_subitem['63' + '_' + 'grp_st'] = "0";
+                            as_subitem['54fc' + '_' + 'grp_pg'] = "1";
+
+                            as_subitem['55' + '_' + 'grp_pg'] = "0";
+
+                            as_subitem['60' + '_' + 'grp_pg'] = "0";
+
+                            as_subitem['60' + '_' + 'grp_st'] = "0";
 
                             as_subitem['61fc' + '_' + 'grp_pg'] = "1";
 
                             as_subitem['62' + '_' + 'grp_pg'] = "0";
 
                             as_subitem['63' + '_' + 'grp_pg'] = "0";
-
-                            as_subitem['63' + '_' + 'grp_st'] = "0";
 
                             as_subitem['' + '_' + ''] = "0";
 
 
+
+                            d = new ilDragTarget("droparea_" + "54fc", "grp_pg");
+
+                            d = new ilDragTarget("droparea_" + "55", "grp_pg");
+
+                            d = new ilDragTarget("droparea_" + "60", "grp_pg");
+
+                            d = new ilDragTarget("droparea_" + "60", "grp_st");
 
                             d = new ilDragTarget("droparea_" + "61fc", "grp_pg");
 
@@ -426,14 +394,24 @@
 
                             d = new ilDragTarget("droparea_" + "63", "grp_pg");
 
-                            d = new ilDragTarget("droparea_" + "63", "grp_st");
+                            d = new ilDragTarget("droparea_" + "61", "grp_st");
 
+                            d = new ilDragTarget("droparea_" + "61", "grp_st");
+
+
+                            d = new ilDragContent("il_img_" + "54", "grp_st");
+
+                            d = new ilDragContent("il_img_" + "55", "grp_pg");
+
+                            d = new ilDragContent("il_img_" + "60", "grp_pg");
 
                             d = new ilDragContent("il_img_" + "61", "grp_st");
 
                             d = new ilDragContent("il_img_" + "62", "grp_pg");
 
                             d = new ilDragContent("il_img_" + "63", "grp_pg");
+
+                            d = new ilDragContent("il_img_" + "61", "grp_st");
                         </script>
 
 
@@ -443,11 +421,18 @@
 
                     </div>
                 </form>
+
                 <div class="il_ContainerItemCommands2">
                     <a class="il_ContainerItemCommand2" href=""></a>
                 </div>
+
+
+
             </div>
+
+
+
+
         </div>
     </div>
-</body>
 </body>
