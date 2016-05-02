@@ -2,7 +2,6 @@
  * Created by Antonio on 27.04.2016.
  */
 il.MockLearningModule = {
-
     rendered: false,
     base_url: "",
     $body:  $(document.body),
@@ -29,7 +28,7 @@ il.MockLearningModule = {
         return t.loader_src;
     },
 
-    init: function () {
+    init: function() {
         var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
         if (btn_group.length != 0) {
             $('#switchMode').prependTo(btn_group[0]);
@@ -49,9 +48,7 @@ il.MockLearningModule = {
             if (header.length != null) {
                 header[0].appendChild(div_tag);
                 $('#il_head_action').prependTo(header[0]);
-            }
-            ;
-        }
-        ;
+            };
+        };
     }
 };
