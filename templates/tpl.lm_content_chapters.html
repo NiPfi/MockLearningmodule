@@ -182,7 +182,7 @@
                     <h4 class="modal-title" id="myModalLabel">Edit Title</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="" onkeyup="if (event.keyCode == 13) {saveTitle();$('#myModal').modal('hide');}" onsubmit="return false;">
                         <input id="newTitle" type="text" value="">
                     </form>
                     <p id="modalParagraph"></p>
