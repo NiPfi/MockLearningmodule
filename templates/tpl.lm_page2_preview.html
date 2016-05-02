@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="./Services/COPage/css/syntaxhighlight.css">
+    <link rel="stylesheet" type="text/css" href="./Services/Accordion/css/accordion.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/Accordion/lib/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Modules/Scorm2004/templates/default/question_handling.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="Modules/TestQuestionPool/templates/default/test_javascript.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./Services/COPage/css/content.css">
+
+    <script type="text/javascript" src="./Services/jQuery/js/maphilight_14_03_20/maphilight.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/COPage/js/ilCOPagePres.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/Accordion/lib/owl.carousel.2.0.0-beta.2.4/owl.carousel.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/pure.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Modules/Scorm2004/scripts/questions/question_handling.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="Modules/TestQuestionPool/js/ilMatchingQuestion.js?vers=5-1-2-2016-01-27"></script>
+    <script type="text/javascript" src="./Services/Accordion/js/accordion.js?vers=5-1-2-2016-01-27"></script>
+
+    <script>
+        function init() {
+            var div_tag = document.createElement('div');
+            div_tag.className = 'ilHeadAction';
+            div_tag.id = 'il_head_action';
+            var inner_div = document.createElement('div');
+            inner_div.id = 'tttt';
+            inner_div.style = 'white-space: nowrap;';
+            var btn_group_div = document.createElement('div');
+            btn_group_div.className = 'btn-group';
+            $('#switchMode').prependTo(btn_group_div);
+            inner_div.appendChild(btn_group_div);
+            div_tag.appendChild(inner_div);
+            var header = document.getElementsByClassName('media il_HeaderInner');
+            if (header.length != null) {
+                header[0].appendChild(div_tag);
+                $('#il_head_action').prependTo(header[0]);
+            };
+        }
+
+        window.onload = init();
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" id="ilContentContainer">
+        <div class="row">
+
+            <div id="il_center_col" class="col-sm-12">
+
+                <div id="ilCOPageContent" class="ilc_page_cont_PageContainer">
+
+                    <div class="ilc_page_Page">
+
+                        <script language="JavaScript1.1">
+                            <!--
+                            focus();
+                            //-->
+                        </script>
+
+                        <a class="small" id="ilPageShowAdvContent" style="display:none; text-align:right;" href="#"><span>Show Advanced Knowledge</span><span>Hide Advanced Knowledge</span></a>
+                        <h1 class="ilc_page_title_PageTitle">Chapter 1 (2/2)</h1>
+                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ilc_Code">
+                            <table class="ilc_Sourcecode" cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    <tr valign="top">
+                                        <td nowrap="nowrap" class="ilc_LineNumbers"><pre class="ilc_Code"><span class="ilc_LineNumber">1</span><br><span class="ilc_LineNumber">2</span><br><span class="ilc_LineNumber">3</span><br><span class="ilc_LineNumber">4</span><br><span class="ilc_LineNumber">5</span><br><span class="ilc_LineNumber">6</span><br><span class="ilc_LineNumber">7</span><br><span class="ilc_LineNumber">8</span><br><span class="ilc_LineNumber">9</span><br><span class="ilc_LineNumber">10</span><br><span class="ilc_LineNumber">11</span><br><span class="ilc_LineNumber">12</span><br><span class="ilc_LineNumber">13</span><br><span class="ilc_LineNumber">14</span></pre></td>
+                                        <td class="ilc_Sourcecode"><pre class="ilc_Code"><a href="http://www.php.net/function">function</a> showChapterSubtab()<br>{<br>        <span class="ilc_CodeCategory_1">global</span> $tpl, $ilTabs, $ilCtrl;<br> <br>        $my_tpl = new ilTemplate(__DIR__ ."<span class="ilc_CodeQuote">/../templates/tpl.lm_content_chapters.html</span>",false,false);<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">CHAP1_LINK</span>",$ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showChapter1</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">CHAP2_LINK</span>",$ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showChapter2</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">PAGE1_LINK</span>", $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showPage1</span>"));<br>        $my_tpl-&gt;setVariable("<span class="ilc_CodeQuote">SUBCHAP1_LINK</span>", $ilCtrl-&gt;getLinkTarget($this, "<span class="ilc_CodeQuote">showSubchapter1</span>"));<br> <br>        $this-&gt;generateContentSubtabs();<br>        $ilTabs-&gt;activateSubTab("<span class="ilc_CodeQuote">chapterSubtab</span>");<br>        $tpl-&gt;setContent($my_tpl-&gt;get());<br>}</pre></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div><a href="">Download</a></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ilc_Paragraph ilc_text_block_Example">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            <!--Break-->
+                        </div>
+                        <div xmlns:xhtml="http://www.w3.org/1999/xhtml" style="clear:both;">
+                            <!--Break-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
