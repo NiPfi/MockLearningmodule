@@ -783,6 +783,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 	    $ilExplorer = new ilObjMockTree($this, $cmd);
 
 	    $tpl->setLeftNavContent($ilExplorer->getHTML());
+	    $tpl->addCss(__DIR__."../templates/css/responsiveButton.css");#"only screen and (min-width : 320px)");
     }
 
 }
