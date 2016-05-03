@@ -1,0 +1,465 @@
+<script>
+    function init() {
+        var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+        if (btn_group.length != null) {
+            $('#switchMode').prependTo(btn_group[0]);
+        }
+    
+        //Switch Online/Offline status
+        var actionGroup = document.getElementById('tttt');
+        var actionList = actionGroup.querySelectorAll("ul[id^='ilAdvSelListTable_act_']");
+        var onlineElement = document.createElement('li');
+        var innerElement = document.createElement('span');
+        var linkElement = document.createElement('a');
+
+        innerElement.className = "xsmall";
+        innerElement.innerHTML = "Set Online";
+        innerElement.id = "innerElement";
+        linkElement.id = "act_77_pref_77_";
+        linkElement.href = "#";
+        linkElement.target = "_top";
+        onlineElement.id = "onlineElement";
+        var statusDesc = document.getElementById('statusDesc');
+        onlineElement.onclick = function () {
+            changeOnlineStatus();
+        }
+        linkElement.appendChild(innerElement);
+        onlineElement.appendChild(linkElement);
+        if (actionList.length != 0) {
+            actionList[0].appendChild(onlineElement);
+        }
+    }
+
+    window.onload = init;
+
+    function changeOnlineStatus() {
+        var statusDesc = document.getElementById('statusDesc');
+        var innerElement = document.getElementById('innerElement');
+        if (innerElement.innerHTML == "Set Online") {
+            statusDesc.style.color = "#6ea03c";
+            statusDesc.innerHTML = "Status: Online";
+            innerElement.innerHTML = "Set Offline";
+        } else if (innerElement.innerHTML == "Set Offline") {
+            statusDesc.style.color = "#fa8228";
+            statusDesc.innerHTML = "Status: Offline";
+            innerElement.innerHTML = "Set Online";
+        }
+    }
+</script>
+
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+            <!-- todo: proper id support, spacer?, separator?, emph classes -->
+
+            <form method="post" id="ilToolbar" action="" class="ilForm">
+                <h3 class="ilAccHeadingHidden">Functions</h3>
+                <nav class="ilToolbar navbar navbar-default yamm " role="navigation" id="2">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tb-collapse-2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="tb-collapse-2">
+                            <ul class="ilToolbarItems nav navbar-nav">
+                                <li class="ilToolbarGroup">
+
+                                    <div class="navbar-form">
+                                        <button class="btn btn-default" type="button" onclick="'">Add New Local Role</button>
+                                    </div>
+
+                                    <div class="navbar-form">
+                                        <button class="btn btn-default" type="button" onclick="">Import Role</button>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+
+
+            <form action="n" role="form">
+
+
+
+                <div class="ilTableHeaderTitle">
+                    <div class="ilFloatRight">
+
+
+
+                    </div>
+                    <h3 class="ilHeader ilTableHeaderTitle"><a class="ilAccAnchor" name="il_table_top" id="il_table_top">Object Permission Settings</a></h3>
+                </div>
+
+
+                <div class="ilTableFilterSec" id="tfil_objroleperm_75">
+                    <fieldset class="ilTableFilter">
+                        <legend class="ilTableFilter">
+                            <!--Filter-->
+
+                        </legend>
+
+                        <table border="0" class="ilTableFilter" datatable="0">
+
+                            <tbody>
+                                <tr>
+
+                                    <td class="ilFilterOption">
+                                        <div class="ilTableFilterLabel">
+                                            <label for="role">Role</label>
+                                        </div>
+                                        <div class="ilTableFilterInput">
+                                            <select class="form-control" id="role" name="role">
+
+                                                <option value="1" selected="selected">Show all roles of current context</option>
+
+                                                <option value="2">Show only global roles</option>
+
+                                                <option value="3">Show only local roles of current context</option>
+
+                                                <option value="4">Show only roles using a local policy at this position</option>
+
+                                                <option value="5">Show only local roles defined at this position</option>
+
+                                            </select>
+
+
+                                        </div>
+                                    </td>
+
+
+                                    <td>&nbsp;</td>
+
+                                    <td>&nbsp;</td>
+
+                                    <td>&nbsp;</td>
+
+                                    <td>&nbsp;</td>
+
+                                    <td>&nbsp;</td>
+
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                        <span><input type="submit" class="btn btn-default" name="cmd[applyFilter]" value="Apply Filter">
+<input type="submit" class="btn btn-default" name="cmd[resetFilter]" value="Reset Filter"></span>
+
+                    </fieldset>
+                </div>
+
+
+                <div class="ilTableNav yui-skin-sam">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" datatable="0">
+                        <tbody>
+                            <tr>
+                                <td class="ilWhiteSpaceNowrap ilLeft ilValignMiddle">
+
+                                </td>
+                                <td class="ilWhiteSpaceNowrap ilRight">
+
+                                    <a class="btn btn-link ilTableFilterActivator" id="atfil_objroleperm_75" href="#" onclick="" style="display: none;">Show Filter</a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ilTableOuter">
+
+                    <div class="ilTableCommandRowTop form-inline">
+                        <div class="ilFloatLeft">
+
+                        </div>
+
+                        <div class="ilRight">
+
+
+                            <input class="btn btn-default" type="submit" name="cmd[savePermissions]" value="Save">
+
+
+                        </div>
+
+                        <div style="clear:both;"></div>
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="objroleperm_75" datatable="1">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th><span id="thc_objroleperm_75_1" data-hasqtip="0">User</span></th>
+
+                                    <th><span id="thc_objroleperm_75_2" data-hasqtip="1">Guest</span></th>
+
+                                    <th><span id="thc_objroleperm_75_3" data-hasqtip="2">Anonymous</span></th>
+                                    
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                <tr style="font-size: 75%" class="tblrow1">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][2]" id="perm_4_2" value="1" checked="checked">
+                                            <label for="perm_4_2" title="ILIAS Learning Module is visible">Visible</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][2]" id="perm_5_2" value="1" checked="checked">
+                                            <label for="perm_5_2" title="ILIAS Learning Module is visible">Visible</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][2]" id="perm_14_2" value="1">
+                                            <label for="perm_14_2" title="ILIAS Learning Module is visible">Visible</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow2">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][3]" id="perm_4_3" value="1" checked="checked">
+                                            <label for="perm_4_3" title="User can read ILIAS learning module">Read</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][3]" id="perm_5_3" value="1">
+                                            <label for="perm_5_3" title="User can read ILIAS learning module">Read</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][3]" id="perm_14_3" value="1">
+                                            <label for="perm_14_3" title="User can read ILIAS learning module">Read</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow1">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][95]" id="perm_4_95" value="1">
+                                            <label for="perm_4_95" title="User can view learning progress of other users">View learning progress of other users</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][95]" id="perm_5_95" value="1">
+                                            <label for="perm_5_95" title="User can view learning progress of other users">View learning progress of other users</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][95]" id="perm_14_95" value="1">
+                                            <label for="perm_14_95" title="User can view learning progress of other users">View learning progress of other users</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow2">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][55]" id="perm_4_55" value="1">
+                                            <label for="perm_4_55" title="User can edit learning progress settings">Edit Learning Progress</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][55]" id="perm_5_55" value="1">
+                                            <label for="perm_5_55" title="User can edit learning progress settings">Edit Learning Progress</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][55]" id="perm_14_55" value="1">
+                                            <label for="perm_14_55" title="User can edit learning progress settings">Edit Learning Progress</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow1">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][58]" id="perm_4_58" value="1">
+                                            <label for="perm_4_58" title="User can copy ILIAS learning module">Copy</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][58]" id="perm_5_58" value="1">
+                                            <label for="perm_5_58" title="User can copy ILIAS learning module">Copy</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][58]" id="perm_14_58" value="1">
+                                            <label for="perm_14_58" title="User can copy ILIAS learning module">Copy</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow2">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][4]" id="perm_4_4" value="1">
+                                            <label for="perm_4_4" title="User can edit content and settings of ILIAS learning module">Edit Settings</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][4]" id="perm_5_4" value="1">
+                                            <label for="perm_5_4" title="User can edit content and settings of ILIAS learning module">Edit Settings</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][4]" id="perm_14_4" value="1">
+                                            <label for="perm_14_4" title="User can edit content and settings of ILIAS learning module">Edit Settings</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow1">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][6]" id="perm_4_6" value="1">
+                                            <label for="perm_4_6" title="User can move or delete ILIAS learning module">Delete</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][6]" id="perm_5_6" value="1">
+                                            <label for="perm_5_6" title="User can move or delete ILIAS learning module">Delete</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][6]" id="perm_14_6" value="1">
+                                            <label for="perm_14_6" title="User can move or delete ILIAS learning module">Delete</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow2">
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[4][1]" id="perm_4_1" value="1">
+                                            <label for="perm_4_1" title="User can change permission settings">Change Permissions</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[5][1]" id="perm_5_1" value="1">
+                                            <label for="perm_5_1" title="User can change permission settings">Change Permissions</label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std" style="vertical-align: top">
+                                        <p>
+                                            <input type="checkbox" name="perm[14][1]" id="perm_14_1" value="1">
+                                            <label for="perm_14_1" title="User can change permission settings">Change Permissions</label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                                <tr style="font-size: 75%" class="tblrow1">
+
+                                    <td class="std">
+                                        <p>
+                                            <input type="checkbox" id="select_4_nocreation" onclick="setCheckboxes('table_16c6e23394f009a0bb859e557359e1d7','4','nocreation',['2','3','95','55','58','4','6','1']); return true;">
+                                            <label for="select_4_nocreation"><font class="bold">Select All</font></label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std">
+                                        <p>
+                                            <input type="checkbox" id="select_5_nocreation" onclick="setCheckboxes('table_16c6e23394f009a0bb859e557359e1d7','5','nocreation',['2','3','95','55','58','4','6','1']); return true;">
+                                            <label for="select_5_nocreation"><font class="bold">Select All</font></label>
+                                        </p>
+                                    </td>
+
+                                    <td class="std">
+                                        <p>
+                                            <input type="checkbox" id="select_14_nocreation" onclick="setCheckboxes('table_16c6e23394f009a0bb859e557359e1d7','14','nocreation',['2','3','95','55','58','4','6','1']); return true;">
+                                            <label for="select_14_nocreation"><font class="bold">Select All</font></label>
+                                        </p>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="ilTableCommandRow form-inline">
+                        <div class="ilFloatLeft">
+
+                        </div>
+
+                        <div class="ilRight">
+
+                            <input class="btn btn-default" type="submit" name="cmd[savePermissions]" value="Save">
+
+                        </div>
+
+                        <div style="clear:both;"></div>
+                    </div>
+
+                </div>
+
+                <div class="ilTableNav">
+                    <div class="ilLeft" style="margin-top:5px;">
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </form>
+        </div>
+    </div>
+</div>

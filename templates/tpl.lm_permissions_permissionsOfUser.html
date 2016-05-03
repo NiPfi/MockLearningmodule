@@ -1,0 +1,737 @@
+<script>
+    function init() {
+        var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+        if (btn_group.length != null) {
+            $('#switchMode').prependTo(btn_group[0]);
+        }
+    
+        //Switch Online/Offline status
+        var actionGroup = document.getElementById('tttt');
+        var actionList = actionGroup.querySelectorAll("ul[id^='ilAdvSelListTable_act_']");
+        var onlineElement = document.createElement('li');
+        var innerElement = document.createElement('span');
+        var linkElement = document.createElement('a');
+
+        innerElement.className = "xsmall";
+        innerElement.innerHTML = "Set Online";
+        innerElement.id = "innerElement";
+        linkElement.id = "act_77_pref_77_";
+        linkElement.href = "#";
+        linkElement.target = "_top";
+        onlineElement.id = "onlineElement";
+        var statusDesc = document.getElementById('statusDesc');
+        onlineElement.onclick = function () {
+            changeOnlineStatus();
+        }
+        linkElement.appendChild(innerElement);
+        onlineElement.appendChild(linkElement);
+        if (actionList.length != 0) {
+            actionList[0].appendChild(onlineElement);
+        }
+    }
+
+    window.onload = init;
+
+    function changeOnlineStatus() {
+        var statusDesc = document.getElementById('statusDesc');
+        var innerElement = document.getElementById('innerElement');
+        if (innerElement.innerHTML == "Set Online") {
+            statusDesc.style.color = "#6ea03c";
+            statusDesc.innerHTML = "Status: Online";
+            innerElement.innerHTML = "Set Offline";
+        } else if (innerElement.innerHTML == "Set Offline") {
+            statusDesc.style.color = "#fa8228";
+            statusDesc.innerHTML = "Status: Offline";
+            innerElement.innerHTML = "Set Online";
+        }
+    }
+</script>
+
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+            <!-- todo: proper id support, spacer?, separator?, emph classes -->
+
+            <form method="post" id="ilToolbar" action="" class="ilForm">
+                <h3 class="ilAccHeadingHidden">Functions</h3>
+                <nav class="ilToolbar navbar navbar-default yamm " role="navigation" id="2">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tb-collapse-2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="tb-collapse-2">
+                            <ul class="ilToolbarItems nav navbar-nav">
+                                <li class="ilToolbarGroup">
+                                    <div class="navbar-text">User</div>
+
+                                    <div class="navbar-form">
+                                        <input class="form-control ui-autocomplete-input" type="text" id="user_login" maxlength="200" name="user_login" value="root" autocomplete="off">
+
+
+
+
+                                        <script type="text/javascript">
+                                            il.Util.addOnLoad(
+
+                                                function () {
+
+                                                    $.widget("custom.iladvancedautocomplete", $.ui.autocomplete, {
+                                                        more: false,
+                                                        _renderMenu: function (ul, items) {
+                                                            var that = this;
+                                                            $.each(items, function (index, item) {
+                                                                that._renderItemData(ul, item);
+                                                            });
+
+                                                            that.options.requestUrl = that.options.requestUrl.replace(/&fetchall=1/g, '');
+
+                                                            if (that.more) {
+                                                                ul.append("<li class='ui-menu-category ui-menu-more ui-state-disabled'><span>&raquo;more</span></li>");
+                                                                ul.find('li').last().on('click', function (e) {
+                                                                    that.options.requestUrl += '&fetchall=1';
+                                                                    that.close(e);
+                                                                    that.search(null, e);
+                                                                    e.preventDefault();
+                                                                });
+                                                            }
+                                                        }
+                                                    });
+
+
+
+
+                                                    $('#user_login').iladvancedautocomplete({
+                                                        requestUrl: "ilias.php?ref_id=75&cmd=doUserAutoComplete&cmdClass=ilrepositorysearchgui&cmdNode=jm:kb:5q:5k:x3&baseClass=ilLMEditorGUI&cmdMode=asynch",
+                                                        source: function (request, response) {
+                                                            var that = this;
+                                                            $.getJSON(that.options.requestUrl, {
+                                                                term: request.term
+                                                            }, function (data) {
+                                                                if (typeof data.items == "undefined") {
+                                                                    response(data);
+                                                                } else {
+                                                                    that.more = data.hasMoreResults;
+                                                                    response(data.items);
+                                                                }
+                                                            });
+                                                        },
+                                                        minLength: 3
+                                                    });
+
+
+
+
+
+                                                }
+                                            );
+                                        </script>
+                                    </div>
+
+                                    <div class="navbar-form">
+                                        <input class="btn btn-default" type="submit" name="cmd[perminfo]" value="Change User">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+
+
+            <form name="formInfoScreen" method="post" action="">
+
+
+
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_1">
+                    <h3 class="ilHeader">Access- and status information</h3>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">User</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            root user (#6)
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Roles</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            Administrator
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="il_InfoScreenProperty control-label col-xs-3">Status</div>
+                        <div class="il_InfoScreenPropertyValue col-xs-9">
+                            <span class="il_ItemAlertProperty">Offline</span>
+                            <br>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="ilInfoScreenSec form-horizontal" id="infoscreen_section_">
+                    <h3 class="ilHeader"></h3>
+
+
+                </div>
+
+
+
+            </form>
+
+
+            <br>
+
+            <div class="ilTableHeaderTitle">
+                <div class="ilFloatRight">
+
+                </div>
+                <h3 class="ilHeader ilTableHeaderTitle"><a class="ilAccAnchor" name="il_table_top" id="il_table_top">Access Permissions</a></h3>
+            </div>
+
+            <div class="ilTableNav yui-skin-sam">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" datatable="0">
+                    <tbody>
+                        <tr>
+                            <td class="ilWhiteSpaceNowrap ilLeft ilValignMiddle">
+
+                            </td>
+                            <td class="ilWhiteSpaceNowrap ilRight">
+
+
+                                <div class="btn-group">
+                                    <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+                                    <button type="button" class="btn btn-sm btn-link dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_sellst_rows_accessperm6">
+                                        <span>Rows</span> <span class="caret"></span>
+                                    </button>
+
+
+                                    <ul class="dropdown-menu pull-right" role="menu" id="ilAdvSelListTable_sellst_rows_accessperm6">
+
+
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_0" href=""><span>Default (50)</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_5" href=""><span>5</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_10" href=""><span>10</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_15" href=""><span>15</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_20" href=""><span>20</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_30" href=""><span>30</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_40" href=""><span>40</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_50" href=""><span>50</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_100" href=""><span>100</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_200" href=""><span>200</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_400" href=""><span>400</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_accessperm6_800" href=""><span>800</span></a>
+                                        </li>
+
+
+
+                                    </ul>
+
+                                </div>
+                                <script type="text/javascript">
+                                    il.AdvancedSelectionList.init['sellst_rows_accessperm6'] = function () {
+                                        il.AdvancedSelectionList.add('sellst_rows_accessperm6', {
+                                            "trigger_event": "click",
+                                            "auto_hide": false,
+                                            "anchor_id": "ilAdvSelListAnchorElement_sellst_rows_accessperm6",
+                                            "asynch": false,
+                                            "asynch_url": false
+                                        });
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '0', 'Default (50)');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '5', '5');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '10', '10');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '15', '15');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '20', '20');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '30', '30');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '40', '40');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '50', '50');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '100', '100');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '200', '200');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '400', '400');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_accessperm6', '', '800', '800');
+
+
+                                    }
+                                    il.AdvancedSelectionList.init['sellst_rows_accessperm6']();
+                                </script>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ilTableOuter">
+
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="accessperm6" datatable="1">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th width="5%"><span id="thc_accessperm6_1"></span></th>
+
+                                <th width="45%"><span id="thc_accessperm6_2">Operation</span></th>
+
+                                <th><span id="thc_accessperm6_3">Granted by Role / Ownership</span></th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    ILIAS Learning Module is visible
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can read ILIAS learning module
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can view learning progress of other users
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can edit learning progress settings
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can copy ILIAS learning module
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can edit content and settings of ILIAS learning module
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can move or delete ILIAS learning module
+                                </td>
+                                <td class="std">
+
+                                    Owner of object
+                                    <br> Administrator
+
+                                    <br>
+
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    User can change permission settings
+                                </td>
+                                <td class="std">
+
+                                    Administrator
+                                    <br>
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="ilTableNav">
+                <div class="ilLeft" style="margin-top:5px;">
+
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+
+            <br>
+
+            <div class="ilTableHeaderTitle">
+                <div class="ilFloatRight">
+
+                </div>
+                <h3 class="ilHeader ilTableHeaderTitle"><a class="ilAccAnchor" name="il_table_top" id="il_table_top">Available Roles</a></h3>
+            </div>
+
+            <div class="ilTableNav yui-skin-sam">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" datatable="0">
+                    <tbody>
+                        <tr>
+                            <td class="ilWhiteSpaceNowrap ilLeft ilValignMiddle">
+
+                            </td>
+                            <td class="ilWhiteSpaceNowrap ilRight">
+                                
+                                <div class="btn-group">
+                                    <!-- Important: The next a-tag had a this.blur(); in the onclick event before. Please do not add it again, see bug #8723 -->
+                                    <button type="button" class="btn btn-sm btn-link dropdown-toggle" data-toggle="dropdown" data-container="body" id="ilAdvSelListAnchorText_sellst_rows_available_roles6">
+                                        <span>Rows</span> <span class="caret"></span>
+                                    </button>
+
+
+                                    <ul class="dropdown-menu pull-right" role="menu" id="ilAdvSelListTable_sellst_rows_available_roles6">
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_0" href=""><span>Default (50)</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_5" href=""><span>5</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_10" href=""><span>10</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_15" href=""><span>15</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_20" href=""><span>20</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_30" href=""><span>30</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_40" href=""><span>40</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_50" href=""><span>50</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_100" href=""><span>100</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_200" href=""><span>200</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_400" href=""><span>400</span></a>
+                                        </li>
+
+                                        <li onclick="">
+                                            <a id="sellst_rows_available_roles6_800" href=""><span>800</span></a>
+                                        </li>
+
+
+
+                                    </ul>
+
+                                </div>
+                                <script type="text/javascript">
+                                    il.AdvancedSelectionList.init['sellst_rows_available_roles6'] = function () {
+                                        il.AdvancedSelectionList.add('sellst_rows_available_roles6', {
+                                            "trigger_event": "click",
+                                            "auto_hide": false,
+                                            "anchor_id": "ilAdvSelListAnchorElement_sellst_rows_available_roles6",
+                                            "asynch": false,
+                                            "asynch_url": false
+                                        });
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '0', 'Default (50)');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '5', '5');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '10', '10');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '15', '15');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '20', '20');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '30', '30');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '40', '40');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '50', '50');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '100', '100');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '200', '200');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '400', '400');
+
+                                        il.AdvancedSelectionList.addItem('sellst_rows_available_roles6', '', '800', '800');
+
+
+                                    }
+                                    il.AdvancedSelectionList.init['sellst_rows_available_roles6']();
+                                </script>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ilTableOuter">
+
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="available_roles6" datatable="1">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th width="5%">
+                                    <a class="tblheader" href="" title="Sort by this column">
+                                        <span id="thc_available_roles6_1"></span>
+                                    </a>
+                                </th>
+
+                                <th width="32%">
+                                    <a class="tblheader" href="" title="Sort by this column">
+                                        <span id="thc_available_roles6_2">Role</span>
+                                    </a>
+                                </th>
+
+                                <th width="32%">
+                                    <a class="tblheader" href="" title="Sort by this column">
+                                        <span id="thc_available_roles6_3">Effective&nbsp;From*</span>
+                                    </a>
+                                </th>
+
+                                <th>
+                                    <a class="tblheader" href="" title="Sort by this column">
+                                        <span id="thc_available_roles6_4">Original&nbsp;Position</span>
+                                    </a>
+                                </th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_ok.svg" alt="assigned" title="assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    <a href="">Administrator</a>
+                                </td>
+                                <td class="std">
+
+                                </td>
+                                <td class="std">
+
+                                    Global
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_not_ok.svg" alt="not assigned" title="not assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    <a href="">User</a>
+                                </td>
+                                <td class="std">
+
+                                </td>
+                                <td class="std">
+
+                                    Global
+                                </td>
+                            </tr>
+                            <tr class="tblrow1">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_not_ok.svg" alt="not assigned" title="not assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    <a href="">Guest</a>
+                                </td>
+                                <td class="std">
+
+                                </td>
+                                <td class="std">
+
+                                    Global
+                                </td>
+                            </tr>
+                            <tr class="tblrow2">
+                                <td class="std">
+                                    <img src="./templates/default/images/icon_not_ok.svg" alt="not assigned" title="not assigned" border="0" vspace="0">
+                                </td>
+                                <td class="std">
+                                    <a href="">Anonymous</a>
+                                </td>
+                                <td class="std">
+
+                                </td>
+                                <td class="std">
+
+                                    Global
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="ilTableNav">
+                <div class="ilLeft" style="margin-top:5px;">
+
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+
+            <br> * Role is interrupted at this position. The role's default permission settings in effect are located in that position.
+
+        </div>
+
+    </div>
+</div>

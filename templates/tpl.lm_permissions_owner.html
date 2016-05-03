@@ -1,0 +1,163 @@
+<script>
+    function init() {
+        var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
+        if (btn_group.length != null) {
+            $('#switchMode').prependTo(btn_group[0]);
+        }
+    
+        //Switch Online/Offline status
+        var actionGroup = document.getElementById('tttt');
+        var actionList = actionGroup.querySelectorAll("ul[id^='ilAdvSelListTable_act_']");
+        var onlineElement = document.createElement('li');
+        var innerElement = document.createElement('span');
+        var linkElement = document.createElement('a');
+
+        innerElement.className = "xsmall";
+        innerElement.innerHTML = "Set Online";
+        innerElement.id = "innerElement";
+        linkElement.id = "act_77_pref_77_";
+        linkElement.href = "#";
+        linkElement.target = "_top";
+        onlineElement.id = "onlineElement";
+        var statusDesc = document.getElementById('statusDesc');
+        onlineElement.onclick = function () {
+            changeOnlineStatus();
+        }
+        linkElement.appendChild(innerElement);
+        onlineElement.appendChild(linkElement);
+        if (actionList.length != 0) {
+            actionList[0].appendChild(onlineElement);
+        }
+    }
+
+    window.onload = init;
+
+    function changeOnlineStatus() {
+        var statusDesc = document.getElementById('statusDesc');
+        var innerElement = document.getElementById('innerElement');
+        if (innerElement.innerHTML == "Set Online") {
+            statusDesc.style.color = "#6ea03c";
+            statusDesc.innerHTML = "Status: Online";
+            innerElement.innerHTML = "Set Offline";
+        } else if (innerElement.innerHTML == "Set Offline") {
+            statusDesc.style.color = "#fa8228";
+            statusDesc.innerHTML = "Status: Offline";
+            innerElement.innerHTML = "Set Online";
+        }
+    }
+</script>
+
+<div class="container-fluid" id="ilContentContainer">
+    <div class="row">
+
+        <div id="il_center_col" class="col-sm-12">
+
+
+
+            <form id="form_" role="form" class="" method="post">
+
+                <div class="form-horizontal">
+                    <!-- todo: HIDE_LABELS_STYLE -->
+
+
+                    <!-- Please note the usage of datatable attribute which is non-standard
+	but ensures that JAWS treats this table as a layout table -->
+                    <!-- removed a width="" -->
+
+                    <div class="ilFormHeader">
+                        <h3 class="ilHeader"><a name="il_form_top"></a>Owner of object</h3>
+                        <div class="ilFormCmds">
+
+
+                        </div>
+                        <div class="ilHeaderDesc"></div>
+                    </div>
+
+                    <div class="form-group" id="il_prop_cont_owner">
+                        <label for="owner" class="col-sm-3 control-label">Login <span class="asterisk">*</span></label>
+                        <div class="col-sm-9">
+                            <input class="form-control ui-autocomplete-input" type="text" id="owner" maxlength="200" name="owner" value="root" autocomplete="off">
+                            <script type="text/javascript">
+                                il.Util.addOnLoad(
+
+                                    function () {
+
+                                        $.widget("custom.iladvancedautocomplete", $.ui.autocomplete, {
+                                            more: false,
+                                            _renderMenu: function (ul, items) {
+                                                var that = this;
+                                                $.each(items, function (index, item) {
+                                                    that._renderItemData(ul, item);
+                                                });
+
+                                                that.options.requestUrl = that.options.requestUrl.replace(/&fetchall=1/g, '');
+
+                                                if (that.more) {
+                                                    ul.append("<li class='ui-menu-category ui-menu-more ui-state-disabled'><span>&raquo;more</span></li>");
+                                                    ul.find('li').last().on('click', function (e) {
+                                                        that.options.requestUrl += '&fetchall=1';
+                                                        that.close(e);
+                                                        that.search(null, e);
+                                                        e.preventDefault();
+                                                    });
+                                                }
+                                            }
+                                        });
+
+                                        $('#owner').iladvancedautocomplete({
+                                            requestUrl: "ilias.php?ref_id=75&cmd=doUserAutoComplete&cmdClass=ilrepositorysearchgui&cmdNode=jm:kb:5q:x3&baseClass=ilLMEditorGUI&cmdMode=asynch",
+                                            source: function (request, response) {
+                                                var that = this;
+                                                $.getJSON(that.options.requestUrl, {
+                                                    term: request.term
+                                                }, function (data) {
+                                                    if (typeof data.items == "undefined") {
+                                                        response(data);
+                                                    } else {
+                                                        that.more = data.hasMoreResults;
+                                                        response(data.items);
+                                                    }
+                                                });
+                                            },
+                                            minLength: 3
+                                        });
+
+
+
+
+
+                                    }
+                                );
+                            </script>
+                            <div class="help-block">Attention, you may loose access permissions on this object after changing the owner.</div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+                    <!-- <script type="text/javascript">
+                        $(function() {
+                            il.Form.initItem('', );
+                        });
+                    </script> -->
+                    <div class="ilFormFooter clearfix">
+                        <div class="col-sm-6 ilFormRequired">
+
+
+                            <span class="asterisk">*</span><span class="small"> Required</span> &nbsp;
+
+                        </div>
+                        <div class="col-sm-6 ilFormCmds">
+
+                            <input class="btn btn-default btn-sm" type="submit" name="cmd[changeOwner]" value="Change owner">
+
+                        </div>
+                    </div>
+                    <!-- end of ilFormRow -->
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -35,7 +35,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         switch ($cmd)
         {
-            case "showPermissions": // list all commands that need write permission here
+            case "showObjectPermissionSettingsSubtab": // list all commands that need write permission here
+            case "showPermissionsOfUserSubtab":
+            case "showOwnerSubtab":
             case "showSettingsSubtab":
             case "showQuestions":
             case "showSettingsSubtab":
@@ -158,7 +160,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
         {
             $ilTabs->addTab("permissions", "Permissions",
-                $ilCtrl->getLinkTarget($this, showPermissions));
+                $ilCtrl->getLinkTarget($this, showObjectPermissionSettingsSubtab));
         }
     }
 
@@ -468,11 +470,53 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
      *  Permissions
      */
 
-    public function showPermissions() {
-        global $ilTabs, $tpl;
+    function generatePermissionsSubtabs()
+    {
+        global $ilTabs, $ilCtrl;
         $ilTabs->activateTab("permissions");
-        $tpl->setContent("Permissions");
+        $ilTabs->addSubTab("objectPermissionSettingsSubtab","Object Permission Settings",  $ilCtrl->getLinkTarget($this, "showObjectPermissionSettingsSubtab"));
+        $ilTabs->addSubTab("permissionsOfUserSubtab","Permissions of User",  $ilCtrl->getLinkTarget($this, "showPermissionsOfUserSubtab"));
+        $ilTabs->addSubTab("ownerSubtab","Owner",  $ilCtrl->getLinkTarget($this, "showOwnerSubtab"));
+        $this->addHeaderAction();
     }
+
+    function showObjectPermissionSettingsSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_permissions_objectPermissionSettings.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
+        $this->generatePermissionsSubtabs();
+        $ilTabs->activateSubtab("objectPermissionSettingsSubtab");
+
+        $tpl->setContent($my_tpl->get());
+    }
+
+    function showPermissionsOfUserSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_permissions_permissionsOfUser.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
+        $this->generatePermissionsSubtabs();
+        $ilTabs->activateSubtab("permissionsOfUserSubtab");
+
+        $tpl->setContent($my_tpl->get());
+    }
+
+    function showOwnerSubtab()
+    {
+        global $tpl, $ilTabs;
+
+        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_permissions_owner.html",false,false);
+        $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
+        $this->generatePermissionsSubtabs();
+        $ilTabs->activateSubtab("ownerSubtab");
+
+        $tpl->setContent($my_tpl->get());
+    }
+
+
     /*Chapter Edit */
 
     function showChapter1() {
