@@ -106,6 +106,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 		switch ($this->parent_cmd)
 		{
 			// Mark root highlighted
+			case "showPermissions":
 			case "showChapterSubtab":
 			case "showAllPagesSubtab":
 			case "showWeblinkCheckSubtab":

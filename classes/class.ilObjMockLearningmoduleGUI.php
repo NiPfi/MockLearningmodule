@@ -35,7 +35,8 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         switch ($cmd)
         {
-            case "showSettingsSubtab":   // list all commands that need write permission here
+            case "showPermissions": // list all commands that need write permission here
+            case "showSettingsSubtab":
             case "showQuestions":
             case "showSettingsSubtab":
             case "showStyleSubtab":
@@ -154,8 +155,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
                 $ilCtrl->getLinkTarget($this, showQuestions));
         }
 
-        // standard permission tab
-        $this->addPermissionTab();
+        if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
+        {
+            $ilTabs->addTab("permissions", "Permissions",
+                $ilCtrl->getLinkTarget($this, showPermissions));
+        }
     }
 
     private function setTemplateDescription()
@@ -460,6 +464,15 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setContent($my_tpl->get());
     }
 
+    /*
+     *  Permissions
+     */
+
+    public function showPermissions() {
+        global $ilTabs, $tpl;
+        $ilTabs->activateTab("permissions");
+        $tpl->setContent("Permissions");
+    }
     /*Chapter Edit */
 
     function showChapter1() {
