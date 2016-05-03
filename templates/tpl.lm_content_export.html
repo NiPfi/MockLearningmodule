@@ -4,47 +4,9 @@
         if (btn_group.length != null) {
             $('#switchMode').prependTo(btn_group[0]);
         }
-
-        //Switch Online/Offline status
-        var actionGroup = document.getElementById('tttt');
-        var actionList = actionGroup.querySelectorAll("ul[id^='ilAdvSelListTable_act_']");
-        var onlineElement = document.createElement('li');
-        var innerElement = document.createElement('span');
-        var linkElement = document.createElement('a');
-
-        innerElement.className = "xsmall";
-        innerElement.innerHTML = "Set Online";
-        innerElement.id = "innerElement";
-        linkElement.id = "act_77_pref_77_";
-        linkElement.href = "#";
-        linkElement.target = "_top";
-        onlineElement.id = "onlineElement";
-        var statusDesc = document.getElementById('statusDesc');
-        onlineElement.onclick = function () {
-            changeOnlineStatus();
-        }
-        linkElement.appendChild(innerElement);
-        onlineElement.appendChild(linkElement);
-        if (actionList.length != 0) {
-            actionList[0].appendChild(onlineElement);
-        }
     }
 
     window.onload = init;
-
-    function changeOnlineStatus() {
-        var statusDesc = document.getElementById('statusDesc');
-        var innerElement = document.getElementById('innerElement');
-        if (innerElement.innerHTML == "Set Online") {
-            statusDesc.style.color = "#6ea03c";
-            statusDesc.innerHTML = "Status: Online";
-            innerElement.innerHTML = "Set Offline";
-        } else if (innerElement.innerHTML == "Set Offline") {
-            statusDesc.style.color = "#fa8228";
-            statusDesc.innerHTML = "Status: Offline";
-            innerElement.innerHTML = "Set Online";
-        }
-    }
 </script>
 
 <div class="container-fluid" id="ilContentContainer">
