@@ -44,8 +44,8 @@
     </style>
 
     <script>
-        var areaId = "";
-        var nextId = "";
+        var areaId = new Array(3);
+        var nextId = new Array(3);
 
         function init() {
 
@@ -61,8 +61,8 @@
             var i;
             for (i = 0; i < x.length; i++) {
                 x[i].onclick = function () {
-                    areaId = $(this).data('thisid');
-                    nextId = $(this).data('nextid');
+                    areaId[0] = $(this).data('thisid');
+                    nextId[0] = $(this).data('nextid');
                     $("#myModal").modal("show");
                 };
             };
@@ -94,23 +94,27 @@
 
         function formDelete() {
             var area = document.getElementsByClassName('il_editarea_selected');
-            for(j = 0; j < area.length; j++) {
+            for (j = 0; j < area.length; j++) {
                 var selected = area[j].querySelectorAll("a[name=delete]");
                 for (i = 0; i < selected.length; i++) {
-                    areaId = selected[0].dataset.thisid;
-                    nextId = selected[0].dataset.nextid;
+                    areaId[j] = selected[0].dataset.thisid;
+                    nextId[j] = selected[0].dataset.nextid;
                     $("#myModal").modal("show");
                 }
             }
         }
 
         function elementDelete() {
-            var area = document.getElementById(areaId);
-            area.parentElement.removeChild(area);
-            var next = document.getElementById(nextId);
-            next.parentElement.removeChild(next);
-            areaId = "";
-            nextId = "";
+            for (i = 0; i < 3; i++) {
+                if (areaId[i] != null && areaId[i] != "") {
+                    var area = document.getElementById(areaId[i]);
+                    area.parentElement.removeChild(area);
+                    var next = document.getElementById(nextId[i]);
+                    next.parentElement.removeChild(next);
+                    areaId[i] = "";
+                    nextId[i] = "";
+                }
+            }
         }
     </script>
 </head>
