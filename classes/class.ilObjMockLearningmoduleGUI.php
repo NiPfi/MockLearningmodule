@@ -168,7 +168,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilCtrl;
         $desc = $this->object->getDescription();
-        $desc .= "<br> <span id='statusDesc' style='color: #fa8228'>Status: Offline</span>";
+        $desc .= "<br> <a id='statusDesc' style='color: #fa8228' onclick='changeOnlineStatusModal();'>Status: Offline</a>";
         $desc .= $this->userViewButton();
         $tpl->setDescription( $desc);
     }
