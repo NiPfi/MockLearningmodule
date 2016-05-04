@@ -7,6 +7,19 @@
     }
 
     window.onload = init;
+
+    function changeOnlineStatus() {
+        var obj = document.getElementById('cobj_offline');
+        var statusDesc = document.getElementById('statusDesc');
+        var innerElement = document.getElementById('innerElement');
+        if (obj.checked == false) {
+            statusDesc.style.color = "#6ea03c";
+            statusDesc.innerHTML = "Status: Online";
+        } else if (obj.checked == true) {
+            statusDesc.style.color = "#fa8228";
+            statusDesc.innerHTML = "Status: Offline";
+        }
+    }
 </script>
 
 <div class="container-fluid" id="ilContentContainer">
@@ -16,7 +29,7 @@
 
 
 
-            <form id="form_" role="form" class="form-horizontal preventDoubleSubmission" action="" method="post">
+            <form id="form_" role="form" class="form-horizontal preventDoubleSubmission" action="" method="post" onsubmit="return false;">
 
                 <div class="form-horizontal">
                     <!-- todo: HIDE_LABELS_STYLE -->
@@ -36,7 +49,7 @@
 
 
 
-                            <input class="btn btn-default btn-sm" type="SUBMIT" name="cmd[saveProperties]" value="Save">
+                            <input onclick="changeOnlineStatus();" class="btn btn-default btn-sm" type="SUBMIT" name="cmd[saveProperties]" value="Save" id="saveButton">
 
 
                         </div>
@@ -51,25 +64,7 @@
                     <div class="form-group" id="il_prop_cont_title">
                         <label for="title" class="col-sm-3 control-label">Title <span class="asterisk">*</span></label>
                         <div class="col-sm-9">
-
-
-
-
-
-
-
-
-
-
                             <input class="form-control" type="text" id="title" maxlength="200" name="title" value="Learning Module">
-
-
-
-
-
-
-
-
 
 
                         </div>
@@ -80,34 +75,10 @@
                         il.Form.initItem('', );
                     });
                     </script> -->
-
-
-
-
-
                     <div class="form-group" id="il_prop_cont_description">
                         <label for="description" class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-9">
-
-
-
-
-
-
-
-
-
-
                             <textarea class="form-control  noRTEditor" name="description" id="description" wrap="virtual" rows="">{DESCRIPTION}</textarea>
-
-
-
-
-
-
-
-
-
 
                         </div>
                     </div>
@@ -130,40 +101,42 @@
                         <div class="ilHeaderDesc"></div>
                     </div>
 
-
-
-
-
-
                     <div class="form-group" id="il_prop_cont_cobj_online">
-                        <label for="cobj_online" class="col-sm-3 control-label">Online</label>
+                        <label for="cobj_online" class="col-sm-3 control-label">Status<span class="asterisk">*</span></label>
                         <div class="col-sm-9">
 
+                            <div id="lm_layout">
 
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_online" value="online">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding-left:5px;">Online</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
+                                </div>
 
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_offline" value="offline" checked="checked">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding-left:5px;">Offline</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </label>
 
-
-
-
-
-
-
-                            <div class="checkbox">
-                                <label>
-                                    <input onclick="" type="checkbox" id="cobj_online" name="cobj_online" value="1"> &nbsp;
-                                </label>
+                                </div>
                             </div>
-
-
-
-
-
-
-
-
-
                         </div>
                     </div>
+
                     <!-- end of ilFormRow -->
                     <!-- <script type="text/javascript">
                     $(function() {
@@ -191,16 +164,6 @@
                     <div class="form-group" id="il_prop_cont_lm_layout">
                         <label for="lm_layout" class="col-sm-3 control-label">Default Layout</label>
                         <div class="col-sm-9">
-
-
-
-
-
-
-
-
-
-
                             <div id="lm_layout">
 
                                 <div class="radio">
