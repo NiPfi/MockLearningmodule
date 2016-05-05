@@ -2,6 +2,7 @@
 include_once ("./Services/Repository/classes/class.ilObjectPluginGUI.php");
 include_once("class.chapterHandler.php");
 include_once("class.pageHandler.php");
+include_once("class.userviewHandler.php");
 
 /**
  * User Interface class for repository object.
@@ -91,7 +92,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showContentTab":
             case "showTableOfContentsTab":
             case "showPrintViewTab":
-
+            case "showUserViewPage1":
+            case "showUserViewPage2":
+            case "showUserViewPage3":
+            case "showUserViewPage4":
+            case "showUserViewPage5":
 
                 $this->checkPermission("read");
                 $this->$cmd();
@@ -117,7 +122,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         {
             return "showChapterSubtab";
         }
-        return "showContentSubtab";
+        return "showUserViewPage1";
     }
 
 //
@@ -754,6 +759,31 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     function showUserView()
     {
+        $this->showUserViewPage1();
+    }
+
+    function  showUserViewPage1() {
+        $_SESSION["userview"] = "Page1";
+        $this->showContentTab();
+    }
+
+    function  showUserViewPage2() {
+        $_SESSION["userview"] = "Page2";
+        $this->showContentTab();
+    }
+
+    function  showUserViewPage3() {
+        $_SESSION["userview"] = "Page3";
+        $this->showContentTab();
+    }
+
+    function  showUserViewPage4() {
+        $_SESSION["userview"] = "Page4";
+        $this->showContentTab();
+    }
+
+    function  showUserViewPage5() {
+        $_SESSION["userview"] = "Page5";
         $this->showContentTab();
     }
 
@@ -767,12 +797,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     function showContentTab()
     {
         global $tpl, $ilTabs;
-        $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_content.html",false,false);
-
+        $userviewHander = new userviewHandler();
         $this->hideNonUserInfo();
         $this->generateUserViewTabs();
         $ilTabs->activateTab("contentTab");
-        $tpl->setContent($my_tpl->get());
+        $tpl->setContent($userviewHander->pageTemplate($_SESSION["userview"]));
     }
 
     function showTableOfContentsTab()
