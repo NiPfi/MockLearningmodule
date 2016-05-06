@@ -190,8 +190,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     private function editViewButton()
     {    global $ilCtrl;
+        $userviewHander = new userviewHandler();
         return $button = "<a style='margin-right: 5px; height: 26px;' id='switchMode' href="
-            . $ilCtrl->getLinkTarget($this, "showChapterSubtab") . "\""
+            . $ilCtrl->getLinkTarget($this, $userviewHander->adminViewLink($this->ctrl->getCmd())) . "\""
             . " class=\"btn btn-default\" role=\"button\">
             <span class=\"glyphicon glyphicon-pencil\"></span>
             <span id=\"usersModetxt\"> Admin Mode</span></a>";

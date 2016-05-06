@@ -44,4 +44,38 @@ class userviewHandler
     }
 
 
+    public function adminViewLink($cmd)
+    {
+        switch($cmd)
+        {
+            case "showUserView":
+            case "showUserInfoTab":
+            case "showContentTab":
+            case "showTableOfContentsTab":
+            case "showPrintViewTab":
+                if($_SESSION["userview"] == "Page1")
+                    return "showPage1";
+                if($_SESSION["userview"] == "Page2")
+                    return "showPage2";
+                if($_SESSION["userview"] == "Page3")
+                    return "showPage3";
+                if($_SESSION["userview"] == "Page4")
+                    return "showPage4";
+                if($_SESSION["userview"] == "Page5")
+                    return "showPage5";
+
+            case "showUserViewPage1":
+                return "showPage1";
+            case "showUserViewPage2":
+                return "showPage2";
+            case "showUserViewPage3":
+                return "showPage3";
+            case "showUserViewPage4":
+                return "showPage4";
+            case "showUserViewPage5":
+                return "showPage5";
+        }
+    }
+
+
 }
