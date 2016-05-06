@@ -451,7 +451,32 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showContentTab":
 			case "showTableOfContentsTab":
 			case "showPrintViewTab":
-				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserView");
+			case "showUserViewPage1":
+			case "showUserViewPage2":
+			case "showUserViewPage3":
+			case "showUserViewPage4":
+			case "showUserViewPage5":
+			if ($a_node->isLeaf())
+				if ($this->getNodeId($a_node)==2)
+					return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1");
+			if ($this->getNodeId($a_node)==3)
+				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage2");
+			if ($this->getNodeId($a_node)==5)
+				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3");
+			if ($this->getNodeId($a_node)==6)
+				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage4");
+			if ($this->getNodeId($a_node)==8)
+				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5");
+
+			elseif ($a_node->isChild())
+			{
+				if ($this->getNodeId($a_node)==4)
+					return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3");
+				if ($this->getNodeId($a_node)==1)
+					return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1");
+				return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5");
+			}
+			else return $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1");
 			break;
 			default:
 				if ($a_node->isLeaf())
