@@ -77,5 +77,79 @@ class userviewHandler
         }
     }
 
+    public function userViewLink($cmd)
+    {
+        switch($cmd)
+        {
+            case "showObjectPermissionSettingsSubtab": // list all commands that need write permission here
+            case "showPermissionsOfUserSubtab":
+            case "showOwnerSubtab":
+            case "showSettingsSubtab":
+            case "showQuestions":
+            case "showStyleSubtab":
+            case "showMenuSubtab":
+            case "showGlossariesSubtab":
+            case "showMultilinguismSubtab":
+            case "showMetadataSubtab":
+            case "showChapterSubtab":
+            case "showAllPagesSubtab":
+            case "showInternalLinksSubtab":
+            case "showWeblinkCheckSubtab":
+            case "showMediaSubtitlesSubtab":
+            case "showImportSubtab":
+            case "showExportSubtab":
+            case "showStatisticSubtab":
+            case "showBlockedUsersSubtab":
+            case "showInfo":
+            case "showInfoSubtab":
+            case "showInfoHistorySubtab":
+                return "showUserViewPage1";
 
+            case "showChapterMetadataSubtab":
+            case "showChapterPreconditionsSubtab":
+            case "showChapterSubchaptersSubtab":
+                if($_SESSION["page"] == "Page 1")
+                    return "showUserViewPage1";
+                if($_SESSION["page"] == "Page 2")
+                    return "showUserViewPage2";
+                if($_SESSION["page"] == "Page 3")
+                    return "showUserViewPage3";
+
+
+            case "showChapter1":
+                return "showUserViewPage1";
+            case "showChapter2":
+                return "showUserViewPage5";
+            case "showSubchapter1":
+                return "showUserViewPage3";
+
+            case "showEditSubtab":
+            case "showPreviewSubtab":
+            case "showPageMetadataSubtab":
+            case "showHistorySubtab":
+            case "showClipboardSubtab":
+            case "showActivationSubtab":
+                if($_SESSION["page"] == "Page 1")
+                    return "showUserViewPage1";
+                if($_SESSION["page"] == "Page 2")
+                    return "showUserViewPage2";
+                if($_SESSION["page"] == "Page 3")
+                    return "showUserViewPage3";
+                if($_SESSION["page"] == "Page 4")
+                    return "showUserViewPage4";
+                if($_SESSION["page"] == "Page 5")
+                    return "showUserViewPage5";
+
+            case "showPage1":
+                return "showUserViewPage1";
+            case "showPage2":
+                return "showUserViewPage2";
+            case "showPage3":
+                return "showUserViewPage3";
+            case "showPage4":
+                return "showUserViewPage4";
+            case "showPage5":
+                return "showUserViewPage5";
+        }
+    }
 }

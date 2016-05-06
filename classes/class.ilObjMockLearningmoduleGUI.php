@@ -41,7 +41,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showOwnerSubtab":
             case "showSettingsSubtab":
             case "showQuestions":
-            case "showSettingsSubtab":
             case "showStyleSubtab":
             case "showMenuSubtab":
             case "showGlossariesSubtab":
@@ -50,10 +49,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showChapterMetadataSubtab":
             case "showChapterPreconditionsSubtab":
             case "showChapterSubchaptersSubtab":
-            case "showSubchapter":
-            case "showSubchapterMetadataSubtab":
-            case "showSubchapterPreconditionsSubtab":
-            case "showSubchapterSubchaptersSubtab":
             case "showEditSubtab":
             case "showPreviewSubtab":
             case "showPageMetadataSubtab":
@@ -67,7 +62,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
             case "showMediaSubtitlesSubtab":
             case "showImportSubtab":
             case "showExportSubtab":
-            case "showQuestions":
             case "showStatisticSubtab":
             case "showBlockedUsersSubtab":
             case "showInfo":
@@ -181,8 +175,9 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
     private function userViewButton()
     {    global $ilCtrl;
+        $userviewHander = new userviewHandler();
         return $button = "<a style='margin-right: 5px; height: 26px;' id='switchMode' href="
-        . $ilCtrl->getLinkTarget($this, "showUserView") . "\""
+        . $ilCtrl->getLinkTarget($this, $userviewHander->userViewLink($this->ctrl->getCmd())) . "\""
             . " class=\"btn btn-default\" role=\"button\">
             <span class=\"glyphicon glyphicon-eye-open\"></span>
             <span id=\"editModetxt\" class=\"\"> User Mode</span></a>";
