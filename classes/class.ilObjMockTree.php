@@ -303,18 +303,123 @@ class ilObjMockTree extends ilExplorerBaseGUI
 			case "showContentTab":
 			case "showTableOfContentsTab":
 			case "showPrintViewTab":
-			if ($this->getNodeId($a_node)== 2)
+			if ($this->getNodeId($a_node)== 2 && $_SESSION["userview"] == "Page1")
 			{
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
 				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
-				$ilLocator->addItem("Page 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Page 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
+				$tpl->setLocator();
+				return true;
+			}
+			if ($this->getNodeId($a_node)== 3 && $_SESSION["userview"] == "Page2")
+			{
+				global $ilLocator, $tpl, $ilCtrl;
+				$ilLocator->clearItems();
+				$ilLocator->addRepositoryItems();
+				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Page 2",$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage2"));
+				$tpl->setLocator();
+				return true;
+			}
+			if ($this->getNodeId($a_node)== 5 && $_SESSION["userview"] == "Page3") {
+				global $ilLocator, $tpl, $ilCtrl;
+				$ilLocator->clearItems();
+				$ilLocator->addRepositoryItems();
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+				$ilLocator->addItem("Page 3", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+				$tpl->setLocator();
+				return true;
+			}
+			if ($this->getNodeId($a_node)== 6 && $_SESSION["userview"] == "Page4") {
+				global $ilLocator, $tpl, $ilCtrl;
+				$ilLocator->clearItems();
+				$ilLocator->addRepositoryItems();
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+				$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage4"));
+				$tpl->setLocator();
+				return true;
+			}
+			if ($this->getNodeId($a_node)== 8 && $_SESSION["userview"] == "Page5") {
+				global $ilLocator, $tpl, $ilCtrl;
+				$ilLocator->clearItems();
+				$ilLocator->addRepositoryItems();
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
+				$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
 				$tpl->setLocator();
 				return true;
 			}
 			break;
+
+			case "showUserViewPage1":
+				if ($this->getNodeId($a_node)== 2) {
+					global $ilLocator, $tpl, $ilCtrl;
+					$ilLocator->clearItems();
+					$ilLocator->addRepositoryItems();
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Page 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
+					$tpl->setLocator();
+					return true;
+				}
+			break;
+			case "showUserViewPage2":
+				if ($this->getNodeId($a_node)== 3) {
+					global $ilLocator, $tpl, $ilCtrl;
+					$ilLocator->clearItems();
+					$ilLocator->addRepositoryItems();
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Page 2", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage2"));
+					$tpl->setLocator();
+					return true;
+				}
+				break;
+			case "showUserViewPage3":
+				if ($this->getNodeId($a_node)== 5) {
+					global $ilLocator, $tpl, $ilCtrl;
+					$ilLocator->clearItems();
+					$ilLocator->addRepositoryItems();
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+					$ilLocator->addItem("Page 3", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+					$tpl->setLocator();
+					return true;
+				}
+				break;
+			case "showUserViewPage4":
+				if ($this->getNodeId($a_node)== 6) {
+					global $ilLocator, $tpl, $ilCtrl;
+					$ilLocator->clearItems();
+					$ilLocator->addRepositoryItems();
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
+					$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage4"));
+					$tpl->setLocator();
+					return true;
+				}
+				break;
+			case "showUserViewPage5":
+				if ($this->getNodeId($a_node)== 8) {
+					global $ilLocator, $tpl, $ilCtrl;
+					$ilLocator->clearItems();
+					$ilLocator->addRepositoryItems();
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
+					$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
+					$tpl->setLocator();
+					return true;
+				}
+				break;
+
+
+
 			// Show Subchapter 1.1 highlighted
 
 			case "showSubchapter1":
