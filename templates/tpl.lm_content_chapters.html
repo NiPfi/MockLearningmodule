@@ -125,8 +125,10 @@
                 document.getElementById('saveModal').innerHTML = "Confirm";
                 document.getElementById('newTitle').style.display = "none";
                 document.getElementById('statusSwitcher').style.display = "none";
+                loadItems();
                 document.getElementById('saveModal').onclick = function () {
                     deleteCheckedContent();
+                    removeModalTableItems();
                 }
                 $("#myModal").modal("show");
             }
@@ -156,6 +158,40 @@
                 statusDesc.innerHTML = "Status: Offline";
             }
         }
+
+        function loadItems() {
+            var checkedBoxes = document.querySelectorAll('input[id*="inp"]:checked');
+            var table = document.getElementById('deleteItemsConfirmation');
+            var icons = null;
+            var titles = null;
+            if (checkedBoxes.length != 0) {
+                for (i = 0; i < checkedBoxes.length; i++) {
+                    var rows = document.getElementsByName(checkedBoxes[i].dataset.row);
+                    for (j = 0; j < rows.length; j++) {
+                        icons = rows[j].querySelectorAll('.ilHFormIcon');
+                        titles = rows[j].querySelectorAll('.ilHFormInput');
+                        if (icons.length != 0) {
+                            for (k = 0; k < icons.length; k++) {
+                                var tableRow = table.insertRow(k);
+                                var cell1 = tableRow.insertCell(0);
+                                var cell2 = tableRow.insertCell(1);
+                                cell1.innerHTML = icons[k].innerHTML;
+                                cell2.innerHTML = titles[k].innerHTML;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function removeModalTableItems(obj) {
+            if (obj.className == "modal") {
+                var table = document.getElementById('deleteItemsConfirmation');
+                for (i = 0; i < table.rows.length; i++) {
+                    table.deleteRow(i);
+                }
+            }
+        }
     </script>
 
 </head>
@@ -163,7 +199,7 @@
 
 <body>
     <!-- Modal for title editing -->
-    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onchange="removeModalTableItems(this);">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -216,9 +252,10 @@
                         </div>
                     </form>
                     <p id="modalParagraph"></p>
+                    <table id="deleteItemsConfirmation"></table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="removeModalTableItems()">Close</button>
                     <button id="saveModal" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
@@ -338,7 +375,7 @@
                                     </tr>
 
                                 </tbody>
-                                <tbody>
+                                <tbody name="row1">
                                     <!-- Dropdown-Row -->
                                     <tr name="row3">
                                         <td colspan="5"></td>
