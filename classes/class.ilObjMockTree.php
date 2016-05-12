@@ -308,7 +308,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
-				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 				$ilLocator->addItem("Page 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 				$tpl->setLocator();
@@ -319,7 +319,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
-				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem($this->parent_obj->object->getTitle(),$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 				$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 				$ilLocator->addItem("Page 2",$ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage2"));
 				$tpl->setLocator();
@@ -329,7 +329,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
-				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
+				$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 				$ilLocator->addItem("Page 3", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 				$tpl->setLocator();
@@ -339,7 +340,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
-				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 				$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage4"));
 				$tpl->setLocator();
@@ -349,7 +350,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 				global $ilLocator, $tpl, $ilCtrl;
 				$ilLocator->clearItems();
 				$ilLocator->addRepositoryItems();
-				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+				$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 				$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
 				$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
 				$tpl->setLocator();
@@ -362,7 +363,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					global $ilLocator, $tpl, $ilCtrl;
 					$ilLocator->clearItems();
 					$ilLocator->addRepositoryItems();
-					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 					$ilLocator->addItem("Page 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 					$tpl->setLocator();
@@ -374,7 +375,7 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					global $ilLocator, $tpl, $ilCtrl;
 					$ilLocator->clearItems();
 					$ilLocator->addRepositoryItems();
-					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
 					$ilLocator->addItem("Page 2", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage2"));
 					$tpl->setLocator();
@@ -386,7 +387,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					global $ilLocator, $tpl, $ilCtrl;
 					$ilLocator->clearItems();
 					$ilLocator->addRepositoryItems();
-					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
+					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 					$ilLocator->addItem("Page 3", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 					$tpl->setLocator();
@@ -398,7 +400,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					global $ilLocator, $tpl, $ilCtrl;
 					$ilLocator->clearItems();
 					$ilLocator->addRepositoryItems();
-					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
+					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
+					$ilLocator->addItem("Chapter 1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage1"));
 					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage3"));
 					$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage4"));
 					$tpl->setLocator();
@@ -411,8 +414,8 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					$ilLocator->clearItems();
 					$ilLocator->addRepositoryItems();
 					$ilLocator->addItem($this->parent_obj->object->getTitle(), $ilCtrl->getLinkTarget($this->parent_obj, "showUserView"));
-					$ilLocator->addItem("Subchapter 1.1", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
-					$ilLocator->addItem("Page 4", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
+					$ilLocator->addItem("Chapter 2", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));;
+					$ilLocator->addItem("Page 5", $ilCtrl->getLinkTarget($this->parent_obj, "showUserViewPage5"));
 					$tpl->setLocator();
 					return true;
 				}
