@@ -377,7 +377,11 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         global $tpl, $ilTabs, $ilCtrl;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_info_history.html",false,false);
 
-        $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage"));
+        $my_tpl->setVariable("PAGE1_LINK", $ilCtrl->getLinkTarget($this, "showPage1"));
+        $my_tpl->setVariable("PAGE2_LINK", $ilCtrl->getLinkTarget($this, "showPage2"));
+        $my_tpl->setVariable("CHP1_LINK", $ilCtrl->getLinkTarget($this, "showChapter1"));
+        $my_tpl->setVariable("CHP2_LINK", $ilCtrl->getLinkTarget($this, "showChapter2"));
+        $my_tpl->setVariable("SUBCHP_LINK", $ilCtrl->getLinkTarget($this, "showSubchapter1"));
         $this->generateInfoSubtabs();
         $ilTabs->activateSubtab("infoHistorySubtab");
         $tpl->setContent($my_tpl->get());
