@@ -125,8 +125,10 @@
                 document.getElementById('saveModal').innerHTML = "Confirm";
                 document.getElementById('newTitle').style.display = "none";
                 document.getElementById('statusSwitcher').style.display = "none";
+                loadItems();
                 document.getElementById('saveModal').onclick = function () {
                     deleteCheckedContent();
+                    removeModalTableItems();
                 }
                 $("#myModal").modal("show");
             }
@@ -156,6 +158,35 @@
                 statusDesc.innerHTML = "Status: Offline";
             }
         }
+
+        function loadItems() {
+            var checkedBoxes = document.querySelectorAll('input[id*="inp"]:checked');
+            var table = document.getElementById('deleteItemsConfirmation');
+            if (checkedBoxes.length != 0) {
+                for (i = 0; i < checkedBoxes.length; i++) {
+                    var info = checkedBoxes[i].dataset.info;
+                    var elements = document.querySelectorAll('td[name="' + info + '"]');
+                    var icon = elements[0]
+                    var title = elements[1];
+                    var tableRow = table.insertRow(i);
+                    var cell1 = tableRow.insertCell(0);
+                    var cell2 = tableRow.insertCell(1);
+                    cell1.innerHTML = icon.innerHTML;
+                    cell2.innerHTML = title.innerHTML;
+
+                }
+            }
+        }
+
+        function removeModalTableItems() {
+            var table = document.getElementById('deleteItemsConfirmation');
+            table.innerHTML = null;
+        }
+
+        //does not work
+        $("#myModal").on("hidden.bs.modal", function () {
+            removeModalTableItems();
+        });
     </script>
 
 </head>
@@ -216,9 +247,10 @@
                         </div>
                     </form>
                     <p id="modalParagraph"></p>
+                    <table id="deleteItemsConfirmation"></table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="removeModalTableItems();">Close</button>
                     <button id="saveModal" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
@@ -322,15 +354,15 @@
                                         </td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" id="inp1" value="54" onchange="changeChildBoxes(this);" data-params="inp2,inp3,inp4,inp5,inp6" data-row="row1" data-tree="exp_node_0_1">
+                                            <input type="checkbox" name="id[]" id="inp1" value="54" onchange="changeChildBoxes(this);" data-params="inp2,inp3,inp4,inp5,inp6" data-row="row1" data-tree="exp_node_0_1" data-info="chap1">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="chap1">
 
                                             <a name="node_54"><img class="il_img_st" id="il_img_54" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="16">
+                                        <td class="ilHFormInput" colspan="16" name="chap1">
                                             <a id="inp54" class="form-control" name="title[54]" style="width:100%" href="{CHAP1_LINK}">Chapter 1</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp54" data-tree="exp_node_0_1" style="white-space: nowrap;">Edit Title</a>
@@ -339,7 +371,7 @@
                                     </tr>
 
                                 </tbody>
-                                <tbody  name="row1">
+                                <tbody name="row1">
                                     <!-- Dropdown-Row -->
                                     <tr name="row3">
                                         <td colspan="5"></td>
@@ -381,15 +413,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp2" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row3" data-tree="exp_node_0_2">
+                                            <input type="checkbox" id="inp2" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row3" data-tree="exp_node_0_2" data-info="page1">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="page1">
 
                                             <a name="node_55"><img class="il_img_pg" id="il_img_55" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="14">
+                                        <td class="ilHFormInput" colspan="14" name="page1">
                                             <a id="inp55" class="form-control" name="title[55]" style="width:100%" href="{PAGE1_LINK}">Page 1</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp55" data-tree="exp_node_0_2" style="white-space: nowrap;">Edit Title</a>
@@ -438,15 +470,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp3" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row4" data-tree="exp_node_0_3">
+                                            <input type="checkbox" id="inp3" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1" data-row="row4" data-tree="exp_node_0_3" data-info="page2">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="page2">
 
                                             <a name="node_60"><img class="il_img_pg" id="il_img_60" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="14">
+                                        <td class="ilHFormInput" colspan="14" name="page2">
                                             <a id="inp60" class="form-control" name="title[60]" style="width:100%" href="{PAGE2_LINK}">Page 2</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp60" data-tree="exp_node_0_3" style="white-space: nowrap;">Edit Title</a>
@@ -502,15 +534,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp4" name="id[]" value="61" onchange="changeChildBoxes(this);changeParentBoxes(this);" data-params="inp5,inp6" data-parents="inp1" data-row="row5" data-tree="exp_node_0_4">
+                                            <input type="checkbox" id="inp4" name="id[]" value="61" onchange="changeChildBoxes(this);changeParentBoxes(this);" data-params="inp5,inp6" data-parents="inp1" data-row="row5" data-tree="exp_node_0_4" data-info="subchap">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="subchap">
 
                                             <a name="node_61"><img class="il_img_st" id="il_img_61" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="14">
+                                        <td class="ilHFormInput" colspan="14" name="subchap">
                                             <a id="inp61" class="form-control" name="title[61]" style="width:100%" href="{SUBCHAP1_LINK}">Subchapter 1.1</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp61" data-tree="exp_node_0_4" style="white-space: nowrap;">Edit Title</a>
@@ -519,7 +551,7 @@
                                     </tr>
 
                                 </tbody>
-                                <tbody  name="row1">
+                                <tbody name="row1">
                                     <!-- Dropdown-Row -->
                                     <tr name="row6">
                                         <td colspan="7"></td>
@@ -563,15 +595,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp5" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row6" data-tree="exp_node_0_5">
+                                            <input type="checkbox" id="inp5" name="id[]" value="55" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row6" data-tree="exp_node_0_5" data-info="page3">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="page3">
 
                                             <a name="node_55"><img class="il_img_pg" id="il_img_55" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="12">
+                                        <td class="ilHFormInput" colspan="12" name="page3">
                                             <a id="inp56" class="form-control" name="title[55]" style="width:100%" href="{PAGE3_LINK}">Page 3</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp56" data-tree="exp_node_0_5" style="white-space: nowrap;">Edit Title</a>
@@ -622,15 +654,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" id="inp6" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row7" data-tree="exp_node_0_6">
+                                            <input type="checkbox" id="inp6" name="id[]" value="60" onchange="changeParentBoxes(this);" data-parents="inp1,inp4" data-row="row7" data-tree="exp_node_0_6" data-info="page4">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="page4">
 
                                             <a name="node_60"><img class="il_img_pg" id="il_img_60" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="12">
+                                        <td class="ilHFormInput" colspan="12" name="page4">
                                             <a id="inp62" class="form-control" name="title[60]" style="width:100%" href="{PAGE4_LINK}">Page 4</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp62" data-tree="exp_node_0_6" style="white-space: nowrap;">Edit Title</a>
@@ -736,15 +768,15 @@
                                         </td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" id="inp7" value="54" onchange="changeChildBoxes(this);" data-params="inp8" data-row="row2" data-tree="exp_node_0_7">
+                                            <input type="checkbox" name="id[]" id="inp7" value="54" onchange="changeChildBoxes(this);" data-params="inp8" data-row="row2" data-tree="exp_node_0_7" data-info="chap2">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="chap2">
 
                                             <a name="node_54"><img class="il_img_st" id="il_img_54" title="./templates/default/images/icon_st.svg" alt="./templates/default/images/icon_st.svg" src="./templates/default/images/icon_st.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="16">
+                                        <td class="ilHFormInput" colspan="16" name="chap2">
                                             <a id="inp58" class="form-control" name="title[54]" style="width:100%" href="{CHAP2_LINK}">Chapter 2</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp58" data-tree="exp_node_0_7" style="white-space: nowrap;">Edit Title</a>
@@ -795,15 +827,15 @@
                                         <td class="ilHFormExpIcon"></td>
                                         <td class="ilHFormCheckbox">
 
-                                            <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8" data-tree="exp_node_0_8">
+                                            <input type="checkbox" name="id[]" id="inp8" value="59" onchange="changeParentBoxes(this);" data-parents="inp7" data-row="row8" data-tree="exp_node_0_8" data-info="page5">
 
                                         </td>
-                                        <td class="ilHFormIcon">
+                                        <td class="ilHFormIcon" name="page5">
 
                                             <a name="node_59"><img class="il_img_pg" id="il_img_59" title="./templates/default/images/icon_pg.svg" alt="./templates/default/images/icon_pg.svg" src="./templates/default/images/icon_pg.svg"></a>
 
                                         </td>
-                                        <td class="ilHFormInput" colspan="14">
+                                        <td class="ilHFormInput" colspan="14" name="page5">
                                             <a id="inp59" class="form-control" name="title[59]" style="width:100%" href="{PAGE5_LINK}">Page 5</a>
                                         </td>
                                         <td class="ilHFormItemCmd" colspan="3"><a class="il_ContainerItemCommand2" name="editTitle" data-whatever="inp59" data-tree="exp_node_0_8" style="white-space: nowrap;">Edit Title</a>
