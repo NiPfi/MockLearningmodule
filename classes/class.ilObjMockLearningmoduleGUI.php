@@ -830,7 +830,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
     {
         global $tpl, $ilTabs;
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_presentationview_info.html",false,false);
-
+        $my_tpl->setVariable("DESC", $this->object->getDescription());
         $this->hideNonUserInfo();
         $this->generateUserViewTabs();
         $ilTabs->activateTab("userInfoTab");
