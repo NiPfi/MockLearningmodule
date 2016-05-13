@@ -296,15 +296,6 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
         $tpl->setContent($my_tpl->get());
     }
 
-    function showSettings()
-    {
-        global $tpl, $ilTabs;
-
-        $ilTabs->activateTab("settings");
-
-        $tpl->setContent("Settings");
-
-    }
 
 /*
 * Questions Tab
