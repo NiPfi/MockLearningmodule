@@ -179,6 +179,16 @@ class ilObjMockTree extends ilExplorerBaseGUI
 					return true;
 				}
 
+				if ($this->getNodeId($a_node)== 4 && $_SESSION["chapter"] == "Subchapter 1.1")
+				{
+					global $ilLocator, $tpl, $ilCtrl;
+
+					$ilLocator->addItem("Chapter 1",$ilCtrl->getLinkTarget($this->parent_obj, "showChapter1"));
+					$ilLocator->addItem("Subchapter 1.1",$ilCtrl->getLinkTarget($this->parent_obj, "showSubchapter1"));
+					$tpl->setLocator();
+					return true;
+				}
+
 				break;
 
 
