@@ -62,6 +62,9 @@
                 $('#switchMode').prependTo(btn_group[0]);
             }
 
+            $("#myModal").on("hidden.bs.modal", function () {
+                removeModalTableItems();
+            });
         }
 
         window.onload = init;
@@ -182,11 +185,6 @@
             var table = document.getElementById('deleteItemsConfirmation');
             table.innerHTML = null;
         }
-
-        //does not work
-        $("#myModal").on("hidden.bs.modal", function () {
-            removeModalTableItems();
-        });
     </script>
 
 </head>
