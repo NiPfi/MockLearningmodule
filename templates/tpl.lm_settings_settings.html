@@ -201,7 +201,7 @@
 
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_onlineForm" value="online">
+                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';document.getElementById('saveButton2').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_onlineForm" value="online">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -214,7 +214,7 @@
 
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_offlineForm" value="offline" checked="checked">
+                                        <input type="radio" onclick="document.getElementById('saveButton').className = 'btn btn-default btn-sm';document.getElementById('saveButton2').className = 'btn btn-default btn-sm';" name="lm_status" id="cobj_offlineForm" value="offline" checked="checked">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -1007,7 +1007,7 @@
                         </div>
                         <div class="col-sm-6 ilFormCmds">
 
-                            <input class="btn btn-default btn-sm" type="submit" name="cmd[saveProperties]" value="Save">
+                            <input id="saveButton2"onclick="changeOnlineStatusForm();" class="btn btn-default btn-sm" type="submit" name="cmd[saveProperties]" value="Save">
 
                         </div>
                     </div>
