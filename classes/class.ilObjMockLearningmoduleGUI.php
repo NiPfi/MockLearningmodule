@@ -401,6 +401,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_settings.html",false,false);
         $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
+        $my_tpl->setVariable("TITLE", $this->object->getTitle());
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("settingsSubtab");
 
@@ -457,6 +458,7 @@ class ilObjMockLearningmoduleGUI extends ilObjectPluginGUI
 
         $my_tpl = new ilTemplate(__DIR__ ."/../templates/tpl.lm_settings_metadata.html",false,false);
         $my_tpl->setVariable("DESCRIPTION", $this->object->getDescription());
+        $my_tpl->setVariable("TITLE", $this->object->getTitle());
         $this->generateSettingSubtabs();
         $ilTabs->activateSubtab("metadataSubtab");
         $tpl->setContent($my_tpl->get());
