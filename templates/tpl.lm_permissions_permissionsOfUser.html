@@ -24,12 +24,17 @@
             var obj = document.getElementById('cobj_offline');
             var statusDesc = document.getElementById('statusDesc');
             var innerElement = document.getElementById('innerElement');
+            var statusForm = document.getElementById("onlineStatus");
             if (obj.checked == false) {
                 statusDesc.style.color = "#6ea03c";
                 statusDesc.innerHTML = "Status: Online";
+                statusForm.style.color = "#6ea03c";
+                statusForm.innerHTML ="Online";
             } else if (obj.checked == true) {
                 statusDesc.style.color = "#fa8228";
                 statusDesc.innerHTML = "Status: Offline";
+                statusForm.style.color = "#fa8228";
+                statusForm.innerHTML ="Offline";
             }
         }
 </script>
@@ -225,7 +230,7 @@
                     <div class="form-group">
                         <div class="il_InfoScreenProperty control-label col-xs-3">Status</div>
                         <div class="il_InfoScreenPropertyValue col-xs-9">
-                            <span class="il_ItemAlertProperty">Offline</span>
+                            <span id="onlineStatus" class="il_ItemAlertProperty">Offline</span>
                             <br>
 
                         </div>
