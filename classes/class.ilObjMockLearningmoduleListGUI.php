@@ -34,7 +34,7 @@ class ilObjMockLearningmoduleListGUI extends ilObjectPluginListGUI
             array(
                 "permission" => "write",
                 "cmd" => "showChapterSubtab",
-                "txt" => $this->txt("edit"),
+                "txt" => "Edit",
                 "default" => false),
         );
     }
