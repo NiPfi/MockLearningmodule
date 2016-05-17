@@ -30,12 +30,12 @@ class ilObjMockLearningmoduleListGUI extends ilObjectPluginListGUI
             array(
                 "permission" => "read",
                 "cmd" => "showUserViewPage1",
-                "default" => true),
+                "txt" => "Preview",
+                "default" => false),
             array(
                 "permission" => "write",
                 "cmd" => "showChapterSubtab",
-                "txt" => "Edit",
-                "default" => false),
+                "default" => true),
         );
     }
 
