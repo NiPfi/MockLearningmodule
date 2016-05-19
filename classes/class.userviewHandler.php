@@ -150,6 +150,9 @@ class userviewHandler
                 return "showUserViewPage4";
             case "showPage5":
                 return "showUserViewPage5";
+
+            default:
+                return "showUserViewPage1";
         }
     }
 }
