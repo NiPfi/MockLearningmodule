@@ -169,13 +169,17 @@
                 for (i = 0; i < checkedBoxes.length; i++) {
                     var info = checkedBoxes[i].dataset.info;
                     var elements = document.querySelectorAll('td[name="' + info + '"]');
-                    var icon = elements[0]
-                    var title = elements[1];
-                    var tableRow = table.insertRow(i);
-                    var cell1 = tableRow.insertCell(0);
-                    var cell2 = tableRow.insertCell(1);
-                    cell1.innerHTML = icon.innerHTML;
-                    cell2.innerHTML = title.innerHTML;
+                    if (document.getElementsByName(checkedBoxes[i].dataset.row)[0].style.display != "none") {
+                        var icon = elements[0]
+                        var title = elements[1];
+                        var tableRow = table.insertRow(i);
+                        var cell1 = tableRow.insertCell(0);
+                        var cell2 = tableRow.insertCell(1);
+                        cell1.innerHTML = icon.innerHTML;
+                        cell2.innerHTML = title.innerHTML;
+                    } else {
+                        table.insertRow(i);
+                    }
 
                 }
             }
