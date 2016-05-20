@@ -1,101 +1,119 @@
+<!-- Modal Style fix -->
+<style>
+    /* scroll fixes */
+    
+    .modal-open .modal {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        overflow-y: scroll;
+    }
+</style>
+
 <script>
     function init() {
         var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
         if (btn_group.length != null) {
             $('#switchMode').prependTo(btn_group[0]);
         }
+
+        //center modal
+        var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
+        var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+        top = top > 0 ? top : 0;
+        $clone.remove();
+        $("#myModal").find('.modal-content').css("margin-top", top);
     }
 
     window.onload = init;
-    
-    function changeOnlineStatusModal() {
-            document.getElementById('modalParagraph').style.display = "none";
-            document.getElementById('myModalLabel').innerHTML = "Availability";
-            document.getElementById('saveModal').innerHTML = "Save";
-            document.getElementById('newTitle').style.display = "none";
-            document.getElementById('statusSwitcher').style.display = "block";
-            document.getElementById('saveModal').onclick = function () {
-                changeOnlineStatus();
-            }
-            $("#myModal").modal("show");
-        }
 
-        function changeOnlineStatus() {
-            var obj = document.getElementById('cobj_offline');
-            var statusDesc = document.getElementById('statusDesc');
-            var innerElement = document.getElementById('innerElement');
-            if (obj.checked == false) {
-                statusDesc.style.color = "#6ea03c";
-                statusDesc.innerHTML = "Status: Online";
-            } else if (obj.checked == true) {
-                statusDesc.style.color = "#fa8228";
-                statusDesc.innerHTML = "Status: Offline";
-            }
+    function changeOnlineStatusModal() {
+        document.getElementById('modalParagraph').style.display = "none";
+        document.getElementById('myModalLabel').innerHTML = "Availability";
+        document.getElementById('saveModal').innerHTML = "Save";
+        document.getElementById('newTitle').style.display = "none";
+        document.getElementById('statusSwitcher').style.display = "block";
+        document.getElementById('saveModal').onclick = function () {
+            changeOnlineStatus();
         }
+        $("#myModal").modal("show");
+    }
+
+    function changeOnlineStatus() {
+        var obj = document.getElementById('cobj_offline');
+        var statusDesc = document.getElementById('statusDesc');
+        var innerElement = document.getElementById('innerElement');
+        if (obj.checked == false) {
+            statusDesc.style.color = "#6ea03c";
+            statusDesc.innerHTML = "Status: Online";
+        } else if (obj.checked == true) {
+            statusDesc.style.color = "#fa8228";
+            statusDesc.innerHTML = "Status: Offline";
+        }
+    }
 </script>
 
 <!-- Modal for title editing -->
-    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Edit Title</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="" onkeyup="if (event.keyCode == 13) {saveTitle();$('#myModal').modal('hide');}" onsubmit="return false;">
-                        <input id="newTitle" type="text" value="">
-                    </form>
-                    <form method="post" action="" onkeyup="if (event.keyCode == 13) {$('#myModal').modal('hide');}" onsubmit="return false;">
-                        <div class="form-group" id="statusSwitcher">
-                            <table>
-                                <tr>
-                                    <td style="padding-right:15px;">
-                                        Status<span class="asterisk">*</span>
-                                    </td>
-                                    <td>
-                                        <div id="lm_layout">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" onclick="" name="lm_status" id="cobj_online" value="online">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td style="padding-left:5px;">Online</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </label>
-                                            </div>
-
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" onclick="" name="lm_status" id="cobj_offline" value="offline" checked="checked">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td style="padding-left:5px;">Offline</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </label>
-
-                                            </div>
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Title</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="" onkeyup="if (event.keyCode == 13) {saveTitle();$('#myModal').modal('hide');}" onsubmit="return false;">
+                    <input id="newTitle" type="text" value="">
+                </form>
+                <form method="post" action="" onkeyup="if (event.keyCode == 13) {$('#myModal').modal('hide');}" onsubmit="return false;">
+                    <div class="form-group" id="statusSwitcher">
+                        <table>
+                            <tr>
+                                <td style="padding-right:15px;">
+                                    Status<span class="asterisk">*</span>
+                                </td>
+                                <td>
+                                    <div id="lm_layout">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" onclick="" name="lm_status" id="cobj_online" value="online">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="padding-left:5px;">Online</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </label>
                                         </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </form>
-                    <p id="modalParagraph"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button id="saveModal" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                </div>
+
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" onclick="" name="lm_status" id="cobj_offline" value="offline" checked="checked">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="padding-left:5px;">Offline</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+                <p id="modalParagraph"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="saveModal" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
             </div>
         </div>
     </div>
+</div>
 
 <div class="container-fluid" id="ilContentContainer">
     <div class="row">

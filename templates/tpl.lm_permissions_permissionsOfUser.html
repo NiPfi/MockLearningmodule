@@ -1,9 +1,27 @@
+<!-- Modal Style fix -->
+<style>
+    /* scroll fixes */
+    
+    .modal-open .modal {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        overflow-y: scroll;
+    }
+</style>
+
 <script>
     function init() {
         var btn_group = document.getElementById('tttt').querySelectorAll(".btn-group");
         if (btn_group.length != null) {
             $('#switchMode').prependTo(btn_group[0]);
         }
+
+        //center modal
+        var $clone = $("#myModal").clone().css('display', 'block').appendTo('body');
+        var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+        top = top > 0 ? top : 0;
+        $clone.remove();
+        $("#myModal").find('.modal-content').css("margin-top", top);
     }
 
     window.onload = init;
