@@ -18,7 +18,7 @@ class chapterHandler
                 return "Learning Module";
 
             case "Subchapter 1.1":
-                return "overlying chapter";
+                return "Overlying Chapter";
 
         }
     }
