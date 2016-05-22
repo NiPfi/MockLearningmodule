@@ -39,6 +39,7 @@
             statusDesc.innerHTML = "Status: Offline";
             document.getElementById('cobj_offline').checked = true;
         }
+        document.getElementById('feedback').style.display = "block";
     }
 
     function changeOnlineStatusModal() {
@@ -130,6 +131,15 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="feedback" style="display:none;">
+	<div class="ilAdminRow">
+<div class="alert alert-success" role="alert">
+<h5 class="ilAccHeadingHidden"><a id="il_message_focus" name="il_message_focus">Success Message</a></h5>
+Modifications saved.</div>
+</div>
+	
 </div>
 
 <div class="container-fluid" id="ilContentContainer">
